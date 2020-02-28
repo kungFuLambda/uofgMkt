@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Glasmarket - 
+            {% block title_block %}
+            How to Tango with Django!
+            {% endblock %}
+        </title>
+        <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
+    </head>
+    <body id="grad">
+
+        <header>
+        
+            <h1 id="headerName">Glasmarket</h1>
+        
+            <nav id="navItems">
+        
+                <ul>
+                    {% for navItem in navBar %}
+                        {% if navItem == active %}
+                            <li><a id="highlight" href="">{{navItem}}</a></li>        
+                        {% else %}
+                            <li><a href="{% url 'glasmarket:navItem.html' %}">{{navItem}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        
+            </nav>
+        </header>
+        {% block body_block %}
+        {% endblock %}
+    </body>
+    <footer>
+        <h4 id="footerName">Glasmarket logo</h4>
+    </footer>
+</html>

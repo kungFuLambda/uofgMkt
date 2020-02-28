@@ -1,0 +1,93 @@
+/*BASE*/
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    
+}
+#grad {
+    background-image: linear-gradient(to bottom right, white, grey);
+  }
+
+
+/*Header items*/
+
+header{
+    background:black ;
+    color: white;
+    padding-top: 30px; /*adds a layer of padding on the top*/ 
+    min-height: 70px; /*the minimum height so it can be resized*/
+    border-bottom: orangered 3px solid; /*the bottom border solid and thin*/
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+header li {
+    display: inline;
+    margin: 10px;
+}
+header a{
+    text-decoration: none;
+    color: wheat;
+    text-transform: uppercase; /*makes uppercase*/
+    font-size: 16px;
+}
+header h1 {
+    padding-left: 5%;
+    float: left;
+}
+#highlight {
+    color: red;
+}
+
+/*footer items*/
+footer h4{
+    text-align: center;
+    background-color: rgb(87, 5, 87);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body*/
+#backgroundImg {
+    background-image: url('../images/backimage.png');
+    background-position: center;
+    background-size: contain;
+    min-height: 800px;
+}
+
+#backgroundImg li{
+    display: inline;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+#backgroundImg a{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    padding: 20px;
+
+
+}
+
+#backgroundImg ul {
+    padding-top: 20%;
+    text-align: center;
+}
