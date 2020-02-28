@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
+
+
 <html>
     <head>
         <title>Glasmarket - 
@@ -24,7 +26,7 @@
                         {% if navItem == active %}
                             <li><a id="highlight" href="">{{navItem}}</a></li>        
                         {% else %}
-                            <li><a href="{% url 'glasmarket:navItem.html' %}">{{navItem}}</a></li>
+                            <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
