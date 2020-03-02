@@ -1,6 +1,7 @@
 /*BASE*/
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    /*font-family:Arial, Helvetica, sans-serif;*/
+    font-family: 'Quicksand', semi-bold;
     font-size: 15px;
     line-height: 1.5; /*the height of each line in the whole body*/
     margin: 0;
@@ -57,6 +58,7 @@ header a{
     text-transform: uppercase; /*makes uppercase*/
     font-size: 16px;
     padding: 10px 20px 10px 20px;
+
 }
 header h1 {
     margin-top: 6px;
@@ -68,11 +70,13 @@ header h1 {
 header a:hover{
     color: rgb(255, 255, 255);
     background-color: rgb(245, 122, 77);
+    border-radius: 25px;
 }
 
 #highlight {
     color: rgb(255, 255, 255);
     background-color: rgb(243, 96, 43);
+    border-radius: 25px;
 }
 .g{
     color: rgb(41, 41, 41);
@@ -105,11 +109,12 @@ footer h4{
     
 }
 #welcomeSlide {
-    width: 85%;
+    padding-bottom: 20px;
+    border-bottom: rgb(243, 96, 43) 3px solid;
     margin: auto;
     overflow: hidden;
     text-align: center;
-    margin-bottom: 10px;
+    width: 90%;
 }
 
 #welcomeSlide h1{
@@ -121,29 +126,43 @@ footer h4{
 #welcomeSlide ul {
     list-style-type: none;
     display: inline;
+    
 }
 
 #welcomeSlide a{
-    font-size: 12px;
+    font-size: 15px;
     color: black;
     text-decoration: none;
+    background-color: rgb(243, 96, 43);
+
 }
 #welcomeSlide li{
     display: inline;
-    width: 45%;
+    width: 40%;
+    padding:5%;
+    padding-top: 0;
+    padding-bottom: 3%;
     text-align: center;
 }
-
-#welcomeSlide li:hover{
-    background-color: rgb(218, 218, 218);
+#glasmarket_high{
+    color: rgb(243, 96, 43);
+    float: right;
+}
+#left_side{
+    float: left;
+}
+#welcomeSlide h2{
+    padding: 30px;
+}
+#welcomeSlide h2:hover{
+    background-color: rgb(243, 96, 43);
+    border-radius: 25px;
 }
 #marketP {
     float: left;
-    margin-right: 10px;
 }
 #postP{
     float: right;
-    margin-left: 10px;
 }
 
 

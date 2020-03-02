@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 context_dict = {}
-context_dict['navBar'] = ['home','market','about','profile']
+context_dict['navBar'] = ['home','about','market','profile']
 
 
 def home(request):
