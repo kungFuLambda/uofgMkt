@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*BASE*/
 body{
     /*font-family:Arial, Helvetica, sans-serif;*/
@@ -166,3 +167,179 @@ footer h4{
 }
 
 
+=======
+/*BASE*/
+body{
+    /*font-family:Arial, Helvetica, sans-serif;*/
+    font-family: 'Quicksand', semi-bold;
+    font-size: 15px;
+    line-height: 1.5; /*the height of each line in the whole body*/
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(240, 240, 240));
+    overflow:visible;
+    color: black;
+}
+img{
+    max-width:100%;
+    max-height:100%
+    }
+
+
+
+
+.container { /*the container with the name and the navigation bar*/
+    width: 85%;
+    margin: auto; /*will set the everything to the middle*/
+    overflow: hidden;
+}
+
+
+#grad {
+    background-image: linear-gradient(to bottom right, white, white);
+  }
+
+
+/*Header items*/
+
+header{
+    /*background-image: linear-gradient(to bottom right, rgb(48, 46, 47), rgb(189, 184, 188));*/
+    color: white;
+    
+    min-height: 70px; /*the minimum height so it can be resized*/
+    border-bottom: rgb(243, 96, 43) 3px solid; /*the bottom border solid and thin*/
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-right: 2%;
+    margin-bottom: 10px;
+}
+header li {
+    display: inline;
+    margin: 10px;
+}
+header a{
+    color: rgb(165, 164, 164);
+    text-decoration: none;
+    text-transform: uppercase; /*makes uppercase*/
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+
+}
+header h1 {
+    margin-top: 6px;
+    margin-bottom: 10px;
+    float: left;
+    font-size: 40px;
+    color: rgb(243, 96, 43);
+}
+header a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(245, 122, 77);
+    border-radius: 25px;
+}
+
+#highlight {
+    color: rgb(255, 255, 255);
+    background-color: rgb(243, 96, 43);
+    border-radius: 25px;
+}
+.g{
+    color: rgb(41, 41, 41);
+    font-size: 45px;
+    margin-top: 1px;
+    margin-left: 1%;
+}
+
+/*footer items*/
+footer h4{
+    text-align: center;
+    background-color: black;
+    min-height: 40px;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 2px;
+}
+
+
+/*home*/
+#backgroundImg {
+    background-image: url('../images/homeback.jpg');
+    background-repeat: round;
+    min-height: 450px;
+    border-bottom: rgb(243, 96, 43) 3px solid;
+    text-align: center;
+}
+#gradBack{
+    color: white;
+    
+}
+#welcomeSlide {
+    padding-bottom: 20px;
+    border-bottom: rgb(243, 96, 43) 3px solid;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    width: 90%;
+}
+
+#welcomeSlide h1{
+    font-weight: bold;
+    font-size: 40px;
+
+}
+
+#welcomeSlide ul {
+    list-style-type: none;
+    display: inline;
+    
+}
+
+#welcomeSlide a{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    background-color: rgb(243, 96, 43);
+
+}
+#welcomeSlide li{
+    display: inline;
+    width: 40%;
+    padding:5%;
+    padding-top: 0;
+    padding-bottom: 3%;
+    text-align: center;
+}
+#glasmarket_high{
+    color: rgb(243, 96, 43);
+    float: right;
+}
+#left_side{
+    float: left;
+}
+#welcomeSlide h2{
+    padding: 30px;
+}
+#welcomeSlide h2:hover{
+    background-color: rgb(243, 96, 43);
+    border-radius: 25px;
+}
+#marketP {
+    float: left;
+}
+#postP{
+    float: right;
+}
+
+/*about*/
+
+#AboutUsSlide{
+    font-weight: bold;
+    font-size: 15px;
+
+}
+>>>>>>> b259b212fdd121a763861beae6d6906c38e3c399
