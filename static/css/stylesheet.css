@@ -100,7 +100,7 @@ footer h4{
 #backgroundImg {
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
-    min-height: 500px;
+    min-height: 450px;
     border-bottom: rgb(243, 96, 43) 3px solid;
     text-align: center;
 }
