@@ -85,7 +85,9 @@ header a:hover{
     margin-top: 1px;
     margin-left: 1%;
 }
-
+footer{
+    border-top:rgb(243, 96, 43) 3px solid;
+}
 /*footer items*/
 footer h4{
     text-align: center;
@@ -111,7 +113,6 @@ footer h4{
 }
 #welcomeSlide {
     padding-bottom: 20px;
-    border-bottom: rgb(243, 96, 43) 3px solid;
     margin: auto;
     overflow: hidden;
     text-align: center;
