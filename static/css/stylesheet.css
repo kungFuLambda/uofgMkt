@@ -5,9 +5,9 @@ body{
     line-height: 1.5; /*the height of each line in the whole body*/
     margin: 0;
     padding: 0;
-    background-color: #d1caca;
+    background-image: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(240, 240, 240));
     overflow:visible;
-    color: whitesmoke;
+    color: black;
 }
 img{
     max-width:100%;
@@ -65,6 +65,11 @@ header h1 {
     font-size: 40px;
     color: rgb(243, 96, 43);
 }
+header a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(245, 122, 77);
+}
+
 #highlight {
     color: rgb(255, 255, 255);
     background-color: rgb(243, 96, 43);
@@ -73,6 +78,7 @@ header h1 {
     color: rgb(41, 41, 41);
     font-size: 45px;
     margin-top: 1px;
+    margin-left: 1%;
 }
 
 /*footer items*/
@@ -91,7 +97,8 @@ footer h4{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
     min-height: 500px;
-    border-bottom: rgb(243, 96, 43) 3px solid;;
+    border-bottom: rgb(243, 96, 43) 3px solid;
+    text-align: center;
 }
 #gradBack{
     color: white;
@@ -102,36 +109,41 @@ footer h4{
     margin: auto;
     overflow: hidden;
     text-align: center;
-    
+    margin-bottom: 10px;
 }
 
 #welcomeSlide h1{
     font-weight: bold;
-    color: black;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 70px;
+    font-size: 40px;
+
 }
 
 #welcomeSlide ul {
     list-style-type: none;
-}
-#welcomeSlide a{
-    text-decoration: none;
-    color: black;
-}
-#welcomeSlide a:hover{
-    color: rgb(243, 96, 43);
-}    
-#marketP {
-    float: left;
-    width: 50%;
-    text-align: center;
-    
+    display: inline;
 }
 
-#postP{
-    float: right;
-    width: 50%;
+#welcomeSlide a{
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+}
+#welcomeSlide li{
+    display: inline;
+    width: 45%;
     text-align: center;
 }
+
+#welcomeSlide li:hover{
+    background-color: rgb(218, 218, 218);
+}
+#marketP {
+    float: left;
+    margin-right: 10px;
+}
+#postP{
+    float: right;
+    margin-left: 10px;
+}
+
 
