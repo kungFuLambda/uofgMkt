@@ -165,4 +165,10 @@ footer h4{
     float: right;
 }
 
+/*about*/
 
+#AboutUsSlide{
+    font-weight: bold;
+    font-size: 15px;
+
+}
