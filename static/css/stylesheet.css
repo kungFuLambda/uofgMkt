@@ -5,8 +5,9 @@ body{
     line-height: 1.5; /*the height of each line in the whole body*/
     margin: 0;
     padding: 0;
-    background-color: #e7e1e1;
+    background-color: #d1caca;
     overflow:visible;
+    color: whitesmoke;
 }
 img{
     max-width:100%;
@@ -31,11 +32,11 @@ img{
 /*Header items*/
 
 header{
-    background:black ;
+    /*background-image: linear-gradient(to bottom right, rgb(48, 46, 47), rgb(189, 184, 188));*/
     color: white;
     
     min-height: 70px; /*the minimum height so it can be resized*/
-    border-bottom: purple 3px solid; /*the bottom border solid and thin*/
+    border-bottom: rgb(243, 96, 43) 3px solid; /*the bottom border solid and thin*/
     font-weight: bold;
 }
 
@@ -44,33 +45,44 @@ header nav {
     margin-right: 10px;
     margin-top: 10px;
     margin-right: 2%;
+    margin-bottom: 10px;
 }
 header li {
     display: inline;
     margin: 10px;
 }
 header a{
+    color: rgb(165, 164, 164);
     text-decoration: none;
-    color: wheat;
     text-transform: uppercase; /*makes uppercase*/
-    font-size: 20px;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
 }
 header h1 {
-    margin-top: 10px;
-    padding-left: 5%;
+    margin-top: 6px;
+    margin-bottom: 10px;
     float: left;
-    font-size: 30px;
+    font-size: 40px;
+    color: rgb(243, 96, 43);
 }
 #highlight {
-    color: rgb(202, 0, 202);
+    color: rgb(255, 255, 255);
+    background-color: rgb(243, 96, 43);
+}
+.g{
+    color: rgb(41, 41, 41);
+    font-size: 45px;
+    margin-top: 1px;
 }
 
 /*footer items*/
 footer h4{
     text-align: center;
     background-color: black;
-    min-height: 50px;
+    min-height: 40px;
     margin: 0;
+    padding-top: 15px;
+    padding-bottom: 2px;
 }
 
 
@@ -79,18 +91,23 @@ footer h4{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
     min-height: 500px;
-    border-bottom: purple 3px solid;
+    border-bottom: rgb(243, 96, 43) 3px solid;;
 }
-
+#gradBack{
+    color: white;
+    
+}
 #welcomeSlide {
     width: 85%;
     margin: auto;
     overflow: hidden;
     text-align: center;
+    
 }
 
 #welcomeSlide h1{
     font-weight: bold;
+    color: black;
     font-family: 'Courier New', Courier, monospace;
     font-size: 70px;
 }
@@ -103,7 +120,7 @@ footer h4{
     color: black;
 }
 #welcomeSlide a:hover{
-    color: green;
+    color: rgb(243, 96, 43);
 }    
 #marketP {
     float: left;
