@@ -8,6 +8,14 @@ body{
     background-color: #e7e1e1;
     overflow:visible;
 }
+img{
+    max-width:100%;
+    max-height:100%
+    }
+
+
+
+
 .container { /*the container with the name and the navigation bar*/
     width: 85%;
     margin: auto; /*will set the everything to the middle*/
@@ -68,7 +76,8 @@ footer h4{
 
 /*home*/
 #backgroundImg {
-    background-image: url('../images/nightTime.jpg');
+    background-image: url('../images/homeback.jpg');
+    background-repeat: round;
     min-height: 500px;
     border-bottom: purple 3px solid;
 }
