@@ -1,4 +1,4 @@
-/*BASE*/
+/*-----------------------------------------------GLOBAL--------------------------------------------------*/
 body{
     /*font-family:Arial, Helvetica, sans-serif;*/
     font-family: 'Quicksand', semi-bold;
@@ -31,7 +31,7 @@ img{
   }
 
 
-/*Header items*/
+/*-----------------------------------------------HEADER AND FOOTER-------------------------------------------------*/
 
 header{
     /*background-image: linear-gradient(to bottom right, rgb(48, 46, 47), rgb(189, 184, 188));*/
@@ -86,12 +86,13 @@ header a:hover{
     margin-left: 1%;
 }
 footer{
-    border-top:rgb(243, 96, 43) 3px solid;
+    border-top:rgb(243, 96, 43);
+    background-color: rgb(243, 96, 43);
+    color: white;
 }
 /*footer items*/
 footer h4{
     text-align: center;
-    background-color: black;
     min-height: 40px;
     margin: 0;
     padding-top: 15px;
@@ -99,7 +100,7 @@ footer h4{
 }
 
 
-/*home*/
+/*---------------------------------------home-----------------------------------------------------*/
 #backgroundImg {
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
@@ -167,10 +168,44 @@ footer h4{
     float: right;
 }
 
-/*about*/
-
+/*-----------------------------------------------about--------------------------------------------------*/
 #AboutUsSlide{
     font-weight: bold;
     font-size: 15px;
+    margin-bottom: 15px;
 
+}
+
+#contactForm{
+    display: block;
+    border-top: rgb(243, 96, 43) 3px solid;
+    margin-bottom: 30px;
+}
+input{
+    border: none;
+    border-bottom: rgb(243, 96, 43) 1px solid;
+    text-align: center;
+    padding: 15px;
+    margin: 20px;
+    width: 30%;
+    font-family: 'Quicksand', semi-bold;
+    font-size: 25px;
+}
+input:focus,#textArea:focus{
+    background-color: rgb(233, 233, 231);
+}
+
+
+#textArea{
+    border: rgb(243, 96, 43) 1px solid;
+    margin:20px;
+    font-size: 30px;
+    font-family: 'Quicksand', semi-bold;
+    text-align: center;
+}
+#contactButton{
+    border: rgb(243, 96, 43) 1px solid;
+    width: 150px;
+    height: 50px;;
+    font-size: 20px;
 }
