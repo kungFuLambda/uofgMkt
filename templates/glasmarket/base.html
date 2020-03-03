@@ -39,6 +39,12 @@
         {% endblock %}
     </body>
     <footer>
+        <ul id="bottomNav">
+            {% for navItem in navBar %}
+                <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                
+            {% endfor %}
+        </ul>
         <h4 id="footerName">Glasmarket logo</h4>
     </footer>
 </html>

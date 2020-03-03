@@ -37,3 +37,8 @@ def profile(request):
     context_dict['active'] = 'profile'
 
     return render(request,'glasmarket/profile.html',context=context_dict)
+
+
+
+def reviewMail(request):
+    context_dict['active'] = 'profile'

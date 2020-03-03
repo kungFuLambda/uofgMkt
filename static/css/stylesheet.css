@@ -50,6 +50,7 @@ header nav {
     margin-bottom: 10px;
 }
 header li {
+
     display: inline;
     margin: 10px;
 }
@@ -97,6 +98,25 @@ footer h4{
     margin: 0;
     padding-top: 15px;
     padding-bottom: 2px;
+}
+#bottomNav{
+    min-height: 50px;
+    width: 100%;
+    padding-top: 50px;
+
+}
+#bottomNav li{
+    display: inline;
+    
+}
+#bottomNav a{
+    text-decoration: none;
+    color: white;
+    padding:20px 10% 20px 10%;
+    
+}
+#bottomNav a:hover{
+    background-color: rgb(238, 109, 23);
 }
 
 
