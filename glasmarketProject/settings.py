@@ -79,7 +79,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'glasmarketProject.wsgi.application'
 
-
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'glasmarketmail@gmail.com'
+EMAIL_HOST_PASSWORD = 'Dalabgroup69'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 

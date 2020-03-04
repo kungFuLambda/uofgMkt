@@ -13,13 +13,21 @@ About
         <h1>About us</h1>
         <p >Our goal is to create a website to provide the students of Glasgow University with a platform where they can swap games, books, movies, clothes and other services by contacting other students. </p>
     </div>
-    <div class="container" id="submitForm">
+    <div class="container" id="contactForm">
         <h1>Contact us</h1>
-        <form action="" id="contactForm">
-            <input type="text" placeholder="Name Lastname"><br>
-            <input type="text" placeholder="email"> <br>
-            <textarea id="textArea" name="" cols="45" rows="10" placeholder="Tell us What's up"></textarea><br>
-            <button id="contactButton">submit</button>
+
+        <form action="/glasmarket/sendMail/" method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                {% if field.name == 'message' %}
+                    <textarea name="{{ field.name }}" id="id_{{ field.name }}" cols="40" rows="10" placeholder="{{ field.help_text }}"></textarea><br>
+                {% else %}
+                    <input type="{{ field.label }}" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.help_text }}"><br>
+                {% endif %}
+            {% endfor %}
+            
+        <button type="submit" id ="contactButton" value="submit">Submit</button>
         </form>
     </div>
 {% endblock %}

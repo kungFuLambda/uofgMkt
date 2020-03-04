@@ -19,7 +19,7 @@ img{
 
 
 .container { /*the container with the name and the navigation bar*/
-    width: 90%;
+    width: 85%;
     margin: auto; /*will set the everything to the middle*/
     overflow: hidden;
     text-align: center;
@@ -34,11 +34,10 @@ img{
 /*-----------------------------------------------HEADER AND FOOTER-------------------------------------------------*/
 
 header{
-    /*background-image: linear-gradient(to bottom right, rgb(48, 46, 47), rgb(189, 184, 188));*/
     color: white;
     
     min-height: 70px; /*the minimum height so it can be resized*/
-    border-bottom: rgb(243, 96, 43) 3px solid; /*the bottom border solid and thin*/
+    border-bottom: rgb(243, 96, 43) 2px solid; /*the bottom border solid and thin*/
     font-weight: bold;
 }
 
@@ -86,9 +85,10 @@ header a:hover{
     margin-top: 1px;
     margin-left: 1%;
 }
+
 footer{
     border-top:rgb(243, 96, 43);
-    background-color: rgb(243, 96, 43);
+    background-image: linear-gradient(to bottom right, rgb(241, 88, 33), rgb(218, 105, 64));
     color: white;
 }
 /*footer items*/
@@ -101,8 +101,8 @@ footer h4{
 }
 #bottomNav{
     min-height: 50px;
-    width: 100%;
     padding-top: 50px;
+    margin-top: 0;
 
 }
 #bottomNav li{
@@ -116,7 +116,9 @@ footer h4{
     
 }
 #bottomNav a:hover{
-    background-color: rgb(238, 109, 23);
+    background-color: white;
+    color: black;
+    border-radius: 30px;
 }
 
 
@@ -125,7 +127,7 @@ footer h4{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
     min-height: 450px;
-    border-bottom: rgb(243, 96, 43) 3px solid;
+    border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
 }
 #gradBack{
@@ -148,7 +150,7 @@ footer h4{
 
 #welcomeSlide ul {
     list-style-type: none;
-    display: inline;
+   
     
 }
 
@@ -178,8 +180,9 @@ footer h4{
     padding: 30px;
 }
 #welcomeSlide h2:hover{
-    background-color: rgb(243, 96, 43);
-    border-radius: 25px;
+    background-color: rgb(245, 122, 77);
+    border-radius: 50px;
+
 }
 #marketP {
     float: left;
@@ -190,7 +193,6 @@ footer h4{
 
 /*-----------------------------------------------about--------------------------------------------------*/
 #AboutUsSlide{
-    font-weight: bold;
     font-size: 15px;
     margin-bottom: 15px;
 
@@ -201,31 +203,56 @@ footer h4{
     border-top: rgb(243, 96, 43) 3px solid;
     margin-bottom: 30px;
 }
+
 input{
     border: none;
     border-bottom: rgb(243, 96, 43) 1px solid;
+    border-left: rgb(243, 96, 43) 1px solid;
     text-align: center;
     padding: 15px;
     margin: 20px;
-    width: 30%;
+    width: 25%;
     font-family: 'Quicksand', semi-bold;
-    font-size: 25px;
+    font-size: 20px;
+    border-radius: 50px;
 }
-input:focus,#textArea:focus{
+input:focus,textArea:focus{
+    background-color: rgb(233, 233, 231);
+}
+input:hover,textArea:hover{
     background-color: rgb(233, 233, 231);
 }
 
-
-#textArea{
+textarea{
     border: rgb(243, 96, 43) 1px solid;
+    border-top: 0;
+    border-right: 0;
     margin:20px;
-    font-size: 30px;
+    width: 50%;
+    font-size: 20px;
     font-family: 'Quicksand', semi-bold;
     text-align: center;
+    border-radius: 50px;
 }
+
 #contactButton{
     border: rgb(243, 96, 43) 1px solid;
     width: 150px;
-    height: 50px;;
+    height: 50px;
     font-size: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+#contactButton:hover{
+    background-color: rgb(245, 122, 77);
+}
+
+/*--------------------------------------------PROFILE--------------------------------------*/
+#signpage{
+    background-color: white;
+    min-height: 500px;
+    width: 60%;
+    margin: auto; /*will set the everything to the middle*/
+    overflow: hidden;
+    text-align: center;
 }
