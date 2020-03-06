@@ -1,0 +1,26 @@
+{% extends 'glasmarket/base.html' %}
+{% load staticfiles}
+
+{% block title_block %}
+Market 
+{% endblock %}
+{% block body_block %}
+<div id="market">
+
+    <div id="categoryBlock">
+        <h1>Categories </h1>
+        <ul>
+        {% for category in categories %}
+        <li><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li><br>
+        {% endfor %}
+        </ul>
+
+    </div>
+
+    <div id="productsBlock">
+            {% block products_block %}
+            {% endblock %}
+
+    </div>
+</div>
+{% endblock %}
