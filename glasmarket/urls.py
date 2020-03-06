@@ -14,8 +14,9 @@ urlpatterns = [
     path('profile/',views.profile,name='profile'),
 
     #MARKET PATTERN
-    path('market/',views.show_category,name='market'),
-    path('market/<slug:category_name_slug>/', views.show_category, name='show_category'),
+    path('market/',views.market,name='market'),
+    path('market/<slug:category_name_slug>/', views.market, name='show_category'),
+    path('market/<slug:category_name_slug>/search', views.search, name='search_category'),
 
     path('sendMail/',views.about,name="review"),
     

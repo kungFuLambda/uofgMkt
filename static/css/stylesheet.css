@@ -353,7 +353,7 @@ textarea{
     min-height: 80px;
 }
 
-#searchBar,#searchButton{
+#searchWord,#searchButton{
     margin-top: 15px;
     height: 20px;
     margin-bottom: 13px;
@@ -366,7 +366,7 @@ textarea{
     font-size: 15px;
     text-transform: uppercase;
 }
-#searchBar{
+#searchWord{
     width: 30%;
 }
 /*DROPDOWN*/

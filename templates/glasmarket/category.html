@@ -3,9 +3,13 @@
 
 {% block products_block %}
 <div id="productsHeader">
-    <form action="">
-        <input type="text" id="searchBar">
-        <button id="searchButton">search</button>
+    <form action="/glasmarket/market/{{ currentCategory }}/" method="POST">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <input type="{{ field.label }}" name="{{ field.name }}" id="{{ field.name }}" placeholder="{{ field.help_text }}">
+        {% endfor %}
+        <button type ="submit" value="submit" id="searchButton">Search</button>
     </form>
 
     <div class="dropdown">

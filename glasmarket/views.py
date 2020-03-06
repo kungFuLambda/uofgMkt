@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.core.mail import EmailMessage
-from .forms import ReviewForm
+from .forms import ReviewForm,SearchForm
 
 from glasmarket.models import Listing,Category,User
 
@@ -42,16 +42,6 @@ def about(request):
 
 
 
-def market(request):
-    
-    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
-    product_list = Listing.objects.order_by('-name')
-    category_list = Category.objects.order_by('-name')
-    context_dict['active'] = 'market'
-    context_dict['listings'] = product_list
-    context_dict['categories'] = category_list
-    return render(request,'glasmarket/market.html',context=context_dict)
-
 def profile(request):
     
     #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
@@ -61,34 +51,64 @@ def profile(request):
 
 
 
-def product(request):
-
+def market(request,category_name_slug):
     context_dict['active'] = 'market'
-    
-    return render(request,'glasmarket/product.html',context=context_dict)
+    context_dict['currentCategory'] = category_name_slug
+    context_dict['form'] = SearchForm()
 
 
-def show_category(request,category_name_slug):
-    context_dict['active'] = 'market'
 
-    if category_name_slug == 'all':
-        print("here")
-        product_list = Listing.objects.order_by('-name')
-        category_list = Category.objects.order_by('-name')
-        context_dict['active'] = 'market'
-        context_dict['listings'] = product_list
-        context_dict['categories'] = category_list
-        context_dict['category'] = 'all'
-    else:
-        try:
-            category = Category.objects.filter(slug=category_name_slug)
-            listings = Listing.objects.filter(category__in=category)
-
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            keyWord = form.cleaned_data['searchWord']
+            if category_name_slug == 'all':
+                category = Category.objects.order_by('-name')
+            else:
+                category = Category.objects.filter(slug=category_name_slug)
+            listings = Listing.objects.filter(category__in=category,name__contains=keyWord)
             context_dict['listings'] = listings
-            context_dict['category'] = category
+    else:
+    #check if no cateogry name slug was given
+        if category_name_slug == 'all':
+            product_list = Listing.objects.order_by('-name')
+            category_list = Category.objects.order_by('-name')
+            context_dict['active'] = 'market'
+            context_dict['listings'] = product_list
+            context_dict['categories'] = category_list
+            context_dict['category'] = 'all'
+        
+        #if a specific category was selected
+        else:
+            try:
+                category = Category.objects.filter(slug=category_name_slug)
+                listings = Listing.objects.filter(category__in=category)
 
-        except Category.DoesNotExist:
-            context_dict['category'] = None
-            context_dict['listings'] = None
+                context_dict['listings'] = listings
+                context_dict['category'] = category
+
+            except Category.DoesNotExist:
+                context_dict['category'] = None
+                context_dict['listings'] = None
     
+    
+
+
+
+
+
+
+
+
+
+    context_dict['form'] = SearchForm()
     return render(request,'glasmarket/category.html',context=context_dict)
+
+
+def search(request,category_name_slug):
+    context_dict['active'] = 'market'
+    context_dict['currentCategory'] = category_name_slug
+    context_dict['form'] = SearchForm()
+
+
+    #if the category name is == all
