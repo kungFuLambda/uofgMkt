@@ -25,4 +25,4 @@ urlpatterns = [
     path('glasmarket/',include('glasmarket.urls')),
     path('admin/', admin.site.urls),
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

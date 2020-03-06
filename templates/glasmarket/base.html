@@ -12,12 +12,13 @@
         </title>
         <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <script src="{% static 'js/glasmarket.js' %}"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
     </head>
     <body>
 
         <header>
-        
+            
             <a href="/glasmarket/home/"><h1 class="g" id="headerName">G</h1><h1 id="headerName">MARKET</h1></a>
             
         
@@ -26,7 +27,7 @@
                 <ul>
                     {% for navItem in navBar %}
                         {% if navItem == active %}
-                            <li><a id="highlight" href="">{{navItem}}</a></li>        
+                            <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
                         {% else %}
                             <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                         {% endif %}

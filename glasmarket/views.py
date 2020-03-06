@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.core.mail import EmailMessage
 from .forms import ReviewForm
 
+from glasmarket.models import Listing,Category,User
+
 
 # Create your views here.
 context_dict = {}
@@ -28,12 +30,7 @@ def about(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         context_dict['form'] = form
-        print(form['sender_email'])
-        print(form['sender_name'])
-        print(request.POST.get("id_message"))
-        print("beofre here")
         if form.is_valid():
-            print("here")
             email = EmailMessage(form.cleaned_data['sender_email'],form.cleaned_data['message']+"\n"+form.cleaned_data['sender_name'],"sender",['glasmarketmail@gmail.com'])
             email.send()
         #email = EmailMessage("submit",form.message,"sender",['glasmarketmail@gmail.com'])
@@ -48,8 +45,11 @@ def about(request):
 def market(request):
     
     #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
+    product_list = Listing.objects.order_by('-name')
+    category_list = Category.objects.order_by('-name')
     context_dict['active'] = 'market'
-    
+    context_dict['listings'] = product_list
+    context_dict['categories'] = category_list
     return render(request,'glasmarket/market.html',context=context_dict)
 
 def profile(request):
@@ -61,3 +61,25 @@ def profile(request):
 
 
 
+def product(request):
+
+    context_dict['active'] = 'market'
+    
+    return render(request,'glasmarket/product.html',context=context_dict)
+
+
+def show_category(request,category_name_slug):
+    context_dict['active'] = 'market'
+
+    try:
+        category = Category.objects.filter(slug=category_name_slug)
+        listings = Listing.objects.filter(category=category)
+
+        context_dict['listings'] = listings
+        context_dict['category'] = category
+
+    except Category.DoesNotExist:
+        context_dict['category'] = None
+        context_dict['listings'] = None
+    
+    return render(request,'rango/category.html',context=context_dict)
