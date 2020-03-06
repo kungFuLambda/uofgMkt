@@ -12,4 +12,5 @@ urlpatterns = [
     path('profile/',views.profile,name='profile'),
     path('sendMail/',views.about,name="review"),
     
+    
 ]
