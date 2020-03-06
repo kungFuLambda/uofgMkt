@@ -2,26 +2,7 @@
 {% load staticfiles %}
 
 {% block products_block %}
-<div id="productsHeader">
-    <form action="/glasmarket/market/{{ currentCategory }}/" method="POST">
-        {% csrf_token %}
 
-        {% for field in form %}
-            <input type="{{ field.label }}" name="{{ field.name }}" id="{{ field.name }}" placeholder="{{ field.help_text }}">
-        {% endfor %}
-        <button type ="submit" value="submit" id="searchButton">Search</button>
-    </form>
-
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Sort by ▼</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Price (low-high)</a>
-          <a href="#">Price (high-low)</a>
-          <a href="#">Newest</a>
-          <a href="#">Oldest</a>
-        </div>
-      </div> 
-</div>
 <div id="productsDisplay">
     {% if category %}
         <h1>{{ category.name }}</h1>

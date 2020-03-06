@@ -49,7 +49,11 @@
     <footer>
         <ul id="bottomNav">
             {% for navItem in navBar %}
-                <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                {% if navItem == 'market' %}
+                    <li><a id="highlight" href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                {% else %}             
+                    <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
+                {% endif %}
                 
             {% endfor %}
         </ul>

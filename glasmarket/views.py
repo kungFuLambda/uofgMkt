@@ -71,11 +71,11 @@ def market(request,category_name_slug):
     else:
     #check if no cateogry name slug was given
         if category_name_slug == 'all':
-            product_list = Listing.objects.order_by('-name')
-            category_list = Category.objects.order_by('-name')
+            listings = Listing.objects.order_by('-name')
+            categories = Category.objects.order_by('-name')
             context_dict['active'] = 'market'
-            context_dict['listings'] = product_list
-            context_dict['categories'] = category_list
+            context_dict['listings'] = listings
+            context_dict['categories'] = categories
             context_dict['category'] = 'all'
         
         #if a specific category was selected
@@ -92,23 +92,26 @@ def market(request,category_name_slug):
                 context_dict['listings'] = None
     
     
-
-
-
-
-
-
-
-
-
     context_dict['form'] = SearchForm()
     return render(request,'glasmarket/category.html',context=context_dict)
 
 
-def search(request,category_name_slug):
-    context_dict['active'] = 'market'
-    context_dict['currentCategory'] = category_name_slug
-    context_dict['form'] = SearchForm()
+def sort(request,category_name_slug,chosen_button):
+    if category_name_slug == 'all':
+        categories = Category.objects.order_by('-name')
+    else:
+        categories = Category.objects.filter(slug=category_name_slug)
+    
+    if chosen_button == 'lowHigh':
+        listings = Listing.objects.filter(category__in=categories).order_by('price')
+    elif chosen_button == 'highLow':
+        listings = Listing.objects.filter(category__in=categories).order_by('-price')
+    elif chosen_button == 'newest':
+        listings = Listing.objects.filter(category__in=categories).order_by('-date')
+    elif chosen_button == 'oldest':
+        listings = Listing.objects.filter(category__in=categories).order_by('date')
 
-
+    context_dict['listings'] = listings
+    context_dict['category'] = categories
     #if the category name is == all
+    return render(request,'glasmarket/category.html',context=context_dict)
