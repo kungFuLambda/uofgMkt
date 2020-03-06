@@ -27,9 +27,17 @@
                 <ul>
                     {% for navItem in navBar %}
                         {% if navItem == active %}
-                            <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
+                            {% if navItem == 'market' %}
+                                <li><a id="highlight" href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                            {% else %}             
+                                <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
+                            {% endif %}
                         {% else %}
-                            <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                            {% if navItem == 'market' %}
+                                <li><a href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                            {% else %}  
+                                <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>

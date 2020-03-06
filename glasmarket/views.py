@@ -70,16 +70,23 @@ def product(request):
 
 def show_category(request,category_name_slug):
     context_dict['active'] = 'market'
+    if category_name_slug == 'all':
+        product_list = Listing.objects.order_by('-name')
+        category_list = Category.objects.order_by('-name')
+        context_dict['active'] = 'market'
+        context_dict['listings'] = product_list
+        context_dict['categories'] = category_list
+    else:
+        try:
+            category = Category.objects.filter(slug=category_name_slug)
+            listings = Listing.objects.filter(category=category)
 
-    try:
-        category = Category.objects.filter(slug=category_name_slug)
-        listings = Listing.objects.filter(category=category)
+            context_dict['listings'] = listings
+            context_dict['category'] = category
 
-        context_dict['listings'] = listings
-        context_dict['category'] = category
-
-    except Category.DoesNotExist:
-        context_dict['category'] = None
-        context_dict['listings'] = None
-    
-    return render(request,'rango/category.html',context=context_dict)
+        except Category.DoesNotExist:
+            context_dict['category'] = None
+            context_dict['listings'] = None
+    print(product_list)
+    print()
+    return render(request,'glasmarket/category.html',context=context_dict)

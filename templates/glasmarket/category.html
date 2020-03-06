@@ -1,8 +1,21 @@
-{% extends 'glasmarket/marketplace.html' %}
-{% load staticfiles}
-
-{% block title_block %}
-Market 
-{% endblock %}
-
-{% block }
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        {% if category %}
+            <h1>{{ category.name }}</h1>
+            {% if listings %}
+            <ul>
+                {% for listing in listings %}
+                {{ listing.name }}
+                {% endfor %}
+            </ul>
+            {% else %}
+            <strong>no listings in the category</strong>
+            {% endif %}
+        {% else %}
+        <strong>the category does not exist</strong>
+        {% endif %}
+    </div>
+</body>
+</html>
