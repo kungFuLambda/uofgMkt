@@ -8,10 +8,10 @@ Market
 <div id="market">
 
     <div id="categoryBlock">
-        <h1>categories </h1>
+        <h1>Categories </h1>
         <ul>
         {% for category in categories %}
-        <a href="">{{ category.name }}</a><br>
+        <li><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li><br>
         {% endfor %}
         </ul>
 

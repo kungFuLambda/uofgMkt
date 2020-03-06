@@ -1,21 +1,50 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <div>
-        {% if category %}
-            <h1>{{ category.name }}</h1>
-            {% if listings %}
-            <ul>
-                {% for listing in listings %}
-                {{ listing.name }}
-                {% endfor %}
-            </ul>
-            {% else %}
-            <strong>no listings in the category</strong>
-            {% endif %}
-        {% else %}
-        <strong>the category does not exist</strong>
-        {% endif %}
+{% extends 'glasmarket/marketplace.html' %}
+{% load staticfiles %}
+
+{% block products_block %}
+<div id="productsHeader">
+    <form action="">
+        <input type="text" id="searchBar">
+        <button id="searchButton">search</button>
+    </form>
+
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Sort by ▼</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#">Price (low-high)</a>
+          <a href="#">Price (high-low)</a>
+          <a href="#">Newest</a>
+          <a href="#">Oldest</a>
+        </div>
+      </div> 
+</div>
+<div id="productsDisplay">
+    {% if category %}
+        <h1>{{ category.name }}</h1>
+        {% if listings %}
+        {% for listing in listings %}
+        <div class="product">
+            <div class="imageAndUsername">
+                <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+            </div>
+        <div id="info">
+            <h1>{{ listing.name }}</h1>
+            <h3>{{ listing.price }}£</h3>
+            <a href="">{{ listing.seller }}</a>
+        </div>
+
+        <div class="description">
+            
+            <p>{{ listing.description }}</p>
+            
+        </div>
     </div>
-</body>
-</html>
+    {% endfor %}
+        {% else %}
+        <strong>no listings in the category</strong>
+        {% endif %}
+    {% else %}
+    <strong>the category does not exist</strong>
+    {% endif %}
+</div>
+{% endblock %}

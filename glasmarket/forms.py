@@ -18,9 +18,14 @@ class LoginForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     username= forms.CharField(max_length=100,help_text="name",label="text")
     password= forms.CharField(widget=forms.PasswordInput())
-    email= forms.Charfield(max_length=128,help_text="email",label="email" )
-    phone= forms.IntegerField(max_length=30,help_text="phone",label="phone" )
+    email= forms.CharField(max_length=128,help_text="email",label="email" )
+    phone= forms.IntegerField(help_text="phone",label="phone" )
+
+    
     class Meta:
         model=User
         fields=('username','password','email','phone')
 
+class SearchForm(forms.Form):
+    searchWord = forms.CharField(max_length=100,help_text="search",label="text")
+    

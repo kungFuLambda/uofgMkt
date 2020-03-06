@@ -35,24 +35,23 @@ def populate():
         dicti["fullName"] = name + " surname"
         dicti["phone"] = 123456780+i
         dicti['listing'] = product
+        dicti['password'] = name + "psw"
         users.append(dicti)
 
     for cat in cats:
         add_category(cat)
 
     for user in users:
-        u = add_user(user['name'],user['email'],user['fullName'],user['phone'])
-        for prod in product:
-            c = add_category(prod['category'])
-            add_listing(prod['picture'],prod['name'],prod['price'],prod['description'],c,u)
+        u = add_user(user['name'],user['email'],user['fullName'],user['phone'],user['password'])
+        
     
 def add_category(catName):
     c = Category.objects.get_or_create(name=catName)[0]
     c.save()
     return c
 
-def add_user(name,email,fullName,phone):
-    u = User.objects.get_or_create(username=name,email=email,fullName=fullName,phone=phone)[0]
+def add_user(name,email,fullName,phone,password):
+    u = User.objects.get_or_create(username=name,email=email,fullName=fullName,phone=phone,password=password)[0]
     u.save()
     return u
 
