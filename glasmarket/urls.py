@@ -12,7 +12,7 @@ urlpatterns = [
 
     #PROFILE PATTERN
     path('profile/',views.profile,name='profile'),
-    path('logIn/',views.logIn,name='logIn'),
+    path('logIn/',views.user_login,name='logIn'),
     path('register/', views.register,name='register'),
 
     #MARKET PATTERN

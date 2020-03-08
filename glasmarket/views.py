@@ -6,7 +6,11 @@ from django.contrib.auth.forms import UserCreationForm
 
 from glasmarket.models import Listing,Category,User
 from glasmarket.forms import UserForm,UserProfileForm
+from glasmarket.forms import SearchForm
 
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+from django.urls import reverse
 
 # Create your views here.
 context_dict = {}
@@ -107,12 +111,27 @@ def sort(request,category_name_slug,chosen_button):
     return render(request,'glasmarket/category.html',context=context_dict)
 
 
-def logIn(request):
-    
-    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
-    context_dict['active'] = 'logIn'
+def user_login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
 
-    return render(request,'glasmarket/logIn.html',context=context_dict)
+        user=authenticate(username=username,password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return redirect(reverse('glasmarket:profile'))
+
+            else:
+                
+                return HttpResponse("Your glassmarket account is disabled ")
+        else:
+            print(f"Invalid login details: {username},{password}")
+            return HttpResponse("Invalid login details supplied")
+
+    else:
+        return render(request, 'glasmarket/logIn.html')
+
 
 def register(request):
     registered=False
