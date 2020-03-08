@@ -10,6 +10,7 @@ Market
     <div id="categoryBlock">
         <h1>Categories </h1>
         <ul>
+        <li><a href="/glasmarket/market/all">All Items</a></li><br>
         {% for category in categories %}
         <li><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li><br>
         {% endfor %}
@@ -18,6 +19,26 @@ Market
     </div>
 
     <div id="productsBlock">
+        <div id="productsHeader">
+            <form action="/glasmarket/market/{{ currentCategory }}/" method="POST">
+                {% csrf_token %}
+        
+                {% for field in form %}
+                    <input type="{{ field.label }}" name="{{ field.name }}" id="{{ field.name }}" placeholder="{{ field.help_text }}">
+                {% endfor %}
+                <button type ="submit" value="submit" id="searchButton">Search</button>
+            </form>
+        
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Sort by ▼</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="/glasmarket/market/{{ currentCategory }}/lowHigh">Price (low-high)</a>
+                  <a href="/glasmarket/market/{{ currentCategory }}/highLow">Price (high-low)</a>
+                  <a href="/glasmarket/market/{{ currentCategory }}/newest">Newest</a>
+                  <a href="/glasmarket/market/{{ currentCategory }}/oldest">Oldest</a>
+                </div>
+              </div> 
+        </div>
             {% block products_block %}
             {% endblock %}
 

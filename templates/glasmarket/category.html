@@ -2,22 +2,7 @@
 {% load staticfiles %}
 
 {% block products_block %}
-<div id="productsHeader">
-    <form action="">
-        <input type="text" id="searchBar">
-        <button id="searchButton">search</button>
-    </form>
 
-    <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Sort by ▼</button>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#">Price (low-high)</a>
-          <a href="#">Price (high-low)</a>
-          <a href="#">Newest</a>
-          <a href="#">Oldest</a>
-        </div>
-      </div> 
-</div>
 <div id="productsDisplay">
     {% if category %}
         <h1>{{ category.name }}</h1>
