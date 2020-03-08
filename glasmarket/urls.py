@@ -12,6 +12,8 @@ urlpatterns = [
 
     #PROFILE PATTERN
     path('profile/',views.profile,name='profile'),
+    path('logIn/',views.logIn,name='logIn'),
+    path('register/', views.register,name='register'),
 
     #MARKET PATTERN
     path('market/',views.show_category,name='market'),

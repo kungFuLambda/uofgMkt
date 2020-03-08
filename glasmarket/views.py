@@ -2,8 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.core.mail import EmailMessage
 from .forms import ReviewForm
+from django.contrib.auth.forms import UserCreationForm
 
 from glasmarket.models import Listing,Category,User
+from glasmarket.forms import UserForm,UserProfileForm
 
 
 # Create your views here.
@@ -61,10 +63,6 @@ def profile(request):
 
 
 
-<<<<<<< HEAD
-
-
-=======
 def product(request):
 
     context_dict['active'] = 'market'
@@ -96,4 +94,43 @@ def show_category(request,category_name_slug):
             context_dict['listings'] = None
     
     return render(request,'glasmarket/category.html',context=context_dict)
->>>>>>> d36dd1cf81274de2c8877ec58d18194c6d1f4fbf
+
+
+def logIn(request):
+    
+    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
+    context_dict['active'] = 'logIn'
+
+    return render(request,'glasmarket/logIn.html',context=context_dict)
+
+def register(request):
+    registered=False
+
+    if request.method=='POST':
+        user_form=UserForm(request.POST)
+        profile_form=UserProfileForm(request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user=user_form.save()
+            user.set_password(user.password)
+            user.save()
+            
+            profile=profile_form.save(commit=False)
+            profile.user=user
+
+            if 'picture' in request.FILES:
+                profile.picture=request.FILES['picture']
+            
+            profile.save()
+            registered=True
+
+    
+        else:
+            print(user_form.errors, profile_form.errors)
+    else:
+        user_form=UserForm()
+        profile_form=UserProfileForm()
+
+    return render (request,'glasmarket/register.html',context={'user_form':user_form,
+                                                                'profile_form':profile_form,
+                                                                'registered':registered})

@@ -296,8 +296,7 @@ textarea{
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
+
 /*------------------------------------------MARKETPLACE-----------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -532,4 +531,30 @@ display: block;
     border-bottom-right-radius: 15px;
     padding: 10px;
 }
->>>>>>> d36dd1cf81274de2c8877ec58d18194c6d1f4fbf
+
+/*---------------------------------------LogIn-----------------------------------------------------*/
+
+.backgroundLogIn{
+    background-image: url('../images/homeback.jpg');
+    background-repeat: round;
+    min-height: 450px;
+    border-bottom: rgb(243, 96, 43) 2px solid;
+    text-align: center;
+    
+    
+
+}
+.box{
+    position:absolute;
+    top:50px;
+    left:50px;
+    width:50px;
+    height:50px;
+    width:280px;
+    height: 380px;
+    border:3px solid #cc7f0c;
+    background-color: black;
+    margin-top: 3.5%;
+    margin-left: 40%;
+    opacity: 0.9;
+}

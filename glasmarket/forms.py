@@ -1,5 +1,6 @@
 from django import forms
-from glasmarket.models import User
+from glasmarket.models import UserProfile
+from django.contrib.auth.models import User
 
 class ReviewForm(forms.Form):
     sender_name = forms.CharField(max_length=100,help_text="name",label="text")
@@ -8,23 +9,17 @@ class ReviewForm(forms.Form):
     class Meta:
         fields = ('name','email','message')
         
-class LoginForm(forms.ModelForm):
-    username= forms.CharField(max_length=100,help_text="name",label="text")
+class UserForm(forms.ModelForm):
     password= forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model=User
-        fields=('username','password')
+        fields=('username','password','email')
         
-class ProfileForm(forms.ModelForm):
-    username= forms.CharField(max_length=100,help_text="name",label="text")
-    password= forms.CharField(widget=forms.PasswordInput())
-    email= forms.CharField(max_length=128,help_text="email",label="email" )
-    phone= forms.IntegerField(help_text="phone",label="phone" )
-
+class UserProfileForm(forms.ModelForm):
     
     class Meta:
-        model=User
-        fields=('username','password','email','phone')
+        model=UserProfile
+        fields=('picture',)
 
 class SearchForm(forms.Form):
     searchWord = forms.CharField(max_length=100,help_text="search",label="text")
