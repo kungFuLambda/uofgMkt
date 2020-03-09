@@ -5,7 +5,7 @@ from .forms import ReviewForm
 from django.contrib.auth.forms import UserCreationForm
 
 from glasmarket.models import Listing,Category,User
-from glasmarket.forms import UserForm,UserProfileForm
+from glasmarket.forms import UserForm,UserProfileForm,SearchForm
 
 
 # Create your views here.
