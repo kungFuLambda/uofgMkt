@@ -7,8 +7,12 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 from glasmarket.models import Listing,Category,User
-from glasmarket.forms import UserForm,UserProfileForm,SearchForm
+from glasmarket.forms import UserForm,UserProfileForm
+from glasmarket.forms import SearchForm
 
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+from django.urls import reverse
 
 # Create your views here.
 context_dict = {}
@@ -125,6 +129,30 @@ def sort(request,category_name_slug,chosen_button):
     return render(request,'glasmarket/category.html',context=context_dict)
 
 
+<<<<<<< HEAD
+=======
+def user_login(request):
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+
+        user=authenticate(username=username,password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return redirect(reverse('glasmarket:profile'))
+
+            else:
+                
+                return HttpResponse("Your glassmarket account is disabled ")
+        else:
+            print(f"Invalid login details: {username},{password}")
+            return HttpResponse("Invalid login details supplied")
+
+    else:
+        return render(request, 'glasmarket/logIn.html')
+
+>>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
 
 def register(request):
     registered=False
