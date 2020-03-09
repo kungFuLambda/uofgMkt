@@ -20,6 +20,7 @@ About
             {% csrf_token %}
 
             {% for field in form %}
+                {{ field.errors }}
                 {% if field.name == 'message' %}
                     <textarea name="{{ field.name }}" id="id_{{ field.name }}" cols="40" rows="10" placeholder="{{ field.help_text }}"></textarea><br>
                 {% else %}

@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Listing(models.Model):
     picture = models.ImageField(default=0)
-    #seller = models.ForeignKey('User',on_delete=models.CASCADE)
+    seller = models.ForeignKey('UserProfile',on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
     price = models.IntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
