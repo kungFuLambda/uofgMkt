@@ -23,6 +23,9 @@ class UserProfileForm(forms.ModelForm):
         fields=('picture',)
 
 
+
+
+
 class SearchForm(forms.Form):
     searchWord = forms.CharField(max_length=100,help_text="What are you looking for?",label="text")
     

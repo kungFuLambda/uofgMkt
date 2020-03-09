@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.core.mail import EmailMessage
 from .forms import ReviewForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 
 from glasmarket.models import Listing,Category,User
 from glasmarket.forms import UserForm,UserProfileForm,SearchForm
@@ -48,8 +50,24 @@ def profile(request):
     
     #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
     context_dict['active'] = 'profile'
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    return render(request,'glasmarket/profile.html',context=context_dict)
+        user = authenticate(username=username,password=password)
+
+        if user:
+            if user.is_active:
+                login(request,user)
+            else:
+                return HttpResponse("your glasmarket account is disabled")
+        else:
+            return HttpResponse("invalid login details")
+        return render(request,'glasmarket/profile.html',context=context_dict)
+    else:
+
+        return render(request,'glasmarket/profile.html',context=context_dict)
 
 
 
@@ -107,12 +125,6 @@ def sort(request,category_name_slug,chosen_button):
     return render(request,'glasmarket/category.html',context=context_dict)
 
 
-def logIn(request):
-    
-    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
-    context_dict['active'] = 'logIn'
-
-    return render(request,'glasmarket/logIn.html',context=context_dict)
 
 def register(request):
     registered=False
@@ -145,3 +157,9 @@ def register(request):
     return render (request,'glasmarket/register.html',context={'user_form':user_form,
                                                                 'profile_form':profile_form,
                                                                 'registered':registered})
+
+@login_required
+def user_logout(request):
+    logout(request)
+    context_dict['active'] = 'home'
+    return render(request,'glasmarket/home.html',context=context_dict)

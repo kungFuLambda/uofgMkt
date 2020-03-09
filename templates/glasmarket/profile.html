@@ -3,17 +3,30 @@
 
 
 {% block title_block %}
-Profile
+{% if user.is_authenticated %}
+    {{ user.username }}
+{% else %}
+    Profile
+{% endif %}
+
 {% endblock %}
 
 {% block body_block %}
-<div id = "signpage">
-    <h1>Sign In</h1>
-    <form action="">
-        <input type="text" name="" id=""><br>
-        <input type=""><br>
-    </form>
-    <a href="/glasmarket/register">register?</a>
-</div>
+    {% if user.is_authenticated %} 
+        {{ user.username }}
+        
+            <a href="/glasmarket/logout">logout</a>
+        {% else %} 
+            <div id="divLogin">
+                <h1>Login</h1>
+                <form id="login_form" method="post" >
+                    {% csrf_token %}
+                    <input type="text" name="username" value="" size="50" placeholder="username"><br>
+                    <input type="password" name="password" value="" size="50" placeholder="password"><br>
+                    <input type="submit" value="login" placeholder="login">
+                </form>
+                <a href="/glasmarket/register">Don't have an account? Register</a>
+            </div>
+    {% endif %}
 
 {% endblock %}

@@ -6,30 +6,29 @@ Register
 {% endblock %}
 
 {% block body_block %}
+
     {% if registered %}
     <strong>Thank you for registering!</strong>
     <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
 
     {% else %}
-    <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
-    {% csrf_token %}
+    <div id="divLogin">
+        <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
 
 
-    {% for field in user_form %}
-    {% if field.name == "username" or field.name == "first_name" %}
-    <input id = "id_{{ field.name }}" type="text" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
-    {% elif field.name == "password" %}
-    <input id = "id_{{ field.name }}" type="password" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
-    {% elif field.name == "email" %}
-    <input id = "id_{{ field.name }}" type="email" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
-    {% endif %}
-    {% endfor %}
-    {% for field in profile_form %}
-    {{ field }} <br>
-    {% endfor %}
+        {% for field in user_form %}
+        {% if field.name == "username" or field.name == "first_name" %}
+        <input id = "id_{{ field.name }}" type="text" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
+        {% elif field.name == "password" %}
+        <input id = "id_{{ field.name }}" type="password" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
+        {% elif field.name == "email" %}
+        <input id = "id_{{ field.name }}" type="email" name="{{ field.name }}" required="" placeholder="{{ field.name }}"><br>
+        {% endif %}
+        {% endfor %}
 
-    <input type="submit" name="submit" value="Register" />
-
+        <input type="submit" name="submit" value="Register" />
+    </div>
 </form>
 
     {% endif %}

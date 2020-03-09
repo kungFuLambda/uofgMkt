@@ -82,7 +82,7 @@ header h1 {
     margin-top: 6px;
     margin-bottom: 8px;
     float: left;
-    font-size: 40px;
+    font-size: 50px;
     color: rgb(243, 96, 43);
 }
 header a:hover{
@@ -548,8 +548,6 @@ display: block;
     border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
     
-    
-
 }
 .box{
     position:absolute;
@@ -564,4 +562,16 @@ display: block;
     margin-top: 3.5%;
     margin-left: 40%;
     opacity: 0.9;
+}
+
+#divLogin{
+    background-color: antiquewhite;
+    width: 60%;
+    margin: auto; /*will set the everything to the middle*/
+    overflow: hidden;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 25px;
+    padding: 5%;
 }
