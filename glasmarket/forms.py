@@ -13,7 +13,8 @@ class UserForm(forms.ModelForm):
     password= forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model=User
-        fields=('username','password','email')
+        fields=('username','password','email','first_name')
+   
         
 class UserProfileForm(forms.ModelForm):
     
@@ -21,8 +22,11 @@ class UserProfileForm(forms.ModelForm):
         model=UserProfile
         fields=('picture',)
 
+
 class SearchForm(forms.Form):
     searchWord = forms.CharField(max_length=100,help_text="What are you looking for?",label="text")
     
     class Meta:
         fields=('search')
+
+    
