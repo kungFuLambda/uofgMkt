@@ -2,37 +2,31 @@
 {% load staticfiles %}
 
 {% block title_block %}
-        Login
+{% if user.is_authenticated %}
+    {{ user.username }}
+{% else %}
+    Profile
+{% endif %}
+
 {% endblock %}
 
 {% block body_block %}
-<div id="backgroundLogIn"></div>
-        <div id="box">
-
-                <div id="info">
-
-                        <form id="login_form" method="post" action="{% url 'glasmarket:logIn' %}">
-                                {% csrf_token %}
-                                Username: <input type="text" name="username" value="" size="50" />
-                                <br /> 
-                                Password: <input type="password" name="password" value="" size="50" />
-                                <br /> 
-                                <input type="submit" value="submit" /> 
-                        </form>
-
-
-                
-                        <div id="notRegisteredSlide">
-
-                                <ul>
-                                        <li id="Register"><a href="/glasmarket/register/"><h2>Register</h2><p> Don't have an account?</p></a></li>
-                                </ul>
-                            </div>
-
-                </div>
-
-
-</div>
+    {% if user.is_authenticated %} 
+        {{ user.username }}
+        
+            <a href="/glasmarket/logout">logout</a>
+        {% else %} 
+            <div id="divLogin">
+                <h1>Login</h1>
+                <form id="login_form" method="post" >
+                    {% csrf_token %}
+                    <input type="text" name="username" value="" size="50" placeholder="username"><br>
+                    <input type="password" name="password" value="" size="50" placeholder="password"><br>
+                    <input type="submit" value="login" placeholder="login">
+                </form>
+                <a href="/glasmarket/register">Don't have an account? Register</a>
+            </div>
+    {% endif %}
 
 
 

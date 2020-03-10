@@ -82,7 +82,7 @@ header h1 {
     margin-top: 6px;
     margin-bottom: 8px;
     float: left;
-    font-size: 40px;
+    font-size: 50px;
     color: rgb(243, 96, 43);
 }
 header a:hover{
@@ -550,6 +550,10 @@ display: block;
     min-height: 450px;
     border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
 }
 #box{
     position:absolute;
@@ -565,6 +569,20 @@ display: block;
     margin-left: 40%;
     opacity: 0.9;
 }
+<<<<<<< HEAD
+
+#divLogin{
+    background-color: antiquewhite;
+    width: 60%;
+    margin: auto; /*will set the everything to the middle*/
+    overflow: hidden;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 25px;
+    padding: 5%;
+}
+=======
 #info{
     font-size: 10px;
     color: rgb(247, 241, 241);
@@ -601,3 +619,4 @@ display: block;
     border-radius: 10px;
 
 }
+>>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
