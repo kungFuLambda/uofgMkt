@@ -17,7 +17,11 @@ Homepage
         <h1 >Welcome to glas-market</h1>
         <ul>
             <li id="marketP"><a href="/glasmarket/market/all"><h2>Visit the marketplace</h2><p>We have a range array of stuff</p></a></li>
-            <li id="postP"><a href="/glasmarket/profile/"><h2>Register/Log in</h2><p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+            {% if not user.is_authenticated %}
+                <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+            {% else %}
+                <li id="postP"><a href="/glasmarket/profilePage/{{ user.username }}"><h2>Register/Log in</h2><p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+            {% endif %}
         </ul>
     </div>
 {% endblock %}

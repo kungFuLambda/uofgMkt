@@ -11,10 +11,11 @@ urlpatterns = [
     path('about/',views.about,name='about'),
 
     #PROFILE PATTERN
-    path('profile/',views.profile,name='profile'),
-    path('logIn/',views.user_login,name='logIn'),
+    path('login/',views.user_login,name='login'),
     path('register/', views.register,name='register'),
     path('logout/',views.user_logout,name='logout'),
+    path('profilePage/<slug:username>/',views.profilePage,name='profilePage'),
+    path('profilePage/<slug:username>/addListing',views.addListing,name='addListing'),
 
     #MARKET PATTERN
     path('market/',views.market,name='market'),

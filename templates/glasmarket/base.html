@@ -27,19 +27,36 @@
         
                 <ul>
                     {% for navItem in navBar %}
+                    
                         {% if navItem == active %}
+                            
                             {% if navItem == 'market' %}
                                 <li><a id="highlight" href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
-                            {% else %}             
-                                <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
+                            {% elif navItem == 'login' %}
+                                {% if user.is_authenticated %}  
+                                    <li><a id="highlight" href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                                {% else %}
+                                    <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                                {% endif %}
+                            {% else %}
+                                <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                             {% endif %}
+
                         {% else %}
+                            
                             {% if navItem == 'market' %}
                                 <li><a href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
-                            {% else %}  
+                            {% elif navItem == 'login' %}
+                                {% if user.is_authenticated %}  
+                                    <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                                {% else %}
+                                    <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                                {% endif %}
+                            {% else %}
                                 <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                             {% endif %}
                         {% endif %}
+
                     {% endfor %}
                 </ul>
         
@@ -52,11 +69,17 @@
         <ul id="bottomNav">
             {% for navItem in navBar %}
                 {% if navItem == 'market' %}
-                    <li><a id="highlight" href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
-                {% else %}             
-                    <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>        
+                    <li><a href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                {% elif navItem == 'login' %}
+                    {% if user.is_authenticated %}  
+                        <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                    {% else %}
+                        <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                 {% endif %}
-                
+                    
             {% endfor %}
         </ul>
         <h4 id="footerName">Glasmarket logo</h4>
