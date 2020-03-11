@@ -1,0 +1,59 @@
+{% extends 'glasmarket/base.html' %}
+{% load staticfiles %}
+
+
+{% block title_block %}
+{% if user.is_authenticated %}
+    {{ user.username }}
+{% else %}
+    Profile
+{% endif %}
+
+{% endblock %}
+
+{% block body_block %}
+
+    {% if user.is_superuser %}
+        you are an admin 
+        <a href="/glasmarket/logout">logout</a>
+    {% else %}
+    <div id="userPage">
+
+        <div id="picAndInfo">
+            <img src="{{ MEDIA_URL }}{{ pic }}" alt="userPicture"><br>
+            {{ usernm }}<br>
+            {{ email }}
+            {% if user.username == userPage %}
+            <a href="/glasmarket/logout">logout</a>
+            {% endif %}
+        </div>
+
+        <div id="userListings">
+            {% if user.username == userPage %}
+                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ usernm }}/addListing">add listing</a>
+            {% else %}
+                <h1>{{ usernm }}'s listings</h1>
+            {% endif %}
+        {% for listing in listings %}
+            <div class="product">
+                <div class="image">
+                    <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+                </div>
+            <div id="info">
+                <h1>{{ listing.name }}</h1>
+                <h3>{{ listing.price }}£</h3>
+                <a href="">{{ listing.seller }}</a>
+            </div>
+
+            <div class="description">
+                
+                <p>{{ listing.description }}</p>
+                
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+{% endblock %}

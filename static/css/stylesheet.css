@@ -82,7 +82,7 @@ header h1 {
     margin-top: 6px;
     margin-bottom: 8px;
     float: left;
-    font-size: 50px;
+    font-size: 45px;
     color: rgb(243, 96, 43);
 }
 header a:hover{
@@ -321,7 +321,7 @@ textarea{
 
 }
 #categoryBlock h1{
-    font-size:2.5vw;
+    font-size:2.1vw;
     margin-top: 2px;
 }
 #categoryBlock ul {
@@ -332,7 +332,7 @@ textarea{
 #categoryBlock a {
     text-decoration: none;
     color: black;   
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     
 }
 #categoryBlock a:hover {
@@ -441,23 +441,22 @@ display: block;
     background-color: rgb(119, 116, 116);
     margin: 25px 25px 0 25px;
     border-radius: 35px;
-    height: 20vh;
+    min-height: 20vh;
     display:inline-block;
     width: 95%;
-    overflow: hidden;
     
 }
 
-.imageAndUsername{
+.image{
     float: left;
     width: 21%;
     height: 100%;
 }
 /*username*/
 /*image of the product*/
-.imageAndUsername  img{
+.image  img{
     max-width: 100%;
-    height: 20vh;
+    height: 90%;
     margin: 10px 0 10px 10px;
     float: left;
     border-top-left-radius: 35px;
@@ -465,10 +464,7 @@ display: block;
     border-bottom-left-radius: 35px;
     border-top-right-radius: 10px;
 }
-.imageAndUsername  a{
-    text-decoration: none;
-    color:black
-}
+
 
 #info{
     float: left;
@@ -477,12 +473,20 @@ display: block;
     padding-right: 1%;
     word-wrap: break-word
 }
-
-
+#info h1{
+    font-size: 25px;
+}
+#info h3{
+    font-size: 20px;
+}
+#info a{
+    text-decoration: none;
+    font-size: 15px;
+}
 .description{
     float: right;
     width: 50%;
-    height: 100%;
+    height: 70%;
 }
 
 .description p{
@@ -490,7 +494,7 @@ display: block;
     border-radius: 15px;
     padding: 10px;
     max-height: 20vh;
-    overflow-y: hidden;
+    overflow-y: auto;
     float: right;
     width: 100%;
     height: 100%;
@@ -505,39 +509,7 @@ display: block;
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-.productCard{
-    margin: 40px;
-    background-color: rgb(228, 228, 228);
-    border-radius: 35px;
-    width: 95%;
-}
-#backLink{
-    color: black;
-    text-decoration: none;
-    background-color: rgb(228, 228, 228);
-    font-size: 20px;
-    width: 40px;
-    height: 35px;
-    text-align: left;
-    padding-left: 7px;
-    float: left;
-    border-bottom-right-radius: 25px;
-    
-}
-.productCard img{
-    width: 100%;
-    border-radius: 25px;
-}
-#imageContainer{
-    max-height: 400px;
-    overflow: hidden;
-}
-#productDescription{
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    padding: 10px;
-}
+
 
 /*---------------------------------------LogIn-----------------------------------------------------*/
 
@@ -550,10 +522,6 @@ display: block;
     min-height: 450px;
     border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
 }
 #box{
     position:absolute;
@@ -569,24 +537,11 @@ display: block;
     margin-left: 40%;
     opacity: 0.9;
 }
-<<<<<<< HEAD
-
-#divLogin{
-    background-color: antiquewhite;
-    width: 60%;
-    margin: auto; /*will set the everything to the middle*/
-    overflow: hidden;
-    text-align: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 25px;
-    padding: 5%;
-}
-=======
 #info{
+    text-align: center;
     font-size: 10px;
     color: rgb(247, 241, 241);
-    text-decoration: none;
+    
 
 
 }
@@ -619,4 +574,37 @@ display: block;
     border-radius: 10px;
 
 }
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
+#picAndInfo {
+    height: 20%;
+    width: 25%;
+    margin-left: 0;
+    padding-left: 0;
+    float: left;
+}
+#picAndInfo img{
+    width: 200px;
+    height: 200px;
+    margin-top: 5%;
+    padding-top: 5%;
+    border-radius: 25px;
+}
+
+#userListings{
+    float: right;
+    width: 75%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+    padding-right: 0;
+    margin-right: 0;
+}
+#userPage{
+    display: flex;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    /*min-height: 900px;*/
+    max-height: 90vh;
+    text-align: center;
+    border-bottom: black 1px solid;
+}

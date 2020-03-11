@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Listing(models.Model):
-    picture = models.ImageField(default=0)
+    picture = models.ImageField(default=0,upload_to='listings_images')
     seller = models.ForeignKey('UserProfile',on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
     price = models.IntegerField(default=0)

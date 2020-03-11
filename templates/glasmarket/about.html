@@ -21,11 +21,7 @@ About
 
             {% for field in form %}
                 {{ field.errors }}
-                {% if field.name == 'message' %}
-                    <textarea name="{{ field.name }}" id="id_{{ field.name }}" cols="40" rows="10" placeholder="{{ field.help_text }}"></textarea><br>
-                {% else %}
-                    <input type="{{ field.label }}" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.help_text }}"><br>
-                {% endif %}
+                {{ field }}<br>
             {% endfor %}
             
         <button type="submit" id ="contactButton" value="submit">Submit</button>

@@ -9,13 +9,13 @@
         {% if listings %}
         {% for listing in listings %}
         <div class="product">
-            <div class="imageAndUsername">
+            <div class="image">
                 <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
             </div>
         <div id="info">
             <h1>{{ listing.name }}</h1>
             <h3>{{ listing.price }}£</h3>
-            <a href="">{{ listing.seller }}</a>
+            <a href="/glasmarket/profilePage/{{ listing.seller }}">{{ listing.seller }}</a>
         </div>
 
         <div class="description">
