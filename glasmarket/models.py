@@ -2,9 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
-
-
-
+#from phone_field import PhoneField
 
 # Create your models here.
 class Listing(models.Model):
@@ -23,7 +21,13 @@ class Listing(models.Model):
 
 class UserProfile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    #Additional fields
     picture = models.ImageField(upload_to='profile_images', blank=True)
+    phone=models.CharField(max_length=128,blank=True)
+    facebook=models.URLField(blank=True)
+    
+    #phone=PhoneField(blank=True, help_text="Contact phone number")
     def __str__(self):
         return self.user.username
 

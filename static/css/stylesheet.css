@@ -550,73 +550,82 @@ display: block;
     min-height: 450px;
     border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
+    opacity: 0.7;
 }
 #box{
     position:absolute;
     top:50px;
-    left:50px;
+    left:20px;
     width:50px;
     height:50px;
-    width:280px;
+    width:350px;
     height: 380px;
-    border:3px solid #cc7f0c;
-    background-color: black;
+    border-radius: 25px;
+    background-color: rgb(247, 242, 242);
     margin-top: 3.5%;
     margin-left: 40%;
     opacity: 0.9;
 }
-<<<<<<< HEAD
 
-#divLogin{
-    background-color: antiquewhite;
-    width: 60%;
+#divLogin h1{
+    font-size: 20px;
+    color: rgb(235, 121, 29);
+    text-decoration: none;
+    text-indent: 15px;
+    font-weight: bold;
+}
+
+#inputLog{
+    
+    padding-left: 20px;
+    width: 100%;
+    content: normal;
+    justify-content: center;
+    border-bottom:1px solid #ffffff;
+    outline:none;
+    height: 280px;
+
+}
+#divLogin a{
+    padding:20px;
+}
+
+#inputLog h2:hover{
+    background-color: rgb(245, 122, 77);
+    border-radius: 10px;
+}
+
+
+
+#boxRegister{
+    min-height: 80vh;
+    border-radius: 25px;
+    background-color: rgb(247, 242, 242);
+    opacity: 0.9;
+    width: 85%;
     margin: auto; /*will set the everything to the middle*/
     overflow: hidden;
     text-align: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    border-radius: 25px;
-    padding: 5%;
+    padding-bottom:2%;
+    padding-top: 2%;
 }
-=======
-#info{
-    font-size: 10px;
-    color: rgb(247, 241, 241);
+
+#boxRegister h1{
+    font-size: 20px;
+    color: rgb(235, 121, 29);
     text-decoration: none;
-
-
-}
-
-#notRegisteredSlide{
-    border: rgb(243, 96, 43) 1px solid;
-    border-radius: 25px;
-    font-family: 'Quicksand', semi-bold;
-    background-color: rgb(167, 161, 157)
-
-}
-#notRegisteredSlide a{
-    font-size: 15px;
-    color: black;
-    text-decoration: none;
-    background-color: rgb(243, 96, 43);
-
-}
-#notRegisteredSlide li{
-    display: inline;
-    width: 40%;
-    padding:5%;
+    text-indent: 15px;
+    font-weight: bold;
+    margin-top: 0;
     padding-top: 0;
-    padding-bottom: 2%;
-    text-align: center;
 }
+#right{
 
-#notRegisteredSlide h2:hover{
-    background-color: rgb(245, 122, 77);
-    border-radius: 10px;
+    align-content: right;
 
 }
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
+
+#left{
+    align-content: left;
+
+}

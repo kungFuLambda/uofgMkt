@@ -12,10 +12,7 @@ urlpatterns = [
 
     #PROFILE PATTERN
     path('profile/',views.profile,name='profile'),
-<<<<<<< HEAD
-=======
     path('logIn/',views.user_login,name='logIn'),
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
     path('register/', views.register,name='register'),
     path('logout/',views.user_logout,name='logout'),
 

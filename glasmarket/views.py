@@ -51,7 +51,7 @@ def about(request):
 
 
 def profile(request):
-    
+  
     #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
     context_dict['active'] = 'profile'
     
@@ -67,6 +67,7 @@ def profile(request):
             else:
                 return HttpResponse("your glasmarket account is disabled")
         else:
+            #print(f"Invalid login details: {username},{password}")
             return HttpResponse("invalid login details")
         return render(request,'glasmarket/profile.html',context=context_dict)
     else:
@@ -129,8 +130,6 @@ def sort(request,category_name_slug,chosen_button):
     return render(request,'glasmarket/category.html',context=context_dict)
 
 
-<<<<<<< HEAD
-=======
 def user_login(request):
     if request.method=='POST':
         username=request.POST.get('username')
@@ -152,10 +151,10 @@ def user_login(request):
     else:
         return render(request, 'glasmarket/logIn.html')
 
->>>>>>> 98ba893ad61b62aea10b565c3191e18abd5437f4
 
 def register(request):
-    registered=False
+    context_dict['registered']=False
+    context_dict['active']='profile'
 
     if request.method=='POST':
         user_form=UserForm(request.POST)
@@ -173,18 +172,17 @@ def register(request):
                 profile.picture=request.FILES['picture']
             
             profile.save()
-            registered=True
+            context_dict['registered']=True
+            return redirect(reverse('glasmarket:profile'))
 
     
         else:
             print(user_form.errors, profile_form.errors)
     else:
-        user_form=UserForm()
-        profile_form=UserProfileForm()
+        context_dict['user_form']=UserForm()
+        context_dict['profile_form']=UserProfileForm()
 
-    return render (request,'glasmarket/register.html',context={'user_form':user_form,
-                                                                'profile_form':profile_form,
-                                                                'registered':registered})
+    return render (request,'glasmarket/register.html',context_dict)
 
 @login_required
 def user_logout(request):
