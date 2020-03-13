@@ -14,4 +14,16 @@ window.onclick = function(event) {
       }
     }
   }
-} 
+}
+function getConfirmation(listingName){
+  var r = confirm("are you sure you want to delete "+listingName);
+  if (r == true){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+ 
+
+

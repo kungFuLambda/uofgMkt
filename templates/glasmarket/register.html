@@ -18,9 +18,11 @@ Register
             <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
             
             {% csrf_token %}
-
-
+            {% for hiddenfield in user_form.hidden %}
+                {{ hiddenfield }}
+            {% endfor %}
             {% for field in user_form %}
+            
             {{ field.errors }}
             {{ field }}
 

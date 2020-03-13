@@ -1,5 +1,5 @@
 from django import forms
-from glasmarket.models import UserProfile,Listing
+from glasmarket.models import UserProfile,Listing,Category
 from django.contrib.auth.models import User
 
 
@@ -34,10 +34,12 @@ class UserProfileForm(forms.ModelForm):
 class addListingForm(forms.ModelForm):
     class Meta:
         model=Listing
-        fields = ('picture','name','price','description','category','seller')
+        fields = ('picture','name','price','description','category','seller',)
         widgets={
             'name':forms.TextInput(attrs={'placeholder':'product name'}),
             'description':forms.Textarea(attrs={'placeholder':'product description'}),
+            'seller':forms.HiddenInput(),
+
         }
 
 

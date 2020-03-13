@@ -10,9 +10,17 @@ Market
     <div id="categoryBlock">
         <h1>Categories </h1>
         <ul>
-        <li><a href="/glasmarket/market/all">All Items</a></li><br>
+        {% if currentCategory == "all" %}
+            <li id="currentC"><a href="/glasmarket/market/all">All Items</a></li>
+        {% else %}
+            <li id="nonCurrentC"><a href="/glasmarket/market/all">All Items</a></li>
+        {% endif %}
         {% for category in categories %}
-        <li><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li><br>
+            {% if category.name == currentCategory %}
+                <li id="currentC"> <a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li>
+            {% else %}
+                <li id="nonCurrentC"><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li>
+            {% endif %}
         {% endfor %}
         </ul>
 
