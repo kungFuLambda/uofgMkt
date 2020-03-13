@@ -205,7 +205,6 @@ def profilePage(request,username):
         context_dict['pageUser'] = UserObject
         context_dict['profile'] = Profile
 
-
         listings = Listing.objects.filter(seller=Profile)
         
         context_dict['listings'] = listings

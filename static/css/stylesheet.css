@@ -1,6 +1,12 @@
 /* top left bottom right*/
 
-
+:root{
+    
+    --theme :rgb(92, 202, 101);
+    --hover :rgb(98, 165, 219);
+    --gradient : rgb(92, 202, 101);
+    
+}
 /*-----------------------------------------------GLOBAL--------------------------------------------------*/
 body{
     /*font-family:Arial, Helvetica, sans-serif;*/
@@ -19,13 +25,13 @@ img{
     max-height:100%
     }
 button{
-    border: rgb(243, 96, 43) 1px solid;
+    border: var(--theme) 1px solid;
     border-radius: 25px;
     font-family: 'Quicksand', semi-bold;
     background-color: white;
 }
 button:hover{
-    background-color: rgb(245, 122, 77);
+    background-color: var(--hover);
 }
 
 
@@ -54,7 +60,7 @@ header{
     color: white;
     
     min-height: 75px; /*the minimum height so it can be resized*/
-    border-bottom: rgb(243, 96, 43) 2px solid; /*the bottom border solid and thin*/
+    border-bottom: var(--theme) 2px solid; /*the bottom border solid and thin*/
     font-weight: bold;
 }
 
@@ -83,17 +89,17 @@ header h1 {
     margin-bottom: 0;
     float: left;
     font-size: 45px;
-    color: rgb(243, 96, 43);
+    color: var(--theme);
 }
 header a:hover{
     color: rgb(255, 255, 255);
-    background-color: rgb(245, 122, 77);
+    background-color: var(--hover);
     border-radius: 25px;
 }
 
 #highlight {
     color: rgb(255, 255, 255);
-    background-color: rgb(243, 96, 43);
+    background-color: var(--theme);
     border-radius: 25px;
 }
 .g{
@@ -106,7 +112,7 @@ header a:hover{
 
 footer{
     border-top:rgb(243, 96, 43);
-    background-image: linear-gradient(to bottom right, rgb(241, 88, 33), rgb(218, 105, 64));
+    background-image: linear-gradient(to bottom right, var(--theme), var(--gradient));
     color: white;
 }
 /*footer items*/
@@ -155,7 +161,7 @@ footer h4{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
     min-height: 450px;
-    border-bottom: rgb(243, 96, 43) 2px solid;
+    border-bottom: var(--theme) 2px solid;
     text-align: center;
 }
 
@@ -187,7 +193,7 @@ footer h4{
     font-size: 15px;
     color: black;
     text-decoration: none;
-    background-color: rgb(243, 96, 43);
+    background-color: var(--theme);
 
 }
 #welcomeSlide li{
@@ -199,7 +205,7 @@ footer h4{
     text-align: center;
 }
 #glasmarket_high{
-    color: rgb(243, 96, 43);
+    color: var(--theme);
     float: right;
 }
 #left_side{
@@ -209,7 +215,7 @@ footer h4{
     padding: 30px;
 }
 #welcomeSlide h2:hover{
-    background-color: rgb(245, 122, 77);
+    background-color: var(--hover);
     border-radius: 50px;
 
 }
@@ -234,14 +240,14 @@ footer h4{
 
 #contactForm{
     display: block;
-    border-top: rgb(243, 96, 43) 3px solid;
+    border-top: var(--theme) 3px solid;
     margin-bottom: 30px;
 }
 
 input{
     border: none;
-    border-bottom: rgb(243, 96, 43) 1px solid;
-    border-left: rgb(243, 96, 43) 1px solid;
+    border-bottom: var(--theme) 1px solid;
+    border-left: var(--theme) 1px solid;
     text-align: center;
     padding: 15px;
     margin: 20px;
@@ -258,7 +264,7 @@ input:hover,textArea:hover{
 }
 
 textarea{
-    border: rgb(243, 96, 43) 1px solid;
+    border: var(--theme) 1px solid;
     border-top: 0;
     border-right: 0;
     margin:20px;
@@ -270,7 +276,7 @@ textarea{
 }
 
 #contactButton{
-    border: rgb(243, 96, 43) 1px solid;
+    border: var(--theme) 1px solid;
     width: 150px;
     height: 50px;
     font-size: 20px;
@@ -301,7 +307,7 @@ textarea{
     margin-top: 0;
     padding-top: 0;
     /*min-height: 900px;*/
-    max-height: 90vh;
+    height: 90vh;
     text-align: center;
     border-bottom: black 1px solid;
     background-color: rgb(250, 250, 250);
@@ -315,7 +321,7 @@ textarea{
 
 }
 #categoryBlock h1{
-    font-size:2.1vw;
+    font-size: 180%;
     margin-top: 2px;
 }
 #categoryBlock ul {
@@ -332,7 +338,7 @@ textarea{
     text-decoration: none;
     display:block;
     color: black;   
-    font-size: 1.3vw;
+    font-size: 130%;
     height: 6vh;
     padding-left: 15px;
     padding-top: 10px;
@@ -340,12 +346,12 @@ textarea{
 }
 
 #currentC {
-    background-color:rgb(87, 140, 175);
+    background-color:var(--theme);
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
 }
 #nonCurrentC a:hover{
-    color: rgb(241, 88, 33);
+    color: var(--hover);
 }
 
 
@@ -383,7 +389,7 @@ textarea{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 .dropbtn {
-    background-color: rgb(119, 182, 224);
+    background-color: var(--theme);
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -398,7 +404,7 @@ textarea{
   
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-background-color: rgb(168, 62, 24);
+background-color: var(--hover);
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -447,6 +453,7 @@ display: block;
     background-color: rgb(119, 182, 224);
     margin: 25px 25px 0 25px;
     border-radius: 25px;
+    
     min-height: 20vh;
     display:inline-block;
     width: 95%;
@@ -473,6 +480,7 @@ display: block;
 
 
 #info{
+    
     float: left;
     width: 23%;
     padding-left: 1%;
@@ -480,7 +488,7 @@ display: block;
     word-wrap: break-word
 }
 #info h1{
-    font-size: 25px;
+    font-size: 22px;
 }
 #info h3{
     font-size: 20px;
@@ -488,6 +496,10 @@ display: block;
 #info a{
     text-decoration: none;
     font-size: 15px;
+    color: white;
+}
+#info a:hover{
+    color: var(--hover);
 }
 .description{
     float: right;
@@ -525,8 +537,9 @@ display: block;
 #backgroundLogIn{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
-    min-height: 450px;
-    border-bottom: rgb(243, 96, 43) 2px solid;
+    height: 80vh;
+    padding-top: 5%;
+    border-bottom: var(--theme) solid;
     text-align: center;
     opacity: 0.7;
 }
@@ -575,62 +588,69 @@ display: block;
 }
 
 #inputLog h2:hover{
-    background-color: rgb(245, 122, 77);
+    background-color: var(--hover);
     border-radius: 10px;
 }
 
-
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 #boxRegister{
-    min-height: 80vh;
-    border-radius: 25px;
+    border-radius: 40px;
     background-color: rgb(247, 242, 242);
     opacity: 0.9;
-    width: 85%;
     margin: auto; /*will set the everything to the middle*/
     overflow: hidden;
     text-align: center;
-    padding-bottom:2%;
+    padding-bottom:20px;
     padding-top: 2%;
+    width: 45%;
+    
 }
 
 #boxRegister h1{
-    font-size: 20px;
-    color: rgb(235, 121, 29);
+    font-size: 35px;
+    color: var(--theme);
     text-decoration: none;
     text-indent: 15px;
     font-weight: bold;
     margin-top: 0;
     padding-top: 0;
 }
-#right{
-
-    align-content: right;
-
+#boxRegister input{
+    width: 35%;
+    font-size: 100%;
+}
+#boxRegister #id_picture{
+    width: 80%;
+    background-color: white;
 }
 
-#left{
-    align-content: left;
-
-}
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 #picAndInfo {
     height: 20%;
-    width: 25%;
+    width: 20%;
     margin-left: 0;
     padding-left: 0;
     float: left;
 }
 #picAndInfo img{
-    width: 200px;
-    height: 200px;
-    margin-top: 5%;
+    width: 20vh;
+    height: 40vh;
+    margin-top:10%;
     padding-top: 5%;
-    border-radius: 25px;
+    margin-bottom: 5%;
+    border-radius: 200px;
 }
 
 #userListings{
     float: right;
-    width: 75%;
+    width: 80%;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: auto;
@@ -639,6 +659,7 @@ display: block;
 }
 #userPage{
     display: flex;
+    height: 90vh;
     width: 100%;
     margin-top: 0;
     padding-top: 0;
@@ -646,4 +667,25 @@ display: block;
     max-height: 90vh;
     text-align: center;
     border-bottom: black 1px solid;
+}
+#profileHead{
+    display: inline;
+    width: 100%;
+    float: right;
+}
+#profileHead h1{
+    float: left;
+    margin-left: 30px;
+}
+#profileHead a{
+    text-decoration: none;
+    color: var(--theme);
+    
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 50px;
+    margin-left: 20px;
+    background-color: var(--hover);
+    font-size: 40px;
+    float: left;
 }

@@ -20,22 +20,32 @@
     <div id="userPage">
 
         <div id="picAndInfo">
-            <img src="{{ MEDIA_URL }}{{ profile.picture }}" alt="userPicture"><br>
+            {% if profile.picture %}
+                <img src="{{ MEDIA_URL }}{{ profile.picture }}" alt="userPicture"><br>
+            {% else %}
+                <img src="{% static 'images/stockProfile.png' %}" alt="userPicture"><br>
+            {% endif %}
             {{ pageUser.username }}<br>
             email:  {{ pageUser.email }}<br>
-            phone number:  {{ profile.phone }}<br>
-            facebook page:  {{ profile.facebook }}<br>
+            {% if profile.phone %}
+                phone number:  {{ profile.phone }}<br>
+            {% endif %}
+            {% if profile.facebook %}
+                facebook page:  {{ profile.facebook }}<br>
+            {% endif %}
             {% if user.username ==  pageUser.username %} 
                 <a href="/glasmarket/logout">logout</a>
             {% endif %}
         </div>
 
         <div id="userListings">
-            {% if user.username == userPage.username %}
-                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ pageUser.username }}/addListing">add listing</a>
+            <div id="profileHead">
+            {% if user.username == pageUser.username %}
+                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ pageUser.username }}/addListing">+</a>
             {% else %}
                 <h1>{{ pageUser.username }}'s listings</h1>
             {% endif %}
+            </div>
             {% if listings %}
                 {% for listing in listings %}
                     
