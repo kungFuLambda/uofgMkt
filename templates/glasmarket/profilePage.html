@@ -59,7 +59,7 @@
                             <h3>{{ listing.price }}£</h3>
                             <a href="">{{ listing.seller }}</a>
                             {% if user.username == pageUser.username %}
-                                <a id="deleteListing" onclick="return getConfirmation('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' usernm listing.id  %}">delete Listing</a>
+                                <a id="deleteListing" onclick="return getConfirmation('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">delete Listing</a>
                             {% endif %}
                         </div>
 

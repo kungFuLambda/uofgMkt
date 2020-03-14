@@ -135,29 +135,35 @@ def sort(request,category_name_slug,chosen_button):
 
     return render(request,'glasmarket/category.html',context_dict)
 
+
+
 def addListing(request,username):
 
     context_dict['active'] = 'login'
-    UserID = User.objects.get(username=username).id
-    
+    UserID = User.objects.get(username=username)
+    sell = UserProfile.objects.get(user=UserID)    
     if request.method == 'POST':
         
         form = addListingForm(request.POST)
-        
+        print(form)
+
         if form.is_valid():    
             print("here")
             listing = form.save(commit=False)
             if 'picture' in request.FILES:
                 listing.picture = request.FILES['picture']
             listing.save()
+            print("redirecting")
             return redirect(reverse('glasmarket:profilePage',kwargs={'username':username}))
         else:
             return render(request,'glasmarket/addListingPage.html',context_dict)
-            context_dict['forms'] = form
+            
         
     
-    context_dict['form'] = addListingForm(initial={'seller':UserID})
+    context_dict['form'] = addListingForm(initial={'seller':sell})
     return render(request,'glasmarket/addListingPage.html',context_dict)
+
+
 
 def removeListing(request,username,listingID):
     listing = Listing.objects.filter(id=listingID)
