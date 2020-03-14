@@ -1,5 +1,5 @@
 {% extends 'glasmarket/base.html' %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title_block %}
 {% if user.is_authenticated %}
@@ -21,17 +21,20 @@
             <div id="userAvatar">
                 <img src="UserOrange.png" alt="UserOrangeUser">
             </div>    
-
             <div id="divLogin">
                 <h1>Login</h1>
                 
                 <form id="login_form" method="post" >
                 <div id="inputLog">
                     {% csrf_token %}
+                    {% if attempt %}
+                    <input id="errordisplay" type="text" name="username" value="" size="50" placeholder={{message}} ><br>
+                    <input id="errordisplay" type="password" name="password" value="" size="50" placeholder={{message}} ><br>
+                    {% else %}
                     <input type="text" name="username" value="" size="50" placeholder="username"><br>
                     <input type="password" name="password" value="" size="50" placeholder="password"><br>
-
-            
+                    {% endif %}
+                    
                     <div id="loginButton">
                     <input type="submit" value="login" placeholder="login">
                     </div>
