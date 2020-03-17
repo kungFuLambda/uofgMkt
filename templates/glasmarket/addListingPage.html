@@ -7,13 +7,17 @@ About
 
 {% block body_block %}
 
-    <div>
+    <div id="listingAdd">
+        <h1>Add a Listing</h1>
         <form id="addListingForm" action="/glasmarket/profilePage/{{ user.username }}/addListing" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
             {{ field.errors }}
             {{ field.help_text }}
-            {{ field }}<br>
+            {{ field }}
+            {% if field.name == 'description' or field.name == 'category' %}
+            <br>
+            {% endif %}
             {% endfor %}
             <input type="submit" name="submit" value="addListing" placeholder="Add Listing">
         </form>

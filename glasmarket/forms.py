@@ -33,11 +33,13 @@ class UserProfileForm(forms.ModelForm):
 class addListingForm(forms.ModelForm):
     class Meta:
         model=Listing
-        fields = ('picture','name','price','description','category','seller',)
+        fields = ('name','price','picture','description','category','seller',)
         widgets={
             'name':forms.TextInput(attrs={'placeholder':'product name'}),
             'description':forms.Textarea(attrs={'placeholder':'product description'}),
             'seller':forms.HiddenInput(),
+            'price':forms.TextInput(),
+            'category':forms.Select(attrs={'placeholder':'choose a category'}),
 
         }
 

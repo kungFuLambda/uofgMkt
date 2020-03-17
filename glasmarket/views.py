@@ -120,7 +120,7 @@ def sort(request,category_name_slug,chosen_button):
     else:
         categories = Category.objects.filter(slug=category_name_slug)
 
-    context_dict['categories'] = categories
+    
 
     if chosen_button == 'newest':
         listings = Listing.objects.filter(category__in=categories).order_by('-date')
@@ -262,5 +262,5 @@ def register(request):
 def user_logout(request):
     logout(request)
     context_dict['active'] = 'home'
-    return render(request,'glasmarket/home.html',context=context_dict)
+    return(redirect(reverse('glasmarket:index') ,context=context_dict))
 
