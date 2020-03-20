@@ -11,41 +11,46 @@
 {% endblock %}
 
 {% block body_block %}
-<div id="backgroundLogIn"></div>
-        <div id="box">
-            {% if user.is_authenticated %} 
-            {{ user.username }}
-            
-            <a href="/glasmarket/logout">logout</a>
-            {% else %} 
-            <div id="userAvatar">
-                <img src="UserOrange.png" alt="UserOrangeUser">
-            </div>    
+<div id="backgroundLogIn">
+        
 
+    <div id="box">
+        {% if user.is_authenticated %} 
+        {{ user.username }}
+        
+        <a href="/glasmarket/logout">logout</a>
+        {% else %} 
+   
+        
+
+        
             <div id="divLogin">
-                <h1>Login</h1>
+                <img id="userAvatar" src="{% static 'images/UserOrange.png' %}" alt="UserOrangeUser"><br>
+                <h1 id="loginHeader">Login</h1>
                 
-                <form id="login_form" method="post" >
-                <div id="inputLog">
-                    {% csrf_token %}
-                    <input type="text" name="username" value="" size="50" placeholder="username"><br>
-                    <input type="password" name="password" value="" size="50" placeholder="password"><br>
+                    <form id="login_form" method="post" >
+                    <div id="inputLog">
+                        {% csrf_token %}
+                        <input type="text" name="username" value="" size="50" placeholder="username"><br>
+                        <input type="password" name="password" value="" size="50" placeholder="password"><br>
 
-            
-                    <div id="loginButton">
-                    <input type="submit" value="login" placeholder="login">
+                
+                        
+                        <input type="submit" value="login" placeholder="login" id="but">
+                        
+                
+                    </form>
                     </div>
-                
-                </form>
-                </div>
-
+                <br>
                 <a href="/glasmarket/register">Don't have an account? Register</a>
                 
             
-                </div>
+            </div>
             
-        </div>
+    </div>  
 </div>
+
+  
 
     {% endif %}
 

@@ -8,31 +8,40 @@ Register
 {% block body_block %}
 <div id="backgroundLogIn">
         <div id="boxRegister">
-            <h1>Register</h1>
             
+            <div id="divRegister">
 
+            <img id="userAvatar" src="{% static 'images/UserOrange.png' %}" alt="UserOrangeUser"><br>
+            <h1 id="loginHeader">Register</h1>
+
+        
             {% if registered %}
-            <strong>Thank you for registering!</strong>
-            <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
+                <strong>Thank you for registering!</strong>
+                <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
             {% else %}
             <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
             
-            {% csrf_token %}
+            <div id="inputReg">
+                {% csrf_token %}
 
 
-            {% for field in user_form %}
-            {{ field.errors }}
-            {{ field }}
+                {% for field in user_form %}
+                {{ field.errors }}
+                {{ field }}
 
-            {% endfor %}
-            {% for field in profile_form %}
-            {{ field.errors }}
-            {{ field }} 
-            {% endfor %}
+                {% endfor %}
+                {% for field in profile_form %}
+                {{ field.errors }}
+                {{ field }} 
+                {% endfor %}
 
-            <input type="submit" name="submit" value="Register" />
+            </div>
+            <input type="submit" value="Register" placeholder="Register" id="butReg">
+        
         
         </form>
+
+         </div>
     </div>
     </div>
         
