@@ -179,17 +179,7 @@ def sort(request,category_name_slug,chosen_button):
         listings = Listing.objects.filter(category__in=categories).order_by('price')
     context_dict['listings'] = listings
 
-def user_login(request):
-    if request.method=='POST':
-        username=request.POST.get('username')
-        password=request.POST.get('password')
 
-        user=authenticate(username=username,password=password)
-        if user:
-            if user.is_active:
-                login(request,user)
-                return redirect(reverse('glasmarket:profile'))
-    return render(request,'glasmarket/category.html',context=context_dict)
 
 
 
