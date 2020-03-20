@@ -15,43 +15,72 @@
 
     {% if user.is_superuser %}
         you are an admin 
-        <a href="/glasmarket/logout">logout</a>
+        <a href="/glasmarket/logout">Logout</a>
     {% else %}
     <div id="userPage">
 
         <div id="picAndInfo">
-            <img src="{{ MEDIA_URL }}{{ pic }}" alt="userPicture"><br>
-            {{ usernm }}<br>
-            {{ email }}
-            {% if user.username == userPage %}
-            <a href="/glasmarket/logout">logout</a>
+            {% if profile.picture %}
+                <img src="{{ MEDIA_URL }}{{ profile.picture }}" alt="userPicture"><br>
+            {% else %}
+                <img src="{% static 'images/stockProfile.png' %}" alt="userPicture"><br>
             {% endif %}
+            <div id="userInfo">
+
+                {{ pageUser.username }}<br>
+                email:  {{ pageUser.email }}<br>
+                {% if profile.phone %}
+                    phone number:  {{ profile.phone }}<br>
+                {% endif %}
+                {% if profile.facebook %}
+                    <a href="{{ profile.facebook }}">facebook page:  {{ profile.facebook }}</a> <br>
+                {% endif %}
+            </div>
+                {% if user.username ==  pageUser.username %} 
+                    <a id="logoutButton" onclick="return confirmLogout()" href="/glasmarket/logout">Logout</a>
+                {% endif %}
+            
+
         </div>
 
         <div id="userListings">
-            {% if user.username == userPage %}
-                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ usernm }}/addListing">add listing</a>
+            <div id="profileHead">
+            {% if user.username == pageUser.username %}
+                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ pageUser.username }}/addListing">+</a>
+                
+                
             {% else %}
-                <h1>{{ usernm }}'s listings</h1>
+                <h1>{{ pageUser.username }}'s listings</h1>
             {% endif %}
-        {% for listing in listings %}
-            <div class="product">
-                <div class="image">
-                    <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
-                </div>
-            <div id="info">
-                <h1>{{ listing.name }}</h1>
-                <h3>{{ listing.price }}£</h3>
-                <a href="">{{ listing.seller }}</a>
             </div>
+            {% if listings %}
+                {% for listing in listings %}
+                    
+                    <div class="product">
+                        <div class="image">
+                            <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+                        </div>
+                    
+                        <div id="info">
+                            <h1>{{ listing.name }}</h1>
+                            <h3>{{ listing.price }}£</h3>
+                            <a href="">{{ listing.seller }}</a><br>
+                            {% if user.username == pageUser.username %}
+                                <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">delete Listing</a>
+                            {% endif %}
+                        </div>
 
-            <div class="description">
-                
-                <p>{{ listing.description }}</p>
-                
-            </div>
-            </div>
-        {% endfor %}
+                        <div class="description">
+                            <p>{{ listing.description }}</p>        
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+                <h3>sorry you dont have any Listings</h3>
+
+            {% endif %}
         </div>
     </div>
     {% endif %}

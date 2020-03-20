@@ -1,5 +1,5 @@
 from django import forms
-from glasmarket.models import UserProfile,Listing
+from glasmarket.models import UserProfile,Listing,Category
 from django.contrib.auth.models import User
 
 
@@ -12,7 +12,6 @@ class ReviewForm(forms.Form):
 
         
 class UserForm(forms.ModelForm):
-
     class Meta:
         model=User
         fields=('username','password','email')
@@ -34,10 +33,14 @@ class UserProfileForm(forms.ModelForm):
 class addListingForm(forms.ModelForm):
     class Meta:
         model=Listing
-        fields = ('picture','name','price','description','category','seller')
+        fields = ('name','price','picture','description','category','seller',)
         widgets={
             'name':forms.TextInput(attrs={'placeholder':'product name'}),
             'description':forms.Textarea(attrs={'placeholder':'product description'}),
+            'seller':forms.HiddenInput(),
+            'price':forms.TextInput(),
+            'category':forms.Select(attrs={'placeholder':'choose a category'}),
+
         }
 
 

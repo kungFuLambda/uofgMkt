@@ -513,7 +513,7 @@ display: block;
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
     min-height: 450px;
-    border-bottom: rgb(241, 88, 33) 2px solid;
+    border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
     opacity: 0.7;
     padding-top: 5vh;
@@ -600,7 +600,7 @@ display: block;
 
 
 #inputLog h2:hover{
-    background-color: rgb(241, 88, 33);;
+    background-color: rgb(245, 122, 77);
     border-radius: 10px;
 }
 
@@ -626,7 +626,7 @@ display: block;
 #boxRegister h1{
        
     font-size: 30px;
-    color:rgb(241, 88, 33);
+    color: rgb(235, 121, 29);
     text-indent: 13px;
     font-weight: bold;
 }
@@ -634,7 +634,7 @@ display: block;
 
 #butReg{
     width:50%;
-    background-color: rgb(241, 88, 33);
+    background-color: #e26411;
     color:white;
   
     
@@ -642,7 +642,7 @@ display: block;
     
 }
 #butReg:hover{
-    background-color:  rgb(241, 88, 33);
+    background-color: rgb(245, 122, 77);
     color:black;
 
 }

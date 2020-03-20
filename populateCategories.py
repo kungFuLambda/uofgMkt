@@ -41,8 +41,7 @@ def populate():
     for cat in cats:
         add_category(cat)
 
-    for user in users:
-        u = add_user(user['name'],user['email'],user['fullName'],user['phone'],user['password'])
+    
         
     
 def add_category(catName):

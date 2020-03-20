@@ -18,7 +18,12 @@ from django.urls import reverse
 context_dict = {}
 context_dict['navBar'] = ['home','about','market','login']
 
-
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
 def home(request):
     #contruct dictionary to pass values to the {{boldmessage}} variable
     
@@ -27,7 +32,12 @@ def home(request):
 
     return render(request,'glasmarket/home.html',context=context_dict)
 
-
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
 
 def about(request):
     
@@ -48,70 +58,12 @@ def about(request):
 
     return render(request,'glasmarket/about.html',context=context_dict)
 
-
-
-def user_login(request):
-    
-    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
-    context_dict['active'] = 'login'
-    
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username,password=password)
-
-        if user:
-            if user.is_active:
-                login(request,user)
-                return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
-            else:
-                return HttpResponse("your glasmarket account is disabled")
-        else:
-            #print(f"Invalid login details: {username},{password}")
-            return HttpResponse("invalid login details")
-    
-
-    return render(request,'glasmarket/login.html',context=context_dict)
-
-def profilePage(request,username):
-
-    context_dict['active'] = 'login'
-    if not request.user.is_superuser:
-
-        UserObject = User.objects.filter(username=username)[0]
-        Profile = UserProfile.objects.filter(user=UserObject)[0]
-
-        context_dict['profile'] = Profile
-        context_dict['usernm'] = UserObject.username 
-        context_dict['email'] = UserObject.email
-        context_dict['pic'] = Profile.picture
-        
-        listings = Listing.objects.filter(seller=Profile)
-        
-        context_dict['userPage'] = username
-        context_dict['listings'] = listings
-    
-    return render(request,'glasmarket/profilePage.html',context=context_dict)
-
-
-def addListing(request,username):
-
-    context_dict['active'] = 'login'
-    context_dict['usernm'] = username
-
-    if request.method == 'POST':
-        form = addListingForm(request.POST)
-        if form.is_valid():    
-            new_listing = form.save(commit=False)
-            new_listing.seller = request.user
-            new_listing.save()
-
-        return redirect(reverse('glasmarket:profilePage',kwargs={'username':username}))
-    else:
-        context_dict['form'] = addListingForm()
-        context_dict['usernm'] = username
-        return render(request,'glasmarket/addListing.html',context_dict)
-
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
 
 
 
@@ -168,7 +120,8 @@ def sort(request,category_name_slug,chosen_button):
     else:
         categories = Category.objects.filter(slug=category_name_slug)
 
-    context_dict['categories'] = categories
+    
+
     if chosen_button == 'newest':
         listings = Listing.objects.filter(category__in=categories).order_by('-date')
     elif chosen_button == 'oldest':
@@ -177,16 +130,101 @@ def sort(request,category_name_slug,chosen_button):
         listings = Listing.objects.filter(category__in=categories).order_by('-price')
     elif chosen_button == 'lowHigh':
         listings = Listing.objects.filter(category__in=categories).order_by('price')
+
     context_dict['listings'] = listings
 
+    return render(request,'glasmarket/category.html',context_dict)
 
 
 
+def addListing(request,username):
 
+    context_dict['active'] = 'login'
+    UserID = User.objects.get(username=username)
+    sell = UserProfile.objects.get(user=UserID)    
+    if request.method == 'POST':
+        
+        form = addListingForm(request.POST)
+        print(form)
+
+        if form.is_valid():    
+            print("here")
+            listing = form.save(commit=False)
+            if 'picture' in request.FILES:
+                listing.picture = request.FILES['picture']
+            listing.save()
+            print("redirecting")
+            return redirect(reverse('glasmarket:profilePage',kwargs={'username':username}))
+        else:
+            return render(request,'glasmarket/addListingPage.html',context_dict)
+            
+        
+    
+    context_dict['form'] = addListingForm(initial={'seller':sell})
+    return render(request,'glasmarket/addListingPage.html',context_dict)
+
+
+
+def removeListing(request,username,listingID):
+    listing = Listing.objects.filter(id=listingID)
+    listing.delete()
+    return profilePage(request,username)
+
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+def user_login(request):
+    
+    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
+    context_dict['active'] = 'login'
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username,password=password)
+        context_dict['message'] = ""
+        context_dict['attempt'] = False
+        if user:
+            if user.is_active:
+                login(request,user)
+                return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+            else:
+                return HttpResponse("your glasmarket account is disabled")
+        else:
+            context_dict['message'] = "Invalid login details"
+            context_dict['attempt'] = True
+            return(redirect(reverse('glasmarket:login'), context=context_dict))
+            
+    
+
+    return render(request,'glasmarket/login.html',context=context_dict)
+
+def profilePage(request,username):
+
+    context_dict['active'] = 'login'
+
+    if not request.user.is_superuser:
+
+        UserObject = User.objects.get(username=username)
+        Profile = UserProfile.objects.get(user=UserObject)
+
+        context_dict['pageUser'] = UserObject
+        context_dict['profile'] = Profile
+
+        listings = Listing.objects.filter(seller=Profile)
+        
+        context_dict['listings'] = listings
+    
+    return render(request,'glasmarket/profilePage.html',context=context_dict)
 
 def register(request):
+
     context_dict['registered']=False
     context_dict['active'] = 'login'
+    
     if request.method=='POST':
         user_form=UserForm(request.POST)
         profile_form=UserProfileForm(request.POST)
@@ -195,7 +233,8 @@ def register(request):
             user=user_form.save()
             user.set_password(user.password)
             user.save()
-            
+            username = user_form.cleaned_data['username']
+            password = user_form.cleaned_data['password']
             profile=profile_form.save(commit=False)
             profile.user=user
 
@@ -204,20 +243,27 @@ def register(request):
             
             profile.save()
             context_dict['registered']=True
-
+            user = authenticate(username=username,password=password)
+            if user:
+                login(request,user)
+            return render (request,'glasmarket/login.html',context=context_dict)
     
         else:
-            print(user_form.errors, profile_form.errors)
-        return render (request,'glasmarket/login.html',context_dict)
+            context_dict['user_form'] = user_form
+            context_dict['profile_form'] = profile_form
+            return render (request,'glasmarket/register.html',context=context_dict)
+
+
     else:
         context_dict['user_form']=UserForm()
         context_dict['profile_form']=UserProfileForm()
         
 
-    return render (request,'glasmarket/register.html',context_dict)
+    return render (request,'glasmarket/register.html',context=context_dict)
 
 @login_required
 def user_logout(request):
     logout(request)
     context_dict['active'] = 'home'
-    return render(request,'glasmarket/home.html',context=context_dict)
+    return(redirect(reverse('glasmarket:index') ,context=context_dict))
+

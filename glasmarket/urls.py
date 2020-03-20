@@ -16,7 +16,7 @@ urlpatterns = [
     path('logout/',views.user_logout,name='logout'),
     path('profilePage/<slug:username>/',views.profilePage,name='profilePage'),
     path('profilePage/<slug:username>/addListing',views.addListing,name='addListing'),
-
+    path('profilePage/<slug:username>/<slug:listingID>',views.removeListing,name='removeListing'),
     #MARKET PATTERN
     path('market/',views.market,name='market'),
     path('market/<slug:category_name_slug>/', views.market, name='show_category'),
