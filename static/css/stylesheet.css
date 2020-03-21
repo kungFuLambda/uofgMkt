@@ -557,71 +557,75 @@ display: block;
 
 /*---------------------------------------LogIn-----------------------------------------------------*/
 
-
-
-
 #backgroundLogIn{
     background-image: url('../images/homeback.jpg');
     background-repeat: round;
-    height: 80vh;
-    padding-top: 5%;
-    border-bottom: var(--theme) solid;
+    min-height: 450px;
+    border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
     opacity: 0.7;
+    padding-top: 5vh;
+
 }
 #box{
-    position:absolute;
-    top:50px;
-    left:20px;
-    width:50px;
-    height:50px;
-    width:350px;
-    height: 380px;
+    
+    min-height: 40vh;
     border-radius: 25px;
     background-color: rgb(247, 242, 242);
-    margin-top: 3.5%;
-    margin-left: 40%;
-    opacity: 0.9;
-}
-
-#divLogin h1{
-    font-size: 20px;
-    color: rgb(235, 121, 29);
-    text-decoration: none;
-    text-indent: 15px;
-    font-weight: bold;
-}
-#infoRegister{
+    width: 25%;
+    margin: auto; /*will set the everything to the middle*/
+    display: inline-block;
     text-align: center;
-    font-size: 10px;
-    color: rgb(247, 241, 241);
+    padding-bottom:2%;
+    padding-top: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
+
+#box p{
+    color: red;
+}
+#userAvatar{
+    position: relative;
+    text-align: center;
+    overflow: visible;
+    margin-top: -10%;
+    width: 25%;
     
+   
 
-#inputLog{
+}
+#loginHeader{
+   
+   
+    font-size: 4vh;
+    color:var(--theme);
+    text-indent: 13px;
+    font-weight: bold;
+
+}
+
+#divLogin input{
+    width: 65%;
+    font-size: 2.2vh;
+}
+
+#but{
     
-    padding-left: 20px;
-    width: 100%;
-    content: normal;
-    justify-content: center;
-    border-bottom:1px solid #ffffff;
-    outline:none;
-    height: 280px;
-
-}
-#divLogin a{
-    padding:20px;
+    background-color: var(--theme);
+    color:white;   
 }
 
-#inputLog h2:hover{
+#but:hover{
     background-color: var(--hover);
-    border-radius: 10px;
+    color:black;
+
 }
 
-#errordisplay{
-    background-color: #f5586d;
-    color: #ffffff;
+#divLogin a{
+    text-align: center;
 }
+
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/

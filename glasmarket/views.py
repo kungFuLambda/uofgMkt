@@ -185,8 +185,15 @@ def user_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username,password=password)
-        context_dict['message'] = ""
-        context_dict['attempt'] = False
+        
+        UserObject = User.objects.filter(username=username)
+
+        if UserObject:
+            context_dict['error'] = 'password'
+        else:
+            context_dict['error'] = 'username'
+
+
         if user:
             if user.is_active:
                 login(request,user)
@@ -194,8 +201,7 @@ def user_login(request):
             else:
                 return HttpResponse("your glasmarket account is disabled")
         else:
-            context_dict['message'] = "Invalid login details"
-            context_dict['attempt'] = True
+        
             return(redirect(reverse('glasmarket:login'), context=context_dict))
             
     
