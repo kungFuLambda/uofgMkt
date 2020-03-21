@@ -1,12 +1,6 @@
 /* top left bottom right*/
 
-:root{
-    
-    --theme :#289451;
-    --hover :rgb(136, 214, 34);
-    --gradient : rgb(92, 202, 101);
-    
-}
+
 /*-----------------------------------------------GLOBAL--------------------------------------------------*/
 body{
     /*font-family:Arial, Helvetica, sans-serif;*/
@@ -14,9 +8,8 @@ body{
     font-size: 15px;
     line-height: 1.5; /*the height of each line in the whole body*/
     margin: 0;
-    padding: 0; 
-    background-image: linear-gradient(to right, rgb(250, 250, 250), rgb(240, 240, 240));
-    background-color: #333;
+    padding: 0;
+    background-image: linear-gradient(to bottom right, rgb(250, 250, 250), rgb(240, 240, 240));
     overflow:visible;
     color: black;
     word-wrap:break-word
@@ -26,13 +19,13 @@ img{
     max-height:100%
     }
 button{
-    border: var(--theme) 1px solid;
+    border: rgb(243, 96, 43) 1px solid;
     border-radius: 25px;
     font-family: 'Quicksand', semi-bold;
     background-color: white;
 }
 button:hover{
-    background-color: var(--hover);
+    background-color: rgb(245, 122, 77);
 }
 
 
@@ -59,9 +52,9 @@ button:hover{
 
 header{
     color: white;
-    background-color: #333;
+    
     min-height: 75px; /*the minimum height so it can be resized*/
-    border-bottom: var(--theme) 2px solid; /*the bottom border solid and thin*/
+    border-bottom: rgb(243, 96, 43) 2px solid; /*the bottom border solid and thin*/
     font-weight: bold;
 }
 
@@ -78,9 +71,8 @@ header li {
     margin: 10px;
 }
 header a{
-    color: rgb(245, 240, 240);
+    color: rgb(165, 164, 164);
     text-decoration: none;
-    font-weight: bold;
     text-transform: uppercase; /*makes uppercase*/
     font-size: 16px;
     padding: 10px 20px 10px 20px;
@@ -88,24 +80,24 @@ header a{
 }
 header h1 {
     margin-top: 6px;
-    margin-bottom: 0;
+    margin-bottom: 8px;
     float: left;
     font-size: 45px;
-    color: var(--theme);
+    color: rgb(243, 96, 43);
 }
 header a:hover{
     color: rgb(255, 255, 255);
-    background-color: var(--hover);
+    background-color: rgb(245, 122, 77);
     border-radius: 25px;
 }
 
 #highlight {
     color: rgb(255, 255, 255);
-    background-color: var(--theme);
+    background-color: rgb(243, 96, 43);
     border-radius: 25px;
 }
 .g{
-    color: rgb(255, 255, 255);
+    color: rgb(41, 41, 41);
     font-size: 45px;
     margin-top: 1px;
     margin-left: 1%;
@@ -114,7 +106,7 @@ header a:hover{
 
 footer{
     border-top:rgb(243, 96, 43);
-    background-color: #333;
+    background-image: linear-gradient(to bottom right, rgb(241, 88, 33), rgb(218, 105, 64));
     color: white;
 }
 /*footer items*/
@@ -131,13 +123,12 @@ footer h4{
     padding-top: 50px;
     margin-top: 0;
     margin: auto; /*will set the everything to the middle*/
-    
+    overflow: hidden;
     width: 80%;
 
 }
 #bottomNav li{
     display: inline;
-    
     
 }
 #bottomNav a{
@@ -159,29 +150,14 @@ footer h4{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-#homePage{
-    height: 90vh;
-}
+
 #backgroundImg {
     background-image: url('../images/homeback.jpg');
-    opacity: 0.75;
     background-repeat: round;
     min-height: 450px;
-    border-bottom: var(--theme) 2px solid;
+    border-bottom: rgb(243, 96, 43) 2px solid;
     text-align: center;
-    
 }
-
-#backgroundImg h1{
-    margin: 0;
-    color: black;
-    
-    padding-top: 7%;
-    font-size: 90px;
-    font-weight: bold;
-}
-
-
 
 #gradBack{
     color: white;
@@ -211,7 +187,7 @@ footer h4{
     font-size: 15px;
     color: black;
     text-decoration: none;
-    background-color: var(--theme);
+    background-color: rgb(243, 96, 43);
 
 }
 #welcomeSlide li{
@@ -223,7 +199,7 @@ footer h4{
     text-align: center;
 }
 #glasmarket_high{
-    color: var(--theme);
+    color: rgb(243, 96, 43);
     float: right;
 }
 #left_side{
@@ -233,9 +209,8 @@ footer h4{
     padding: 30px;
 }
 #welcomeSlide h2:hover{
-    background-color: var(--hover);
+    background-color: rgb(245, 122, 77);
     border-radius: 50px;
-    color: white;
 
 }
 #marketP {
@@ -259,14 +234,14 @@ footer h4{
 
 #contactForm{
     display: block;
-    border-top: var(--theme) 3px solid;
+    border-top: rgb(243, 96, 43) 3px solid;
     margin-bottom: 30px;
 }
 
 input{
     border: none;
-    border-bottom: var(--theme) 1px solid;
-    border-left: var(--theme) 1px solid;
+    border-bottom: rgb(243, 96, 43) 1px solid;
+    border-left: rgb(243, 96, 43) 1px solid;
     text-align: center;
     padding: 15px;
     margin: 20px;
@@ -283,7 +258,7 @@ input:hover,textArea:hover{
 }
 
 textarea{
-    border: var(--theme) 1px solid;
+    border: rgb(243, 96, 43) 1px solid;
     border-top: 0;
     border-right: 0;
     margin:20px;
@@ -295,7 +270,7 @@ textarea{
 }
 
 #contactButton{
-    border: var(--theme) 1px solid;
+    border: rgb(243, 96, 43) 1px solid;
     width: 150px;
     height: 50px;
     font-size: 20px;
@@ -314,6 +289,7 @@ textarea{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+
 /*------------------------------------------MARKETPLACE-----------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -326,21 +302,19 @@ textarea{
     margin-top: 0;
     padding-top: 0;
     /*min-height: 900px;*/
-    height: 90vh;
+    max-height: 90vh;
     text-align: center;
     border-bottom: black 1px solid;
-    background-color: rgb(250, 250, 250);
 }
 #categoryBlock{
     width: 17%;
-    padding : 5px 0px 5px 0px;
-    margin: 0;
+    padding : 5px 5px 5px 1px;
     float: left;
-    background-image: linear-gradient(to right, rgb(235, 231, 231), rgb(250, 250, 250));
+    border-right: black 1px solid;
 
 }
 #categoryBlock h1{
-    font-size: 180%;
+    font-size:2.1vw;
     margin-top: 2px;
 }
 #categoryBlock ul {
@@ -348,29 +322,17 @@ textarea{
     margin: 0;
     padding: 0;
 }
-#categoryBlock li{
-    margin: 0;
-    padding: 0;
-}
-
 #categoryBlock a {
     text-decoration: none;
-    display:block;
     color: black;   
-    font-size: 130%;
-    height: 6vh;
-    padding-left: 15px;
-    padding-top: 10px;
-    text-align: left;
+    font-size: 1.3vw;
+    
 }
-
-#currentC {
-    background-color:var(--theme);
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+#categoryBlock a:hover {
+    color: rgb(245, 122, 77);
 }
-#nonCurrentC a:hover{
-    color: var(--hover);
+#categoryBlock a:focus {
+    color:rgb(241, 88, 33);
 }
 
 
@@ -381,8 +343,8 @@ textarea{
     max-height: 50%;
 }
 #productsHeader{
+    border-bottom: black 1px solid;
     min-height: 80px;
-    background-image: linear-gradient(to bottom, rgb(252, 252, 252), rgb(250, 250, 250));
 }
 
 #searchWord,#searchButton{
@@ -408,7 +370,7 @@ textarea{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 .dropbtn {
-    background-color: var(--theme);
+    background-color: rgb(245, 122, 77);
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -423,7 +385,7 @@ textarea{
   
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-background-color: var(--hover);
+background-color: rgb(168, 62, 24);
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -469,11 +431,10 @@ display: block;
 }
 
 .product{
-    background-color: #333;
-    margin: 20px 20px 0 25px;
-    border-radius: 25px;
-    overflow: hidden;
-    max-height: 20vh;
+    background-color: rgb(119, 116, 116);
+    margin: 25px 25px 0 25px;
+    border-radius: 35px;
+    min-height: 20vh;
     display:inline-block;
     width: 95%;
     
@@ -481,7 +442,6 @@ display: block;
 
 .image{
     float: left;
-    
     width: 21%;
     height: 100%;
 }
@@ -492,15 +452,14 @@ display: block;
     height: 90%;
     margin: 10px 0 10px 10px;
     float: left;
-    border-top-left-radius: 25px;
+    border-top-left-radius: 35px;
     border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 25px;
+    border-bottom-left-radius: 35px;
     border-top-right-radius: 10px;
 }
 
 
 #info{
-    color: honeydew;
     float: left;
     width: 23%;
     padding-left: 1%;
@@ -508,19 +467,14 @@ display: block;
     word-wrap: break-word
 }
 #info h1{
-    font-size: 22px;
+    font-size: 25px;
 }
 #info h3{
-    color: rgb(53, 209, 53);
     font-size: 20px;
 }
 #info a{
     text-decoration: none;
     font-size: 15px;
-    color: white;
-}
-#info a:hover{
-    color: var(--hover);
 }
 .description{
     float: right;
@@ -541,13 +495,8 @@ display: block;
     scroll-behavior: auto;
 }
 
-#addListingPP{
-    display: none;
-}
 
-#id_facebook {
-    width: 75%;
-}
+
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -609,6 +558,11 @@ display: block;
     width: 65%;
     font-size: 2.2vh;
 }
+    
+/*padding:inside
+ margin: outside */
+
+
 
 #but{
     
@@ -633,85 +587,80 @@ display: block;
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 #boxRegister{
-    border-radius: 40px;
+    min-height: 40vh;
+    border-radius: 25px;
     background-color: rgb(247, 242, 242);
     opacity: 0.9;
+    width: 35%;
     margin: auto; /*will set the everything to the middle*/
-    overflow: hidden;
+    display: inline-block;
     text-align: center;
-    padding-bottom:20px;
-    padding-top: 2%;
-    width: 45%;
-    
+    padding-bottom:2%;
+    padding-top: 0%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #boxRegister h1{
-    font-size: 35px;
-    color: var(--theme);
-    text-decoration: none;
-    text-indent: 15px;
+       
+    font-size: 30px;
+    color: rgb(235, 121, 29);
+    text-indent: 13px;
     font-weight: bold;
-    margin-top: 0;
-    padding-top: 0;
-}
-#boxRegister input{
-    width: 35%;
-    font-size: 100%;
-}
-#boxRegister #id_facebook {
-    width: 65%;
-}
-#boxRegister #id_picture{
-    width: 80%;
-    background-color: white;
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+#butReg{
+    width:50%;
+    background-color: #e26411;
+    color:white;
+  
+    
+
+    
+}
+#butReg:hover{
+    background-color: rgb(245, 122, 77);
+    color:black;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #picAndInfo {
-
-    height: 100%;
-    width: 21%;
+    height: 20%;
+    width: 25%;
     margin-left: 0;
     padding-left: 0;
     float: left;
 }
 #picAndInfo img{
-    max-height: 25vh;
-    
-    margin-top:10%;
-    
-    margin-bottom: 5%;
-    
+    width: 200px;
+    height: 200px;
+    margin-top: 5%;
+    padding-top: 5%;
+    border-radius: 25px;
 }
-#logoutButton{
-    
-    text-decoration: none;
-    color: white;
-    padding: 2%;
-    padding-left: 8%;
-    padding-right: 8%;
-
-    border-radius: 15px;
-    font-size: 20px;
-    background-color: var(--theme);
-}
-#userInfo{
-    margin-bottom: 5%;
-    font-size: 18px;
-}
-#logoutButton:hover{
-    background-color: var(--hover);
-    color: cornsilk;
-}
- 
-
 
 #userListings{
     float: right;
-    width: 80%;
+    width: 75%;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: auto;
@@ -720,7 +669,6 @@ display: block;
 }
 #userPage{
     display: flex;
-    height: 90vh;
     width: 100%;
     margin-top: 0;
     padding-top: 0;
@@ -729,72 +677,3 @@ display: block;
     text-align: center;
     border-bottom: black 1px solid;
 }
-/*container of user header listings*/
-#profileHead{
-    display: inline;
-    width: 100%;
-    float: right;
-}
-/*user listins header*/
-#profileHead h1{
-    float: left;
-    margin-left: 30px;
-}
-
-/*plys button*/
-#profileHead a{
-    text-decoration: none;
-    color: white;
-    
-    margin-top: 10px;
-    font-size: 30px;
-    padding: 0;
-    width: 50px;
-    border-radius: 25px;
-    margin-top: 20px;
-    height: 50px;
-    margin-left: 20px;
-    background-color: var(--theme);
-    
-    float: left;
-}
-#profileHead a:hover{
-    background-color: var(--hover);
-}
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-#myDropForm{
-    display: none;
-}
-
-
-
-#listingAdd{
-    min-height: 88vh;
-    padding-top: 1%;
-    margin: auto; /*will set the everything to the middle*/
-    text-align: center;
-    width: 60%;
-}
-#listingAdd select {
-    height: 50px;
-    width: 30%;
-    text-align: center;
-    border-radius: 10px;
-    border:0 ;
-    
-    
-}
-#listingAdd h1{
-    font-size: 5vh;
-}
-#listingAdd #id_picture{
-    font-size: 15px;
-}
-
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------------------------*/
