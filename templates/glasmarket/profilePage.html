@@ -37,6 +37,7 @@
                 {% endif %}
             </div>
                 {% if user.username ==  pageUser.username %} 
+                    <a href=""><img src="{% static  'images/editImg2.png' %}" alt=""></a>
                     <a id="logoutButton" onclick="return confirmLogout()" href="/glasmarket/logout">Logout</a>
                 {% endif %}
             

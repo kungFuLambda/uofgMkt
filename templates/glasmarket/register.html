@@ -6,38 +6,38 @@ Register
 {% endblock %}
 
 {% block body_block %}
-<div id="backgroundLogIn">
-    <div id="boxRegister">
-    <h1>Register</h1>
+    <div id="backgroundLogIn">
+        <div id="boxRegister">
+        <h1>Register</h1>
+            
+
+        {% if registered %}
+            <strong>Thank you for registering!</strong>
+            <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
+        {% else %}
+            <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
+            
+                {% csrf_token %}
+                {% for hiddenfield in user_form.hidden %}
+                    {{ hiddenfield }}
+                {% endfor %}
+                {% for field in user_form %}
+                    {{ field.errors }}
+                    {{ field }}
+
+                {% endfor %}
+                {% for field in profile_form %}
+                    {{ field.errors }}
+                    {{ field }} <br>
+                {% endfor %}
+
+            <input type="submit" name="submit" value="Register" />
         
+            </form>
 
-    {% if registered %}
-        <strong>Thank you for registering!</strong>
-        <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
-    {% else %}
-        <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
-        
-            {% csrf_token %}
-            {% for hiddenfield in user_form.hidden %}
-                {{ hiddenfield }}
-            {% endfor %}
-            {% for field in user_form %}
-                {{ field.errors }}
-                {{ field }}
-
-            {% endfor %}
-            {% for field in profile_form %}
-                {{ field.errors }}
-                {{ field }} <br>
-            {% endfor %}
-
-        <input type="submit" name="submit" value="Register" />
-    
-        </form>
-
-         </div>
+            </div>
+        </div>
     </div>
-</div>
         
 {% endif %}
 

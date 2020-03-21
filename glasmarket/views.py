@@ -273,3 +273,5 @@ def user_logout(request):
     context_dict['active'] = 'home'
     return(redirect(reverse('glasmarket:index') ,context=context_dict))
 
+
+
