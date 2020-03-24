@@ -31,9 +31,8 @@
                     <form id="login_form" method="post" >
                     <div id="inputLog">
                         {% csrf_token %}
-                        {% if error %}
-                            <p>{{ error }} is wrong</p>
-                        {% endif %}
+                        
+                        
                         <input type="text" name="username" value="" size="50" placeholder="username"><br>
                         <input type="password" name="password" value="" size="50" placeholder="password"><br>
 

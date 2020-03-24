@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path,include
 from glasmarket import views 
 
 app_name = 'glasmarket'
@@ -17,6 +17,10 @@ urlpatterns = [
     path('profilePage/<slug:username>/',views.profilePage,name='profilePage'),
     path('profilePage/<slug:username>/addListing',views.addListing,name='addListing'),
     path('profilePage/<slug:username>/<slug:listingID>',views.removeListing,name='removeListing'),
+    path('editUser/<slug:username>',views.user_edit,name='editUser'),
+
+
+
     #MARKET PATTERN
     path('market/',views.market,name='market'),
     path('market/<slug:category_name_slug>/', views.market, name='show_category'),
@@ -26,5 +30,10 @@ urlpatterns = [
 
     path('sendMail/',views.about,name="review"),
     
+
+    path('profilePage/resetPassword',views.sendPassword,name='resetView'),
+    
+    
+
     
 ]

@@ -5,23 +5,28 @@
 
 <div id="productsDisplay">
     {% if category %}
+
         <h1>{{ category.name }}</h1>
         {% if listings %}
         {% for listing in listings %}
+    
         <div class="product">
-            <div class="image">
-                <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+            <div class="image" onclick="showImage()">
+                    <img src="{{ MEDIA_URL }}{{ listing.picture }}" id="myImg">
             </div>
-        <div id="info">
+    
+            <div id="info">
             <h1>{{ listing.name }}</h1>
             <h3>{{ listing.price }}£</h3>
-            <a href="/glasmarket/profilePage/{{ listing.seller }}">seller:{{ listing.seller }}</a>
+            <a href="/glasmarket/profilePage/{{ listing.seller }}">go to seller</a>
+
         </div>
 
         <div class="description">
             
             <p>{{ listing.description }}</p>
             
+    
         </div>
     </div>
     {% endfor %}

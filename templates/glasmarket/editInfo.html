@@ -7,5 +7,21 @@
 
 {% block body_block %}
 
+<div id="backgroundImg">
+
+    <div id="editInfo">
+        <form method="post" id="editForm">
+            <h1>Edit your contact info</h1>
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="email"><br>
+            <input type="url" name="facebook" placeholder="facebook link"><br>
+            <input type="text" name="phoneNumber" placeholder="phone number"><br>
+
+
+            <input type="submit" value="edit" placeholder="change info" id="but"><br>
+        </form>
+
+    </div>
+</div>
 
 {% endblock %}

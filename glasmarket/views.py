@@ -7,14 +7,14 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 from glasmarket.models import Listing,Category,User,UserProfile
-from glasmarket.forms import UserForm,UserProfileForm,addListingForm
+from glasmarket.forms import UserForm,UserProfileForm,addListingForm,loginForm
 from glasmarket.forms import SearchForm
 
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.urls import reverse
 
-# Create your views here.
+#general context dict for navbar
 context_dict = {}
 context_dict['navBar'] = ['home','about','market','login']
 
@@ -145,15 +145,14 @@ def addListing(request,username):
     if request.method == 'POST':
         
         form = addListingForm(request.POST)
-        print(form)
 
         if form.is_valid():    
-            print("here")
+
             listing = form.save(commit=False)
             if 'picture' in request.FILES:
                 listing.picture = request.FILES['picture']
             listing.save()
-            print("redirecting")
+
             return redirect(reverse('glasmarket:profilePage',kwargs={'username':username}))
         else:
             return render(request,'glasmarket/addListingPage.html',context_dict)
@@ -180,7 +179,10 @@ def user_login(request):
     
     #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
     context_dict['active'] = 'login'
-    
+
+
+
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -189,9 +191,11 @@ def user_login(request):
         UserObject = User.objects.filter(username=username)
 
         if UserObject:
-            context_dict['error'] = 'password'
-        else:
-            context_dict['error'] = 'username'
+            context_dict['error'] = 'password is wrong'
+            
+        elif not user:
+            context_dict['error'] = 'username is wrong'
+        
 
 
         if user:
@@ -199,7 +203,7 @@ def user_login(request):
                 login(request,user)
                 return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
             else:
-                return HttpResponse("your glasmarket account is disabled")
+                context_dict['error'] = 'user not active'
         else:
         
             return(redirect(reverse('glasmarket:login'), context=context_dict))
@@ -225,6 +229,7 @@ def profilePage(request,username):
         context_dict['listings'] = listings
     
     return render(request,'glasmarket/profilePage.html',context=context_dict)
+
 
 def register(request):
 
@@ -252,7 +257,7 @@ def register(request):
             user = authenticate(username=username,password=password)
             if user:
                 login(request,user)
-            return render (request,'glasmarket/login.html',context=context_dict)
+            return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
     
         else:
             context_dict['user_form'] = user_form
@@ -274,4 +279,45 @@ def user_logout(request):
     return(redirect(reverse('glasmarket:index') ,context=context_dict))
 
 
+@login_required
+def user_edit(request,username):
+    context_dict['active'] = 'login'
+    
+    if request.method == 'POST':
 
+        UserObject = User.objects.get(username=username)
+        Profile = UserProfile.objects.get(user=UserObject)
+
+        facebookLink = request.POST.get('facebook')
+        phoneNumber = request.POST.get('phoneNumber')
+        
+        if facebookLink:
+            Profile.facebook = facebookLink
+        
+        if phoneNumber:
+            Profile.phone  = phoneNumber
+        
+        Profile.save()
+        return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+
+    
+
+    return render(request,'glasmarket/editInfo.html',context=context_dict)
+
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+###################################################################################################################################################################################################
+def sendPassword(request):
+    context_dict['active'] = 'login'
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        print(email)
+        UserObject = User.objects.get(email=email)
+        print(UserObject.password)
+
+    
+    return render(request,'glasmarket/resetPassword.html',context=context_dict)

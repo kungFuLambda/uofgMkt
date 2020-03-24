@@ -4,14 +4,22 @@
 
 <html>
     <head>
-        <title>Glasmarket - 
+        <title>
+            
+            Glasmarket - 
             {% block title_block %}
                 Home
             {% endblock %}
             
         </title>
+        <link id="topLogo" rel="shortcut icon" href="{% static 'images/logo.png' %}" />
         <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
         <script src="{% static 'js/glasmarket.js' %}"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover">
         
@@ -19,8 +27,8 @@
     <body>
 
         <header>
-            
-            <a href="/glasmarket/home/"><h1 class="g" id="headerName">G</h1><h1 id="headerName">MARKET</h1></a>
+
+            <a href="/glasmarket/home/"><img id="headerLogo" src="{% static 'images/logo.png' %}" alt=""><h1 class="g" id="headerName">GU</h1><h1 id="headerName">MARKET</h1></a>
             
         
             <nav id="navItems">
@@ -67,6 +75,7 @@
         {% endblock %}
     </body>
     <footer>
+        
         <ul id="bottomNav">
             {% for navItem in navBar %}
                 {% if navItem == 'market' %}
@@ -83,6 +92,10 @@
                     
             {% endfor %}
         </ul>
-        <h4 id="footerName">Glasmarket logo</h4>
+
+        
+        <h4 id="footerName">Glasmarket<img id="footerLogo" src="{% static 'images/logo.png' %}" alt=""></h4>
+        
+
     </footer>
 </html>

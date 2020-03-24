@@ -27,17 +27,20 @@
             {% endif %}
             <div id="userInfo">
 
-                {{ pageUser.username }}<br>
+                <h2>{{ pageUser.username }}</h2>
                 email:  {{ pageUser.email }}<br>
                 {% if profile.phone %}
                     phone number:  {{ profile.phone }}<br>
                 {% endif %}
                 {% if profile.facebook %}
-                    <a href="{{ profile.facebook }}">facebook page:  {{ profile.facebook }}</a> <br>
+                facebook page:  <a href="{{ profile.facebook }}">{{ profile.facebook }}</a> <br>
                 {% endif %}
             </div>
                 {% if user.username ==  pageUser.username %} 
-                    <a href=""><img src="{% static  'images/editImg2.png' %}" alt=""></a>
+
+                    <a id="editButton" href="{% url 'glasmarket:editUser' pageUser.username %}">edit profile</a>
+                    
+                
                     <a id="logoutButton" onclick="return confirmLogout()" href="/glasmarket/logout">Logout</a>
                 {% endif %}
             
@@ -54,35 +57,37 @@
                 <h1>{{ pageUser.username }}'s listings</h1>
             {% endif %}
             </div>
-            {% if listings %}
-                {% for listing in listings %}
-                    
-                    <div class="product">
-                        <div class="image">
-                            <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+            
+                {% if listings %}
+                    {% for listing in listings %}
+                        
+                        <div class="product">
+                            <div class="image">
+                                <img src="{{ MEDIA_URL }}{{ listing.picture }}" >
+                            </div>
+                        
+                            <div id="info">
+                                <h1>{{ listing.name }}</h1>
+                                <h3>{{ listing.price }}£</h3>
+                                {% if user.username == pageUser.username %}
+                                    <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">delete Listing</a>
+                                {% endif %}
+                            </div>
+
+                            <div class="description">
+                                <p>{{ listing.description }}</p>        
+                            </div>
                         </div>
-                    
-                        <div id="info">
-                            <h1>{{ listing.name }}</h1>
-                            <h3>{{ listing.price }}£</h3>
-                            <a href="">{{ listing.seller }}</a><br>
-                            {% if user.username == pageUser.username %}
-                                <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">delete Listing</a>
-                            {% endif %}
-                        </div>
 
-                        <div class="description">
-                            <p>{{ listing.description }}</p>        
-                        </div>
-                    </div>
+                    {% endfor %}
 
-                {% endfor %}
+                {% else %}
+                    <h3>sorry you dont have any Listings</h3>
 
-            {% else %}
-                <h3>sorry you dont have any Listings</h3>
-
-            {% endif %}
+                {% endif %}
+            
         </div>
+        
     </div>
     {% endif %}
     

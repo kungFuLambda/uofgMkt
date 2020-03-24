@@ -53,3 +53,11 @@ class SearchForm(forms.Form):
         fields=('search')
 
     
+class loginForm(forms.Form):
+    class Meta:
+        model=User
+        fields=('username','password')
+        widgets={
+            'username':forms.TextInput(attrs={'placeholder':'username'}),
+            'password':forms.PasswordInput(attrs={'placeholder':'password'}),
+        }
