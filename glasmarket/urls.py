@@ -31,7 +31,7 @@ urlpatterns = [
     path('sendMail/',views.about,name="review"),
     
 
-    path('profilePage/resetPassword',views.sendPassword,name='resetView'),
+    
     
     
 

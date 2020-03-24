@@ -10,10 +10,11 @@
 <div id="backgroundImg">
 
     <div id="editInfo">
-        <form method="post" id="editForm">
+        <form method="post" id="editForm" enctype="multipart/form-data">
             <h1>Edit your contact info</h1>
             {% csrf_token %}
-            <input type="email" name="email" placeholder="email"><br>
+            
+            <input type="file" name="profilePic" accept="image/*" id="profileImage"><br>
             <input type="url" name="facebook" placeholder="facebook link"><br>
             <input type="text" name="phoneNumber" placeholder="phone number"><br>
 

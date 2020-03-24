@@ -728,12 +728,12 @@ display: block;
     text-decoration: none;
     color: white;
     padding: 2%;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 5%;
+    padding-right: 5%;
 
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 20px;
-    background-color: var(--theme);
+    background-color: #333;
 }
 
 #editButton{
@@ -741,14 +741,19 @@ display: block;
     color: white;
     padding: 2%;
     margin-bottom: 10px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-size: 20px;
-    background-color: var(--theme);
+    background-color: #333;
 }
 
 #userInfo{
+    padding: 10px;
+    color: #333;
     margin-bottom: 5%;
     font-size: 18px;
+    background-color: rgb(148, 144, 144);
+    border-radius: 15px;
+    margin-left: 20px;
 }
 
 #userInfo h2{
@@ -832,6 +837,21 @@ display: block;
     overflow: hidden;
     text-align: center;
 }
+#editForm #but{
+    width: 5%;
+}
+
+
+
+
+#profileImage{
+    background-color: white;
+}
+
+
+
+
+
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/

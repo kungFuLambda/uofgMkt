@@ -288,20 +288,28 @@ def user_edit(request,username):
         UserObject = User.objects.get(username=username)
         Profile = UserProfile.objects.get(user=UserObject)
 
+
+
         facebookLink = request.POST.get('facebook')
         phoneNumber = request.POST.get('phoneNumber')
-        
+
         if facebookLink:
             Profile.facebook = facebookLink
         
         if phoneNumber:
             Profile.phone  = phoneNumber
         
+        if 'profilePic' in request.FILES:
+                Profile.picture=request.FILES['profilePic']
+
+
+
         Profile.save()
         return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
 
     
-
+    else:
+        context_dict['profile_form']=UserProfileForm()
     return render(request,'glasmarket/editInfo.html',context=context_dict)
 
 ###################################################################################################################################################################################################
@@ -310,14 +318,3 @@ def user_edit(request,username):
 ###################################################################################################################################################################################################
 ###################################################################################################################################################################################################
 ###################################################################################################################################################################################################
-def sendPassword(request):
-    context_dict['active'] = 'login'
-
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        print(email)
-        UserObject = User.objects.get(email=email)
-        print(UserObject.password)
-
-    
-    return render(request,'glasmarket/resetPassword.html',context=context_dict)
