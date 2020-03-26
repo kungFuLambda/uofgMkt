@@ -19,6 +19,7 @@ body{
     background-color: #333;
     overflow:visible;
     color: black;
+    scroll-behavior: auto;
     word-wrap:break-word
 }
 img{
@@ -88,6 +89,7 @@ header li {
     text-transform: uppercase; /*makes uppercase*/
     font-size: 16px;
     padding: 10px 20px 10px 20px;
+    margin-left: 5px;
 }
 header h1 {
     margin-top: 1%;
@@ -717,9 +719,10 @@ display: block;
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 #picAndInfo {
-
+    overflow: hidden;
+    text-align: center;
     height: 100%;
-    width: 21%;
+    width: 20%;
     margin-left: 0;
     padding-left: 0;
     float: left;
@@ -730,6 +733,7 @@ display: block;
     margin-top:10%;
     
     margin-bottom: 5%;
+    border-radius: 5px;
     
 }
 #logoutButton{

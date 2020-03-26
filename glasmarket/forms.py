@@ -38,7 +38,7 @@ class addListingForm(forms.ModelForm):
             'name':forms.TextInput(attrs={'placeholder':'product name'}),
             'description':forms.Textarea(attrs={'placeholder':'product description'}),
             'seller':forms.HiddenInput(),
-            'price':forms.TextInput(),
+            'price':forms.TextInput(attrs={'placeholder':'price'}),
             'category':forms.Select(attrs={'placeholder':'choose a category'}),
 
         }
