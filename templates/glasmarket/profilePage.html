@@ -70,7 +70,7 @@
                                 <h1>{{ listing.name }}</h1>
                                 <h3>{{ listing.price }}£</h3>
                                 {% if user.username == pageUser.username %}
-                                    <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">delete Listing</a>
+                                    <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">Delete Listing</a>
                                 {% endif %}
                             </div>
 
@@ -82,7 +82,7 @@
                     {% endfor %}
 
                 {% else %}
-                    <h3>sorry you dont have any Listings</h3>
+                    <h3>Sorry, you don't have any Listings</h3>
 
                 {% endif %}
             

@@ -21,7 +21,7 @@ Homepage
                     </a>
                 </li>
                 {% if not user.is_authenticated %}
-                    <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+                    <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anything? Somebody else is and we're sure you have exactly what they're looking for.</p></a></li>
                 {% else %}
                     <li id="postP"><a href="/glasmarket/profilePage/{{ user.username }}">
                         {% if user.is_authenticated %}
