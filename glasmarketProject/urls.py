@@ -21,7 +21,7 @@ from glasmarket import views
 
 
 urlpatterns = [
-    path('',views.home,name="index"),
+    path('',views.market,name="market"),
     path('glasmarket/',include('glasmarket.urls')),
     path('admin/', admin.site.urls),
     path('accounts/',include('registration.backends.simple.urls')),

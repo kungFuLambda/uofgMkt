@@ -35,15 +35,14 @@
                 {% if profile.facebook %}
                 <a href="{{ profile.facebook }}">go to {{ pageUser.username }}'s facebook</a> <br><br>
                 {% endif %}
-            
-                {% if user.username ==  pageUser.username %} 
+            </div>
+            {% if user.username ==  pageUser.username %} 
 
                     <a id="editButton" href="{% url 'glasmarket:editUser' pageUser.username %}">Edit Profile</a>
                     
                 
                     <a id="logoutButton" onclick="return confirmLogout()" href="/glasmarket/logout">Logout</a>
                 {% endif %}
-            </div>
             
 
         </div>

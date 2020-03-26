@@ -5,8 +5,8 @@ app_name = 'glasmarket'
 
 urlpatterns = [
     #BASIC PATTERS
-    path('',views.home,name='index'),
-    path('glasmarket',views.home,name="index"),
+    path('/',views.market,name='market'),
+    path('glasmarket',views.market,name="market"),
     path('home/',views.home,name="index"),
     path('about/',views.about,name='about'),
 

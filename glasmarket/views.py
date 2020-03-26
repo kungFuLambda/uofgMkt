@@ -68,8 +68,10 @@ def about(request):
 
 
 
-def market(request,category_name_slug):
-
+def market(request,**kwargs):
+    
+    category_name_slug = kwargs.get('category_name_slug','all')
+    
     context_dict['active'] = 'market'
     context_dict['currentCategory'] = category_name_slug
     context_dict['form'] = SearchForm()
