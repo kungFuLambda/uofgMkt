@@ -18,11 +18,18 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from glasmarket import views
+from django.contrib.auth.views import PasswordResetDoneView,PasswordResetView, PasswordResetConfirmView, PasswordResetCompleteView
+from django.conf.urls import url
+
 
 
 urlpatterns = [
     path('',views.home,name="index"),
     path('glasmarket/',include('glasmarket.urls')),
     path('admin/', admin.site.urls),
-    
+    path('glasmarket/', include('django.contrib.auth.urls')),
+
+ 
+
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

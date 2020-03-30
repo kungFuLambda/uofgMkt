@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'glasmarket',
     
+    
 ]
 
 MIDDLEWARE = [
@@ -79,12 +80,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'glasmarketProject.wsgi.application'
-
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
 EMAIL_HOST_USER = 'glasmarketmail@gmail.com'
 EMAIL_HOST_PASSWORD = 'Dalabgroup69'
+EMAIL_PORT = 587
+
+
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -140,4 +142,5 @@ PASSWORD_HASHERS=(
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 )
+
 

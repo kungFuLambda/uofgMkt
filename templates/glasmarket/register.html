@@ -7,9 +7,13 @@ Register
 
 {% block body_block %}
 <div id="backgroundLogIn">
+
     <div id="boxRegister">
+           <img id="userAvatar" src="{% static 'images/UserGreen.png' %}" alt="UserOrangeUser"><br>
+
+   
+
     <h1>Register</h1>
-        
 
     {% if registered %}
         <strong>Thank you for registering!</strong>
@@ -31,7 +35,7 @@ Register
                 {{ field }} <br>
             {% endfor %}
 
-        <input type="submit" name="submit" value="Register" />
+        <input type="submit" name="submit" value="Register" id="but"/>
     
         </form>
 
