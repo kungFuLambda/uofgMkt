@@ -10,24 +10,26 @@ Homepage
 {% block body_block %}
     <div id="homePage">
         <div id="backgroundImg">
-            <h1 >WELCOME TO GMARKET</h1>
+            <h1 id="welcomeText">Welcome to GU-MARKET</h1>
+            <img id="homeLogo" src="{% static 'images/logo.png' %}" alt="">
         </div>
-        
-        
         <div id="welcomeSlide">
-
             <ul>
-                <li id="marketP"><a href="/glasmarket/market/all"><h2>Visit the marketplace</h2><p>We have a range array of stuff</p></a></li>
+                <li id="marketP">
+                    <a href="/glasmarket/market/all"><h2>Visit the marketplace</h2>
+                        <p>Visit the marketplace, where you can find any listings posted by glasgow university students. Find something you like? Contact the seller by phone, facebook or email</p>
+                    </a>
+                </li>
                 {% if not user.is_authenticated %}
-                    <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+                    <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anything? Somebody else is and we're sure you have exactly what they're looking for.</p></a></li>
                 {% else %}
                     <li id="postP"><a href="/glasmarket/profilePage/{{ user.username }}">
                         {% if user.is_authenticated %}
-                            <h2>{{ user.username }}</h2>
+                            <h2>Go to profile</h2>
                         {% else %}
                             <h2>Register/Log in</h2>
                         {% endif %}
-                        <p>Not looking for anyhting? Somebody else is and we're sure you have exactly what theyre looking for.</p></a></li>
+                        <p>Not looking for anyhting? Looking to unload some of the stuff you have hanging around? We get it, we're students too. Just drop by your profile page, upload one picture, quick description and badabim badabum your listing is up and waiting for its next owner</p></a></li>
                 {% endif %}
             </ul>
         </div>

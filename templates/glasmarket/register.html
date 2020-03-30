@@ -9,39 +9,43 @@ Register
 <div id="backgroundLogIn">
 
     <div id="boxRegister">
-           <img id="userAvatar" src="{% static 'images/UserGreen.png' %}" alt="UserOrangeUser"><br>
+           <img id="userAvatarReg" src="{% static 'images/UserGreen.png' %}" alt="UserOrangeUser"><br>
 
    
 
     <h1>Register</h1>
 
-    {% if registered %}
-        <strong>Thank you for registering!</strong>
-        <a href="{% url 'glasmarket:profile' %}">Return to the homepage</a><br/>
-    {% else %}
-        <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
+        {% if registered %}
+            <strong>Thank you for registering!</strong>
+            <a href="{% url 'glasmarket:profilePage' %}">Go to profile</a><br/>
         
-            {% csrf_token %}
-            {% for hiddenfield in user_form.hidden %}
-                {{ hiddenfield }}
-            {% endfor %}
-            {% for field in user_form %}
-                {{ field.errors }}
-                {{ field }}
+        {% elif user.is_authenticated %}
+            <strong>You're already logged in, stop snooping around</strong>
+            <a href="{% url 'glasmarket:profilePage' user.username %}">Go to profile</a><br/>
+        {% else %}
+            <form id="user_form" method="post" action="{% url 'glasmarket:register' %}" enctype="multipart/form-data">
+            
+                {% csrf_token %}
+                {% for hiddenfield in user_form.hidden %}
+                    {{ hiddenfield }}
+                {% endfor %}
+                {% for field in user_form %}
+                    {{ field.errors }}
+                    {{ field }}
 
-            {% endfor %}
-            {% for field in profile_form %}
-                {{ field.errors }}
-                {{ field }} <br>
-            {% endfor %}
+                {% endfor %}
+                {% for field in profile_form %}
+                    {{ field.errors }}
+                    {{ field }} <br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="login" placeholder="login" id="but"><br>
+        
+            </form>
 
-        <input type="submit" name="submit" value="Register" id="but"/>
-    
-        </form>
-
-         </div>
+            </div>
+        </div>
     </div>
-</div>
         
 {% endif %}
 

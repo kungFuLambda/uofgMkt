@@ -7,6 +7,7 @@ About
 
 {% block body_block %}
 
+<div id="backgroundImg">
     <div id="listingAdd">
         <h1>Add a Listing</h1>
         <form id="addListingForm" action="/glasmarket/profilePage/{{ user.username }}/addListing" method="post" enctype="multipart/form-data">
@@ -22,7 +23,7 @@ About
             <input type="submit" name="submit" value="addListing" placeholder="Add Listing">
         </form>
     </div>
-
+</div>
 
 
 

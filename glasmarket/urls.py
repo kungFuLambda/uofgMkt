@@ -1,4 +1,4 @@
-from django.urls import path 
+from django.urls import path,include
 from glasmarket import views 
 from django.contrib.auth.views import PasswordResetDoneView,PasswordResetView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.conf.urls import url
@@ -6,8 +6,8 @@ app_name = 'glasmarket'
 
 urlpatterns = [
     #BASIC PATTERS
-    path('',views.home,name='index'),
-    path('glasmarket',views.home,name="index"),
+    path('/',views.market,name='market'),
+    path('glasmarket',views.market,name="market"),
     path('home/',views.home,name="index"),
     path('about/',views.about,name='about'),
 
@@ -18,6 +18,10 @@ urlpatterns = [
     path('profilePage/<slug:username>/',views.profilePage,name='profilePage'),
     path('profilePage/<slug:username>/addListing',views.addListing,name='addListing'),
     path('profilePage/<slug:username>/<slug:listingID>',views.removeListing,name='removeListing'),
+    path('editUser/<slug:username>',views.user_edit,name='editUser'),
+
+
+
     #MARKET PATTERN
     path('market/',views.market,name='market'),
     path('market/<slug:category_name_slug>/', views.market, name='show_category'),
@@ -33,5 +37,10 @@ urlpatterns = [
     url(r'^/reset-password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', PasswordResetConfirmView.as_view(template_name='glasmarket/password_reset_complete.html'), name='password_reset_confirm'),
     url(r'^reset-password/complete/$', PasswordResetCompleteView.as_view(template_name='glasmarket/password_reset_complete.html'), name='password_reset_complete')
     
+
+    
+    
+    
+
     
 ]

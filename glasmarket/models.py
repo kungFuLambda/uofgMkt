@@ -9,7 +9,7 @@ class Listing(models.Model):
     picture = models.ImageField(default=0,upload_to='listings_images',blank=True)
     seller = models.ForeignKey('UserProfile',on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
-    price = models.IntegerField(default=0)
+    price = models.IntegerField()
     date = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     category = models.ForeignKey('Category',on_delete=models.CASCADE)
