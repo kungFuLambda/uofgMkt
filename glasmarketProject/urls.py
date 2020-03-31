@@ -27,11 +27,13 @@ urlpatterns = [
     path('',views.market,name="market"),
     path('glasmarket/',include('glasmarket.urls')),
     path('admin/', admin.site.urls),
-    path('glasmarket/', include('django.contrib.auth.urls')),
+    
 
- 
+    
+    url(r'^reset-password/$', PasswordResetView.as_view(template_name='glasmarket/password_reset_form.html'), name='password_reset'),
+    url(r'^password_reset/done/$', PasswordResetCompleteView.as_view(template_name='glasmarket/password_reset_done.html'), name='password_reset_done'),
+    url(r'^reset-password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', PasswordResetConfirmView.as_view(template_name='glasmarket/password_reset_confirm.html'), name='password_reset_confirm'),
+    url(r'^reset-password/complete/$', PasswordResetCompleteView.as_view(template_name='glasmarket/password_reset_complete.html'), name='password_reset_complete')
 
-   
-    path('accounts/',include('registration.backends.simple.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

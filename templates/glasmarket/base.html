@@ -40,7 +40,7 @@
                         {% if navItem == active %}
                             
                             {% if navItem == 'market' %}
-                                <li><a id="highlight" href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                                <li><a id="highlight" href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                             {% elif navItem == 'login' %}
                                 {% if user.is_authenticated %}  
                                     <li><a id="highlight" href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
@@ -54,7 +54,7 @@
                         {% else %}
                             
                             {% if navItem == 'market' %}
-                                <li><a href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                                <li><a href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                             {% elif navItem == 'login' %}
                                 {% if user.is_authenticated %}  
                                     <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
@@ -81,7 +81,7 @@
             
             {% for navItem in navBar %}
                 {% if navItem == 'market' %}
-                    <li><a href="/glasmarket/{{navItem}}/all">{{navItem}}</a></li>
+                    <li><a href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                 {% elif navItem == 'login' %}
                     {% if user.is_authenticated %}  
                         <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>

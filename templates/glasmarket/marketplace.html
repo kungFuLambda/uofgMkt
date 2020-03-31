@@ -11,9 +11,9 @@ Market
         <h1>Categories </h1>
         <ul>
         {% if currentCategory == "all" %}
-            <li id="currentC"><a href="/glasmarket/market/all">All Items</a></li>
+            <li id="currentC"><a href="/glasmarket/market/">All Items</a></li>
         {% else %}
-            <li id="nonCurrentC"><a href="/glasmarket/market/all">All Items</a></li>
+            <li id="nonCurrentC"><a href="/glasmarket/market/">All Items</a></li>
         {% endif %}
         {% for category in categories %}
             {% if category.name == currentCategory %}

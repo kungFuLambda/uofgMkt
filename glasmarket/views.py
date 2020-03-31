@@ -209,9 +209,12 @@ def user_login(request):
         else:
         
             return(redirect(reverse('glasmarket:login'), context=context_dict))
-            
+        
     
+    else:
+        context_dict['error'] = ''
 
+    
     return render(request,'glasmarket/login.html',context=context_dict)
 
 def profilePage(request,username):
