@@ -16,14 +16,14 @@ Homepage
         <div id="welcomeSlide">
             <ul>
                 <li id="marketP">
-                    <a href="/glasmarket/market/"><h2>Visit the marketplace</h2>
+                    <a href="{% url 'glasmarket:market' %}"><h2>Visit the marketplace</h2>
                         <p>Visit the marketplace, where you can find any listings posted by glasgow university students. Find something you like? Contact the seller by phone, facebook or email</p>
                     </a>
                 </li>
                 {% if not user.is_authenticated %}
-                    <li id="postP"><a href="/glasmarket/login/"><h2>Register/Log in</h2><p>Not looking for anything? Somebody else is and we're sure you have exactly what they're looking for.</p></a></li>
+                    <li id="postP"><a href="{% url 'glasmarket:login' %}"><h2>Register/Log in</h2><p>Not looking for anything? Somebody else is and we're sure you have exactly what they're looking for.</p></a></li>
                 {% else %}
-                    <li id="postP"><a href="/glasmarket/profilePage/{{ user.username }}">
+                    <li id="postP"><a href="{% url 'glasmarket:profilePage' user.username %}">
                         {% if user.is_authenticated %}
                             <h2>Go to profile</h2>
                         {% else %}

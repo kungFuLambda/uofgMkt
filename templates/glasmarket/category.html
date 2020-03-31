@@ -22,7 +22,7 @@
             <div id="info">
             <h1>{{ listing.name }}</h1>
             <h3>{{ listing.price }}£</h3>
-            <a href="/glasmarket/profilePage/{{ listing.seller }}">go to seller</a>
+            <a href="{% url 'glasmarket:profilePage' listing.seller %}">go to seller</a>
 
         </div>
 
@@ -35,7 +35,7 @@
     </div>
     {% endfor %}
         {% else %}
-        <strong>no listings in the category</strong>
+        <h2 id="noListings">no listings in the category</h2>
         {% endif %}
     {% else %}
     <strong>the category does not exist</strong>

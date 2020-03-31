@@ -54,10 +54,5 @@ class SearchForm(forms.Form):
 
     
 class loginForm(forms.Form):
-    class Meta:
-        model=User
-        fields=('username','password')
-        widgets={
-            'username':forms.TextInput(attrs={'placeholder':'username'}),
-            'password':forms.PasswordInput(attrs={'placeholder':'password'}),
-        }
+    username = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'email or username'}))
+    password = forms.CharField(max_length=100,widget=forms.PasswordInput(attrs={'placeholder':'password'}))

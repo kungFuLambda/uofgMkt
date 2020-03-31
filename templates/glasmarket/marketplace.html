@@ -11,15 +11,15 @@ Market
         <h1>Categories </h1>
         <ul>
         {% if currentCategory == "all" %}
-            <li id="currentC"><a href="/glasmarket/market/">All Items</a></li>
+            <li id="currentC"><a href="{% url 'glasmarket:market' %}">All Items</a></li>
         {% else %}
-            <li id="nonCurrentC"><a href="/glasmarket/market/">All Items</a></li>
+            <li id="nonCurrentC"><a href="{% url 'glasmarket:market' %}">All Items</a></li>
         {% endif %}
         {% for category in categories %}
             {% if category.name == currentCategory %}
-                <li id="currentC"> <a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li>
+                <li id="currentC"> <a href="{% url 'glasmarket:show_category' category.slug %}">{{ category.name }}</a></li>
             {% else %}
-                <li id="nonCurrentC"><a href="/glasmarket/market/{{ category.slug }}">{{ category.name }}</a></li>
+                <li id="nonCurrentC"><a href="{% url 'glasmarket:show_category' category.slug %}">{{ category.name }}</a></li>
             {% endif %}
         {% endfor %}
         </ul>
@@ -28,7 +28,8 @@ Market
 
     <div id="productsBlock">
         <div id="productsHeader">
-            <form action="/glasmarket/market/{{ currentCategory }}/" method="POST">
+                <form action="{% url 'glasmarket:show_category' currentCategory %}" method="POST">
+            
                 {% csrf_token %}
         
                 {% for field in form %}

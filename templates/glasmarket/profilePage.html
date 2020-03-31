@@ -15,33 +15,49 @@
 
     {% if user.is_superuser %}
         you are an admin 
-        <a href="/glasmarket/logout">Logout</a>
+        <a href="{% url 'glasmarket:logout' %}">Logout</a>
     {% else %}
     <div id="userPage">
 
         <div id="picAndInfo">
+
             {% if profile.picture %}
                 <img src="{{ MEDIA_URL }}{{ profile.picture }}" alt="userPicture">
             {% else %}
                 <img src="{% static 'images/stockProfile.png' %}" alt="userPicture">
             {% endif %}
+            
             <h1>{{ pageUser.username }}</h1>
+            
+            
             <div id="userInfo">
-                <h2>Contact {{ pageUser.username }}</h2><br>
+
+
+                {% if user.username ==  pageUser.username %}
+                    <h2>Your contact details</h2>
+                {% else %}
+                    <h2>Contact {{ pageUser.username }}</h2><br>
+                {% endif %}
+                
                 email:  {{ pageUser.email }}<br>
+                
                 {% if profile.phone %}
                     phone number:  {{ profile.phone }}<br>
                 {% endif %}
+                
                 {% if profile.facebook %}
+                
                 <a href="{{ profile.facebook }}">go to {{ pageUser.username }}'s facebook</a> <br><br>
+                
                 {% endif %}
+            
             </div>
             {% if user.username ==  pageUser.username %} 
 
                     <a id="editButton" href="{% url 'glasmarket:editUser' pageUser.username %}">Edit Profile</a>
                     
                 
-                    <a id="logoutButton" onclick="return confirmLogout()" href="/glasmarket/logout">Logout</a>
+                    <a id="logoutButton" onclick="return confirmLogout()" href="{% url 'glasmarket:logout' %}">Logout</a>
                 {% endif %}
             
 
@@ -50,7 +66,7 @@
         <div id="userListings">
             <div id="profileHead">
             {% if user.username == pageUser.username %}
-                <h1>Your listings </h1><a href="/glasmarket/profilePage/{{ pageUser.username }}/addListing">+</a>
+                <h1>Your listings </h1><a href="{% url 'glasmarket:addListing' pageUser.username %}">+</a>
                 
                 
             {% else %}
@@ -86,8 +102,11 @@
                     {% endfor %}
 
                 {% else %}
-                    <h3>Sorry, you don't have any Listings</h3>
-
+                    {% if user.username == pageUser.username %}
+                    <h3>You dont't have any listings,<a href="{% url 'glasmarket:addListing' pageUser.username %}">add one?</a></h3>
+                    {% else %}
+                    <h3>{{ pageUser.username }} doesn't have any listings</h3>
+                    {% endif %}
                 {% endif %}
             
         </div>

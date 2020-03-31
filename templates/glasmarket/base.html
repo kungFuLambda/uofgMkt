@@ -43,7 +43,7 @@
                                 <li><a id="highlight" href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                             {% elif navItem == 'login' %}
                                 {% if user.is_authenticated %}  
-                                    <li><a id="highlight" href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                                    <li><a id="highlight" href="{% url 'glasmarket:profilePage' user.username %}">{{ user.username }}</a></li>
                                 {% else %}
                                     <li><a id="highlight" href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                                 {% endif %}
@@ -57,7 +57,7 @@
                                 <li><a href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                             {% elif navItem == 'login' %}
                                 {% if user.is_authenticated %}  
-                                    <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                                    <li><a href="{% url 'glasmarket:profilePage' user.username %}">{{ user.username }}</a></li>
                                 {% else %}
                                     <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                                 {% endif %}
@@ -84,7 +84,7 @@
                     <li><a href="/glasmarket/{{navItem}}/">{{navItem}}</a></li>
                 {% elif navItem == 'login' %}
                     {% if user.is_authenticated %}  
-                        <li><a href="/glasmarket/profilePage/{{ user.username }}">{{ user.username }}</a></li>
+                        <li><a href="{% url 'glasmarket:profilePage' user.username %}">{{ user.username }}</a></li>
                     {% else %}
                         <li><a href="/glasmarket/{{navItem}}">{{navItem}}</a></li>
                     {% endif %}
