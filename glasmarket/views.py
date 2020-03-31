@@ -51,10 +51,11 @@ def about(request):
         if form.is_valid():
             email = EmailMessage(form.cleaned_data['sender_email'],form.cleaned_data['message']+"\n"+form.cleaned_data['sender_name'],"sender",['glasmarketmail@gmail.com'])
             email.send()
+            context_dict['active'] = 'home'
+            return render(request,'glasmarket/home.html',context=context_dict)
         #email = EmailMessage("submit",form.message,"sender",['glasmarketmail@gmail.com'])
         #email.send()
-    context_dict['form']=ReviewForm()
-
+    
 
     return render(request,'glasmarket/about.html',context=context_dict)
 
@@ -78,7 +79,9 @@ def market(request,**kwargs):
 
 
     if request.method == 'POST':
+
         form = SearchForm(request.POST)
+        
         if form.is_valid():
             keyWord = form.cleaned_data['searchWord']
             if category_name_slug == 'all':
@@ -89,6 +92,7 @@ def market(request,**kwargs):
             context_dict['listings'] = listings
     else:
     #check if no cateogry name slug was given
+        
         if category_name_slug == 'all':
             listings = Listing.objects.order_by('-name')
             categories = Category.objects.order_by('-name')
@@ -149,11 +153,13 @@ def addListing(request,username):
         form = addListingForm(request.POST)
 
         if form.is_valid():    
-
-            listing = form.save(commit=False)
-            if 'picture' in request.FILES:
-                listing.picture = request.FILES['picture']
-            listing.save()
+            if type(form.cleaned_data['price']) != int:
+                context_dict['form'] = form
+            else:   
+                listing = form.save(commit=False)
+                if 'picture' in request.FILES:
+                    listing.picture = request.FILES['picture']
+                listing.save()
 
             return redirect(reverse('glasmarket:profilePage',kwargs={'username':username}))
         else:
@@ -179,43 +185,41 @@ def removeListing(request,username,listingID):
 ###################################################################################################################################################################################################
 def user_login(request):
     
-    #here Category.objects.order_by('-likes')[:5] --> queries the category model to retrieve the top five categories
+
     context_dict['active'] = 'login'
 
-
-
-
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username,password=password)
-        
-        UserObject = User.objects.filter(username=username)
 
-        if UserObject:
-            context_dict['error'] = 'password is wrong'
+        form = loginForm(request.POST)
+        if form.is_valid():
+
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username,password=password)
+            if user == None:
+                userObject = User.objects.get(email=username)
+                if userObject != None:
+                    username = userObject.username
+                    user = authenticate(username=username,password=password)
             
-        elif not user:
-            context_dict['error'] = 'username is wrong'
-        
-
-
-        if user:
-            if user.is_active:
-                login(request,user)
-                return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+            if user:
+                if user.is_active:
+                    login(request,user)
+                    return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+                else:
+                    context_dict['error'] = 'user not active'
             else:
-                context_dict['error'] = 'user not active'
-        else:
-        
-            return(redirect(reverse('glasmarket:login'), context=context_dict))
-        
-    
-    else:
-        context_dict['error'] = ''
+                return(redirect(reverse('glasmarket:login'), context=context_dict))
 
-    
+        context_dict['form'] = form
+
+
+    else:
+        context_dict['form'] = loginForm()
+
     return render(request,'glasmarket/login.html',context=context_dict)
+
+
 
 def profilePage(request,username):
 
@@ -236,6 +240,7 @@ def profilePage(request,username):
     return render(request,'glasmarket/profilePage.html',context=context_dict)
 
 
+
 def register(request):
 
     context_dict['registered']=False
@@ -246,23 +251,31 @@ def register(request):
         profile_form=UserProfileForm(request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
-            user=user_form.save()
-            user.set_password(user.password)
-            user.save()
-            username = user_form.cleaned_data['username']
-            password = user_form.cleaned_data['password']
-            profile=profile_form.save(commit=False)
-            profile.user=user
-
-            if 'picture' in request.FILES:
-                profile.picture=request.FILES['picture']
             
-            profile.save()
-            context_dict['registered']=True
-            user = authenticate(username=username,password=password)
-            if user:
-                login(request,user)
-            return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+            email = user_form.cleaned_data['email']
+            if User.objects.get(email=email):
+                print("email already in use")
+                context_dict['user_form']=user_form
+                context_dict['profile_form']=profile_form
+
+            else:
+                user=user_form.save()
+                user.set_password(user.password)
+                user.save()
+                username = user_form.cleaned_data['username']
+                password = user_form.cleaned_data['password']
+                profile=profile_form.save(commit=False)
+                profile.user=user
+
+                if 'picture' in request.FILES:
+                    profile.picture=request.FILES['picture']
+                
+                profile.save()
+                context_dict['registered']=True
+                user = authenticate(username=username,password=password)
+                if user:
+                    login(request,user)
+                return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
     
         else:
             context_dict['user_form'] = user_form

@@ -36,44 +36,25 @@
 
         {{ user.username }}
 
-        <a href="/glasmarket/logout">logout</a>
+        <a href="{% url 'glasmarket:logout' %}">logout</a>
 
         {% else %} 
-
-   
-
-        
-
- 
-
-        
 
             <div id="divLogin">
 
                 <img id="userAvatar" src="{% static 'images/logo.png' %}" alt="UserOrangeUser"><br>
 
                 <h1 id="loginHeader">LOGIN</h1>
-
-                
-
                     <form id="login_form" method="post" >
 
                     <div id="inputLog">
 
                         {% csrf_token %}
 
-                        {% if error != '' %}
-
-                            <p>{{ error }}</p>
-
-                        {% endif %}
-
-                        
-                        
-                        <input type="text" name="username" value="" size="50" placeholder="username"><br>
-
-                        <input type="password" name="password" value="" size="50" placeholder="password"><br>
-
+                        {% for field in form %}
+                            {{ field.errors }}
+                            {{ field }}
+                        {% endfor %}
                         <input type="submit" value="login" placeholder="login" id="but"><br>
                         
 
@@ -85,8 +66,8 @@
 
                 <br>
 
-                <a href="/glasmarket/register">Don't have an account? Register</a><br>
-                <a href="/glasmarket/reset-password/">Forgot your password?</a>
+                <a href="{% url 'glasmarket:register' %}">Don't have an account? Register</a><br>
+                <a href="{% url 'glasmarket:password_reset' %}">Forgot your password?</a>
                 
 
             

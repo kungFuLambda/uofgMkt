@@ -18,7 +18,7 @@ About
     <div class="container" id="contactForm">
         <h1>Contact us</h1>
 
-        <form action="/glasmarket/sendMail/" method="POST">
+        <form action="{% url 'glasmarket:review' %}" method="POST">
             {% csrf_token %}
 
             {% for field in form %}

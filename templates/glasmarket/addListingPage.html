@@ -10,7 +10,7 @@ About
 <div id="backgroundImg">
     <div id="listingAdd">
         <h1>Add a Listing</h1>
-        <form id="addListingForm" action="/glasmarket/profilePage/{{ user.username }}/addListing" method="post" enctype="multipart/form-data">
+        <form id="addListingForm" action="{% url 'glasmarket:addListing' user.username %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
             {{ field.errors }}
@@ -20,7 +20,7 @@ About
             <br>
             {% endif %}
             {% endfor %}
-            <input type="submit" name="submit" value="addListing" placeholder="Add Listing">
+            <input id="submitAdd" type="submit" name="submit" value="addListing" placeholder="Add Listing">
         </form>
     </div>
 </div>
