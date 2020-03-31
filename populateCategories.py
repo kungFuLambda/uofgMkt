@@ -10,22 +10,6 @@ def populate():
     product = [] 
     cats = ['tech','hobby','stationary','clothes']
 
-    p = {}
-    p['name'] = 'playstation'
-    p['price'] = 200
-    p['description'] = 'a few things'
-    p['category'] = 'tech'
-    p['picture'] = Image.open("static\images\ps4.jpg")
-    p2 = {}
-    p2['name'] = 'ppl'
-    p2['price'] = 20000000
-    p2['description'] = 'a few thangs'
-    p2['category'] = 'hobby'
-    p2['picture'] = Image.open("static\images\ps4.jpg")
-
-
-    product.append(p)
-    product.append(p2)
 
     for i in range(20):
         name = "user"+str(i)
