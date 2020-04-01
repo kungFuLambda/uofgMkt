@@ -1,4 +1,5 @@
 {% extends 'glasmarket/marketplace.html' %}
+
 {% load staticfiles %}
 
 {% block products_block %}
@@ -20,19 +21,14 @@
             </div>
     
             <div id="info">
-            <h1>{{ listing.name }}</h1>
-            <h3>£{{ listing.price }}</h3>
+                <h1>{{ listing.name }}</h1>
+                <h3>£{{ listing.price }}</h3>
             <a href="{% url 'glasmarket:profilePage' listing.seller %}">go to seller</a>
-            
-
+            <div class="description">
+                <p >{{ listing.description }}</p>
+            </div>
         </div>
 
-        <div class="description">
-            
-            <p>{{ listing.description }}</p>
-            
-    
-        </div>
     </div>
     {% endfor %}
         {% else %}
