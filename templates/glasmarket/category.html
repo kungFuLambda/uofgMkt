@@ -11,18 +11,19 @@
         {% for listing in listings %}
     
         <div class="product">
-            <div class="image" onclick="showImage()">
+            <div class="image" >  
                 {% if listing.picture != '0' %}
-                    <img src="{{ MEDIA_URL }}{{ listing.picture }}" id="myImg">
+                    <img src="{{ MEDIA_URL }}{{ listing.picture }}" class="myImg">
                 {% else %}
-                    <img src="{% static 'images/noImage.jpg' %}" id="myImg">
+                    <img src="{% static 'images/noImage.jpg' %}" class="myImg">
                 {% endif %}
             </div>
     
             <div id="info">
             <h1>{{ listing.name }}</h1>
-            <h3>{{ listing.price }}£</h3>
+            <h3>£{{ listing.price }}</h3>
             <a href="{% url 'glasmarket:profilePage' listing.seller %}">go to seller</a>
+            
 
         </div>
 
@@ -41,4 +42,9 @@
     <strong>the category does not exist</strong>
     {% endif %}
 </div>
+<div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+            </div>
 {% endblock %}
