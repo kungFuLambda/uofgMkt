@@ -63,7 +63,7 @@
 
         </div>
 
-        <div id="userListings">
+        <div id="userListings"></div>
             <div id="profileHead">
             {% if user.username == pageUser.username %}
                 <h1>Your listings </h1><a href="{% url 'glasmarket:addListing' pageUser.username %}">+</a>

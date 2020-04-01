@@ -18,20 +18,23 @@
                     <img src="{% static 'images/noImage.jpg' %}" id="myImg">
                 {% endif %}
             </div>
-    
+            
             <div id="info">
+                
             <h1>{{ listing.name }}</h1>
+            
+            <div class="description">
+            
+                <p>{{ listing.description }}</p>
+                
+        
+            </div>
+
             <h3>{{ listing.price }}£</h3>
             <a href="{% url 'glasmarket:profilePage' listing.seller %}">go to seller</a>
-
         </div>
-
-        <div class="description">
             
-            <p>{{ listing.description }}</p>
-            
-    
-        </div>
+        
     </div>
     {% endfor %}
         {% else %}
