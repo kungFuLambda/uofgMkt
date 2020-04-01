@@ -10,16 +10,16 @@
         <h1>{{ category.name }}</h1>
         {% if listings %}
         {% for listing in listings %}
-    
+
         <div class="product">
-            <div class="image" >  
+            <div class="image" >
                 {% if listing.picture != '0' %}
                     <img src="{{ MEDIA_URL }}{{ listing.picture }}" class="myImg">
                 {% else %}
                     <img src="{% static 'images/noImage.jpg' %}" class="myImg">
                 {% endif %}
             </div>
-    
+
             <div id="info">
                 <h1>{{ listing.name }}</h1>
                 <h3>£{{ listing.price }}</h3>
