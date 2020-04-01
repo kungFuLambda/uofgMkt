@@ -1,6 +1,6 @@
  /* top left bottom right*/
 
-:root{
+ :root{
     
     --theme :#289451;
     --hover :rgb(136, 214, 34);
@@ -44,6 +44,7 @@ button{
     font-family: 'Quicksand', semi-bold;
     background-color: var(--theme);
     color:black; 
+    border: #333 1px solid;
     width: 20%;   
 
 }
@@ -94,7 +95,9 @@ button:hover{
   transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg:hover {
+    
+    opacity: 0.7;}
 
 /* The Close Button */
 .close {
@@ -377,14 +380,8 @@ footer h4{
  
 
 #welcomeSlide h1{
-
     font-weight: bold;
-
     font-size: 40px;
-    
-
- 
-
 }
 
  
@@ -636,12 +633,6 @@ textarea{
     margin: 0;
 
     float: left;
-    border-radius: 25px;
-    background-color: rgb(211, 212, 212);
-  
-
- 
-
 }
 
 #categoryBlock h1{
@@ -724,8 +715,9 @@ textarea{
 
     float: left;
     font-size: 2vh;
-    
+    background-color: rgb(243, 243, 243);
 }
+
  
 
 #searchButton{
@@ -734,22 +726,15 @@ textarea{
 
     height: 50px;
     width: 8%;
-    background-color: var(--theme)
-
 }
 
 #searchWord{
-    background-color: white;
+
     width: 30%;
 
 }
-#searchWord:hover,#searchWord:focus{
+#searchWord:hover,#searchWord:focus,#searchButton:hover,#searchButton:focus{
     background-color: white;
-}
-#searchButton:hover,#searchButton:focus{
-    background-color: var(--hover);
-    color:whitesmoke; 
-    
 }
 
 #sellerLink{
@@ -869,112 +854,111 @@ display: block;
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
-#productsBlock{
-    overflow-y: scroll;
-    min-height: 100%;
-    width:83%;
-
-}
 #productsDisplay{
-    
-    
-    display: flex;
-    flex-wrap: wrap;
 
+    overflow-y: scroll;
+    height: 80vh;
 
 }
+
+ 
 
 .product{
-    padding: 2%;
-    flex-grow: 1;
-    flex-basis: 16;
-    display:flex;
-    background-color: rgba(215, 216, 215, 0.815);
+
+    background-color: #333;
     margin: 20px 20px 0 25px;
     border-radius: 25px;
+    overflow: hidden;
+    min-height: 15vh;
+    display:inline-block;
+    width: 95%;
+}
+
+ 
+
+
+
+/*username*/
+
+/*image of the product*/
+
+.image  img{
+    
     max-width: 20%;
-    max-height:1%;
-    
-    display: block;
-   
-}
-img{
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 25px;
-}
-#image.img{
-    min-width: 15%;
-    min-height: 15%;
-    max-width: 50%;
-    max-height: 40%;
+    height: 50%;
+    margin: 10px 0 10px 10px;
     float: left;
-    
-    
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 10px;
+
 }
+
+ 
+
 #info{
-    color: rgb(120, 124, 120);
-    background-color: rgba(215, 216, 215, 0.815);
+    color: honeydew;
+    float: left;
+
+    width: 23%;
+
+    padding-left: 1%;
+
+    padding-right: 1%;
 
     word-wrap: break-word;
-    
+
    
+
 }
-#description{
-   align-self: start;
-   margin-right: 10%;
-   
-}
+
 #info h1{
-    font-size: 28px;
+    font-size: 22px;
 }
 
 #info h3{
     color: rgb(53, 209, 53);
     font-size: 20px;
-    text-align: center;
-    margin-bottom: 0%;
-    position: relative;
-    
-    
 
 }
 
 #info a{
 
     text-decoration: none;
-    padding-top: 30px;
+
     font-size: 15px;
-    color: rgb(111, 119, 111);
+    color: white;
 }
 #info a:hover{
     color: var(--hover);
 }
 
 .description{
-    overflow-wrap: break-word;
-    margin-left: -10%;
 
-    width: 250px;
+    float: right;
 
-    height: 100px;
+    width: 50%;
 
+    height: 70%;
 
 }
 
  
 
 .description p{
-    
 
-    background-color: rgba(130, 153, 130, 0.171);
+    background-color: white;
 
     border-radius: 15px;
 
-    margin-right: 20%;
+    padding: 10px;
 
+    max-height: 20vh;
 
-   text-align: center;
+    overflow-y: auto;
+
+    float: right;
 
     width: 100%;
 
@@ -983,24 +967,8 @@ img{
     margin:20px 20px 20px 25px;
 
     scroll-behavior: auto;
-    
-    
 
 }
-
-.image:active{
-
-    height:200%;
-    width:200%;
-    
-    position: absolute;
-    opacity:1;
-}
-
-
-
-
-
 
 #addListingPP{
     display: none;
@@ -1412,4 +1380,15 @@ img{
  /* Style the Image Used to Trigger the Modal */
 #noListings{
     margin-top: 10%;
+}
+
+#resetPassword{
+    text-align: center;
+    height: 40vh;
+}
+#resetPassword button{
+    margin-top: 1%;
+    width: 8%;
+    height: 15%;
+    font-size: 2vh;
 }

@@ -9,32 +9,30 @@
         <h1>{{ category.name }}</h1>
         {% if listings %}
         {% for listing in listings %}
-    
+
         <div class="product">
-            <div class="image" >  
+            <div class="image" >
                 {% if listing.picture != '0' %}
                     <img src="{{ MEDIA_URL }}{{ listing.picture }}" class="myImg">
                 {% else %}
                     <img src="{% static 'images/noImage.jpg' %}" class="myImg">
                 {% endif %}
             </div>
-            
-            <div id="info">
-                
-            <h1>{{ listing.name }}</h1>
-            
-            <div class="description">
-            
-                <p>{{ listing.description }}</p>
-                
-        
-            </div>
 
-            <h3>{{ listing.price }}£</h3>
+            <div id="info">
+            <h1>{{ listing.name }}</h1>
+            <h3>£{{ listing.price }}</h3>
             <a href="{% url 'glasmarket:profilePage' listing.seller %}">go to seller</a>
+
+
         </div>
-            
-        
+
+        <div class="description">
+
+            <p>{{ listing.description }}</p>
+
+
+        </div>
     </div>
     {% endfor %}
         {% else %}
