@@ -3,8 +3,6 @@ $(document).ready(function() {
 var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-//img.onclick = function(){
-
 
 $(".myImg").click(function(){
     var img=this
