@@ -44,6 +44,7 @@ button{
     font-family: 'Quicksand', semi-bold;
     background-color: var(--theme);
     color:black; 
+    border: #333 1px solid;
     width: 20%;   
 
 }
@@ -94,7 +95,9 @@ button:hover{
   transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+#myImg:hover {
+    
+    opacity: 0.7;}
 
 /* The Close Button */
 .close {
@@ -377,14 +380,8 @@ footer h4{
  
 
 #welcomeSlide h1{
-
     font-weight: bold;
-
     font-size: 40px;
-    
-
- 
-
 }
 
  
@@ -636,11 +633,6 @@ textarea{
     margin: 0;
 
     float: left;
-
-  
-
- 
-
 }
 
 #categoryBlock h1{
@@ -877,29 +869,12 @@ display: block;
     margin: 20px 20px 0 25px;
     border-radius: 25px;
     overflow: hidden;
-    max-height: 20vh;
+    min-height: 15vh;
     display:inline-block;
     width: 95%;
 }
 
  
-
-.image{
-
-    
-    float: left;
-    width: 21%;
-    height: 100%;
-
-}
-.image:active{
-
-    height:200%;
-    width:200%;
-    
-    position: absolute;
-    opacity:1;
-}
 
 
 
@@ -909,20 +884,13 @@ display: block;
 
 .image  img{
     
-    max-width: 50%;
-
+    max-width: 20%;
     height: 50%;
-
     margin: 10px 0 10px 10px;
-
     float: left;
-
     border-top-left-radius: 25px;
-
     border-bottom-right-radius: 10px;
-
     border-bottom-left-radius: 25px;
-
     border-top-right-radius: 10px;
 
 }
@@ -1412,4 +1380,15 @@ display: block;
  /* Style the Image Used to Trigger the Modal */
 #noListings{
     margin-top: 10%;
+}
+
+#resetPassword{
+    text-align: center;
+    height: 40vh;
+}
+#resetPassword button{
+    margin-top: 1%;
+    width: 8%;
+    height: 15%;
+    font-size: 2vh;
 }
