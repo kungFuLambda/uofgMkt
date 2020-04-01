@@ -44,6 +44,7 @@ button{
     font-family: 'Quicksand', semi-bold;
     background-color: var(--theme);
     color:black; 
+    border: #333 1px solid;
     width: 20%;   
 
 }
@@ -580,11 +581,6 @@ textarea{
     margin: 0;
 
     float: left;
-
-  
-
- 
-
 }
 
 #categoryBlock h1{
@@ -817,7 +813,7 @@ display: block;
     margin: 20px 20px 0 25px;
     border-radius: 25px;
     overflow: hidden;
-    max-height: 20vh;
+    min-height: 20vh;
     display:inline-block;
     width: 95%;
 }
@@ -1352,4 +1348,15 @@ display: block;
  /* Style the Image Used to Trigger the Modal */
 #noListings{
     margin-top: 10%;
+}
+
+#resetPassword{
+    text-align: center;
+    height: 40vh;
+}
+#resetPassword button{
+    margin-top: 1%;
+    width: 8%;
+    height: 15%;
+    font-size: 2vh;
 }
