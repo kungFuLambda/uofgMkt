@@ -89,7 +89,10 @@ def market(request,**kwargs):
             else:
                 category = Category.objects.filter(slug=category_name_slug)
             listings = Listing.objects.filter(category__in=category,name__contains=keyWord)
-            context_dict['listings'] = listings
+            listings2 = Listing.objects.filter(category__in=category,description__contains=keyWord)
+            qs3 = listings | listings2
+            
+            context_dict['listings'] = qs3
     else:
     #check if no cateogry name slug was given
         

@@ -1102,9 +1102,7 @@ z-index: 1;
     text-align: center;
     overflow: visible;
     margin-top: -10%;
-
     height: 35%;
-
     width: 35%;
 
 }
@@ -1177,8 +1175,8 @@ z-index: 1;
     text-align: center;
     overflow: visible;
     margin-top: -10%;
-    height: 10%;
-    width: 10%;
+    height: 20%;
+    width: 20%;
 
 }
  
@@ -1200,8 +1198,21 @@ z-index: 1;
     width: 65%;
 }
 #boxRegister #id_picture{
-    width: 80%;
+    width: 50%;
     background-color: white;
+}
+#boxRegister #but{
+    background-color: var(--theme);
+    color:black; 
+    width: 30%;   
+    margin-bottom: 1%;  
+}
+
+ 
+
+#boxRegister #but:hover{
+    background-color: var(--hover);
+    color:white; 
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
