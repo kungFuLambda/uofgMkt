@@ -660,7 +660,9 @@ textarea{
     border-top-right-radius: 10px;
 }
 #nonCurrentC a:hover{
-    color: var(--hover);
+    background-color: var(--hover);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
  
@@ -969,9 +971,10 @@ z-index: 1;
     max-width: 21%;
     display: block;
     height: 50vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
- 
 
 
 /*username*/
@@ -1030,11 +1033,14 @@ z-index: 1;
     overflow-wrap: break-word;
     font-size: 13px;
     scroll-behavior: auto;
-    text-align: center;
+    text-align: left;
     overflow-y:hidden;
-    height: 14vh;
-    padding-top: 5px;
+    height: 13vh;
     bottom: 0;
+}
+.description p{
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .description:hover{
