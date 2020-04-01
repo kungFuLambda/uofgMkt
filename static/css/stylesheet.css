@@ -79,7 +79,7 @@ button:hover{
   display: none; /*  Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 1%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -89,15 +89,17 @@ button:hover{
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-#myImg {
+
+.myImg {
   border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+  transition: 5s;
 }
 
-#myImg:hover {
-    
-    opacity: 0.7;}
+.myImg:hover {
+    cursor: pointer;
+    opacity: 1.0;
+
+}
 
 /* The Close Button */
 .close {
@@ -121,13 +123,14 @@ button:hover{
 @media only screen and (max-width: 700px){
   .modal-content {
     width: 100%;
+    
   }
 }
 
 #caption {
   margin: auto;
   display: block;
-  width: 80%;
+  width: 60%;
   max-width: 700px;
   text-align: center;
   color: #ccc;
@@ -150,6 +153,7 @@ button:hover{
  
 
 header{
+
     color: white;
     background-color: #333;
     overflow: auto;
@@ -497,33 +501,24 @@ footer h4{
  
 
 #contactForm{
-
     display: block;
     border-top: var(--theme) 3px solid;
-    
 }
 
  
 
 input{
-
     border: none;
     border-bottom: var(--theme) 1px solid;
     border-left: var(--theme) 1px solid;
     text-align: center;
     padding: 15px;
-    
-
     margin: 20px;
     margin-bottom: 0;
     width: 25%;
-
     font-family: 'Quicksand', semi-bold;
-
     font-size: 20px;
-
     border-radius: 50px;
-
 }
 
 input:focus,textArea:focus{
@@ -543,19 +538,12 @@ input:hover,textArea:hover{
 textarea{
     border: var(--theme) 1px solid;
     border-top: 0;
-
     border-right: 0;
-
     margin:20px;
-    
     width: 50%;
-
     font-size: 20px;
-
     font-family: 'Quicksand', semi-bold;
-
     text-align: center;
-
     border-radius: 50px;
 
 }
@@ -609,30 +597,21 @@ textarea{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 #market{
-
     display: flex;
-
     width: 100%;
-
     margin-top: 0;
-
     padding-top: 0;
-
     /*min-height: 900px;*/
     height: 90vh;
     text-align: center;
-    
-    
+
 }
 
 #categoryBlock{
-
+    background-image: linear-gradient(to right,rgb(173, 173, 173), rgb(211, 209, 209));
     width: 17%;
-
     padding : 5px 0px 5px 0px;
-
     margin: 0;
-
     float: left;
 }
 
@@ -665,7 +644,6 @@ textarea{
 }
 
 #categoryBlock a {
-
     text-decoration: none;
     display:block;
     color: black;   
@@ -688,20 +666,22 @@ textarea{
  
 
 #productsBlock{
-
     float: right;  
-
     border-color: black;
-
     width: 83%;
-
     max-height: 50%;
+    padding-top: 80px;
+    background-image: linear-gradient(to right, rgb(211, 209, 209), rgb(250, 250, 250));
 
 }
 
 #productsHeader{
+    width: 85%;
     min-height: 80px;
-    
+    position: absolute;
+    top: 90px;
+    background-image: linear-gradient(to right, rgb(211, 209, 209), rgb(250, 250, 250));
+
 }
 
  
@@ -709,11 +689,8 @@ textarea{
 #searchWord,#searchButton{
 
     margin-top: 15px;
-
     height: 20px;
-
     margin-bottom: 13px;
-
     float: left;
     font-size: 2vh;
     background-color: rgb(243, 243, 243);
@@ -757,25 +734,15 @@ textarea{
 .dropbtn {
     background-color: var(--theme);
     color: white;
-
     padding: 16px;
-
     font-size: 16px;
-
     border-radius: 0;
-
     border-top-left-radius: 15px;
-
     border-top-right-radius: 15px;
-
     border: none;
-
     cursor: pointer;
-
     margin-top: 15px;
-
     min-width: 160px;
-
   }
 
   
@@ -791,10 +758,10 @@ background-color: var(--hover);
 /* The container <div> - needed to position the dropdown content */
 
 .dropdown {
-position: relative;
-float: right;
-margin-right: 20px;
-display: inline;
+    position: relative;
+    float: right;
+    margin-right: 100px;
+    display: inline;
 }
 
  
@@ -826,15 +793,10 @@ z-index: 1;
 /* Links inside the dropdown */
 
 .dropdown-content a {
-
-color: black;
-
-padding: 12px 16px;
-
-text-decoration: none;
-
-display: block;
-
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
  
@@ -854,12 +816,7 @@ display: block;
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-#productsBlock{
-    overflow-y: scroll;
-    min-height: 100%;
-    width:83%;
-
-}
+/*
 #productsDisplay{
 
     
@@ -885,12 +842,6 @@ display: block;
     display: block;
 }
 
- 
-
-
-/*username*/
-
-/*image of the product*/
 
 .image  img{
     display: block;
@@ -980,6 +931,120 @@ display: block;
 }
 
 
+
+*/
+
+
+
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+.show {display:block;}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+#productsBlock{
+    overflow-y: scroll;
+    min-height: 89.2%;
+    width:83%;
+
+}
+#productsDisplay{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2%;
+    
+}
+
+ 
+
+.product{
+    padding: 0;
+    display:flex;
+    background-color: rgba(215, 216, 215, 0.815);
+    margin:1.5%;
+    margin-top: 0;
+    border-radius: 25px;
+    max-width: 21%;
+    display: block;
+    height: 50vh;
+}
+
+ 
+
+
+/*username*/
+
+/*image of the product*/
+.product .image{
+    min-height: 50%;
+    border-radius: 0;
+    max-height: 50%;
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.image  .myImg{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+ 
+
+#info{
+    color: rgb(0, 0, 0);
+    word-wrap: break-word;
+}
+
+
+#info h1{
+    font-size: 28px;
+    margin: 0;
+}
+
+#info h3{
+    color: rgb(53, 209, 53);
+    font-size: 20px;
+    text-align: center;
+    margin:0;
+    position: relative;
+    
+
+}
+
+#info a{
+    text-decoration: none;
+    font-size: 15px;
+    color: rgb(111, 119, 111);
+}
+#info a:hover{
+    color: var(--hover);
+}
+
+.description{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow-wrap: break-word;
+    font-size: 13px;
+    scroll-behavior: auto;
+    text-align: center;
+    overflow-y:hidden;
+    height: 14vh;
+    padding-top: 5px;
+    bottom: 0;
+}
+
+.description:hover{
+    overflow-y: auto;
+}
+
 #addListingPP{
     display: none;
 }
@@ -1031,13 +1096,9 @@ display: block;
 }
 
 #userAvatar{
-
     position: relative;
-
     text-align: center;
-
     overflow: visible;
-
     margin-top: -10%;
 
     height: 35%;
@@ -1110,19 +1171,12 @@ display: block;
 }
 
 #userAvatarReg{
-
     position: relative;
-
     text-align: center;
-
     overflow: visible;
-
     margin-top: -10%;
-
-    height: 20%;
-
-    width: 20%;
-
+    height: 10%;
+    width: 10%;
 }
  
 
@@ -1221,12 +1275,16 @@ display: block;
 
 #userListings{
     float: right;
-    width: 80%;
     overflow-y: scroll;
     overflow-x: hidden;
     scroll-behavior: auto;
     padding-right: 0;
     margin-right: 0;
+    min-height: 100%;
+    width:83%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2%;
 }
 
     
