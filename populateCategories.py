@@ -31,7 +31,7 @@ def populate():
         for line in names:
             usr = add_user(line.strip(),line.strip()+"@gmail.com",passw)
             print(line.strip() +" added")
-            ls = add_listing(Category.objects.get(name=cats[random.randint(1,5)]),product_names[random.randint(1,len(product_names))],usr,description)
+            ls = add_listing(Category.objects.get(name=cats[random.randint(1,5)]),product_names[random.randint(1,len(product_names)-1)],usr,description)
             
     for p in product_names:
         ls = add_listing(Category.objects.get(name=cats[random.randint(1,5)]),p,UserProfile.objects.get(user=User.objects.get(username="len")),description)

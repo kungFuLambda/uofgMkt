@@ -21,7 +21,7 @@ urlpatterns = [
     path('editUser/<slug:username>',views.user_edit,name='editUser'),
 
     path('myMessages/<slug:username>',views.myMessages,name="userMessages"),
-    path('messages/<slug:sender>/<slug:receiver>', views.messageUser,name='message'),
+    path('messages/<slug:receiver>/<slug:sender>', views.messageUser,name='message'),
 
 
     #MARKET PATTERN
