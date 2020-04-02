@@ -47,3 +47,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Message(models.Model):
+    sender = models.ForeignKey('UserProfile',on_delete=models.CASCADE,related_name='sender')
+    receiver = models.ForeignKey('UserProfile',on_delete=models.CASCADE,related_name='receiver')
+    date = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()

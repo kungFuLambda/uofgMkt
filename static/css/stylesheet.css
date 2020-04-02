@@ -239,6 +239,8 @@ footer{
     border-top:var(--theme) 2px solid;
     background-color: #333;
     color: white;
+    
+    
 
 }
 
@@ -680,7 +682,7 @@ textarea{
 }
 
 #productsHeader{
-    width: 85%;
+    width: 80%;
     min-height: 80px;
     position: absolute;
     top: 90px;
@@ -749,6 +751,7 @@ textarea{
     border: none;
     cursor: pointer;
     margin-top: 15px;
+    margin-right: 0;
     min-width: 160px;
   }
 
@@ -1185,7 +1188,7 @@ z-index: 1;
     scroll-behavior: auto;
     padding-right: 0;
     margin-right: 0;
-    min-height: 100%;
+    height: 100%;
     width:83%;
     display: flex;
     flex-wrap: wrap;
@@ -1235,6 +1238,10 @@ z-index: 1;
 }
 #profileHead a:hover{
     background-color: var(--hover);
+}
+#userListings h3{
+    margin-top: 0;
+    margin-left: 40%;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1369,4 +1376,43 @@ z-index: 1;
     width: 8%;
     height: 15%;
     font-size: 2vh;
+}
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+#everything{
+    width: 85%;
+}
+#messageDisplay{
+    height: 75vh;
+    width: 98%;
+    margin-left: 50px;
+    float: right;
+    overflow-y: scroll;
+    border-bottom: black 2px solid;
+}
+
+#messageSend{
+    width: 90%;
+    display: inline;
+}
+#sender{
+    border-bottom: black 2px solid;
+}
+#message{
+    height: 2vh;
+}
+#messageButton{
+    height: 5vh;
+    width: 8vh;
+}
+#messagers{
+    width: 70%;
+    margin-left:5%;
+    text-align: left;
+}
+#messagerNames{
+    text-decoration: none;
+    font-size: 25px;
 }

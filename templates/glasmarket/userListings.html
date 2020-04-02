@@ -1,0 +1,60 @@
+{% extends 'glasmarket/profilePage.html' %}
+{% load staticfiles %}
+
+
+{% block userBlock %}
+<div id="userListings">
+    <div id="profileHead">
+    {% if user.username == pageUser.username %}
+        <h1>Your listings </h1><a href="{% url 'glasmarket:addListing' pageUser.username %}">+</a>
+        
+        
+    {% else %}
+        <h1>{{ pageUser.username }}'s listings</h1>
+    {% endif %}
+    </div>
+    
+        {% if listings %}
+            {% for listing in listings %}
+                
+                <div class="product">
+                    <div class="image" >  
+                        {% if listing.picture != '0' %}
+                            <img src="{{ MEDIA_URL }}{{ listing.picture }}" class="myImg">
+                        {% else %}
+                            <img src="{% static 'images/noImage.jpg' %}" class="myImg">
+                        {% endif %}
+                    </div>
+                
+                    <div id="info">
+                        <h1>{{ listing.name }}</h1>
+                        <h3>{{ listing.price }}£</h3>
+                        {% if user.username == pageUser.username %}
+                            <a id="deleteListing" onclick="return confirmDelete('{{ listing.name }}')" href="{% url 'glasmarket:removeListing' pageUser.username listing.id  %}">Delete Listing</a>
+                        {% endif %}
+                    </div>
+
+                    <div class="description">
+                        <p>{{ listing.description }}</p>        
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            {% if user.username == pageUser.username %}
+            <h3>You dont't have any listings,<a href="{% url 'glasmarket:addListing' pageUser.username %}">add one?</a></h3>
+            {% else %}
+            <h3>{{ pageUser.username }} doesn't have any listings</h3>
+            {% endif %}
+        {% endif %}
+    
+</div>
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'glasmarket/profilePage.html' %}
+{% load staticfiles %}
+
+
+{% block userBlock %}
+<div id="everything">
+    <div id="messageDisplay">
+        <div id="messages">
+            {% for msg in messages %}
+                    
+                    
+                    <p id="sender"><h3>{{ msg.sender }} said @ {{ msg.date.time }}</h3><br>{{ msg.message }}</p><br>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="messageSubmit">
+        <form id="messageSend" action="" method="POST">
+            {% csrf_token %}
+            <input type="textarea" id="message" name="message">
+            <button id="messageButton" type="submit">send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}  
