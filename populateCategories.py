@@ -13,6 +13,11 @@ def populate():
     description = "This is a user listing, with price, link to seller and name, and picture, you can click on the picture to make it big"
     product_names = []
 
+
+
+
+
+    add_user("len","leones.tadina@gmail.com","")
     with open("objectNames.txt") as namez:
         for line in namez:
             product_names.append(line.strip())

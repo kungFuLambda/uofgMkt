@@ -869,6 +869,7 @@ z-index: 1;
     border-radius: 25px;
     max-width: 21%;
     display: block;
+    text-align: center;
     height: 50vh;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -910,9 +911,8 @@ z-index: 1;
 #info h3{
     color: rgb(53, 209, 53);
     font-size: 20px;
-    text-align: center;
+    
     margin:0;
-    position: relative;
     
 
 }
@@ -1239,10 +1239,7 @@ z-index: 1;
 #profileHead a:hover{
     background-color: var(--hover);
 }
-#userListings h3{
-    margin-top: 0;
-    margin-left: 40%;
-}
+
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
