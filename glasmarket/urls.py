@@ -15,11 +15,13 @@ urlpatterns = [
     path('login/',views.user_login,name='login'),
     path('register/', views.register,name='register'),
     path('logout/',views.user_logout,name='logout'),
-    path('profilePage/<slug:username>/',views.profilePage,name='profilePage'),
+    path('myProfile/<slug:username>',views.profilePage,name='profilePage'),
     path('profilePage/<slug:username>/addListing',views.addListing,name='addListing'),
     path('profilePage/<slug:username>/<slug:listingID>',views.removeListing,name='removeListing'),
     path('editUser/<slug:username>',views.user_edit,name='editUser'),
 
+    path('myMessages/<slug:username>',views.myMessages,name="userMessages"),
+    path('messages/<slug:receiver>/<slug:sender>', views.messageUser,name='message'),
 
 
     #MARKET PATTERN

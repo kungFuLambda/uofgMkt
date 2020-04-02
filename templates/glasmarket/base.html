@@ -30,7 +30,7 @@
 
         <header>
 
-            <a id="headerBranding" href="/glasmarket/home/"><img id="headerLogo" src="{% static 'images/logo.png' %}" alt=""><h1 class="g" id="headerName">GU</h1><h1 id="headerName">MARKET</h1></a>
+            <a id="headerBranding" href="{% url 'glasmarket:index' %}"><img id="headerLogo" src="{% static 'images/logo.png' %}" alt=""></a><a id="headerBranding" href="{% url 'glasmarket:market' %}"><h1 class="g" id="headerName">GU</h1><h1 id="headerName">MARKET</h1></a>
 
         
             <nav id="navItems">

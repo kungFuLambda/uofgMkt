@@ -1,5 +1,5 @@
 from django import forms
-from glasmarket.models import UserProfile,Listing,Category
+from glasmarket.models import UserProfile,Listing,Category,Message
 from django.contrib.auth.models import User
 
 
@@ -56,3 +56,13 @@ class SearchForm(forms.Form):
 class loginForm(forms.Form):
     username = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'placeholder':'email or username'}))
     password = forms.CharField(max_length=100,widget=forms.PasswordInput(attrs={'placeholder':'password'}))
+
+class SendMessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ('sender','receiver','message')
+        widgets={
+            'sender':forms.HiddenInput(),
+            'receiver':forms.HiddenInput(),
+            'message':forms.Textarea(),
+            }

@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
-from glasmarket.models import Listing,Category,User,UserProfile
+from glasmarket.models import Listing,Category,User,UserProfile,Message
 from glasmarket.forms import UserForm,UserProfileForm,addListingForm,loginForm
 from glasmarket.forms import SearchForm
 
@@ -89,7 +89,10 @@ def market(request,**kwargs):
             else:
                 category = Category.objects.filter(slug=category_name_slug)
             listings = Listing.objects.filter(category__in=category,name__contains=keyWord)
-            context_dict['listings'] = listings
+            listings2 = Listing.objects.filter(category__in=category,description__contains=keyWord)
+            qs3 = listings | listings2
+            
+            context_dict['listings'] = qs3
     else:
     #check if no cateogry name slug was given
         
@@ -197,10 +200,14 @@ def user_login(request):
             password = form.cleaned_data['password']
             user = authenticate(username=username,password=password)
             if user == None:
-                userObject = User.objects.get(email=username)
-                if userObject != None:
-                    username = userObject.username
-                    user = authenticate(username=username,password=password)
+                try:
+                    userObject = User.objects.get(email=username)
+                
+                    if userObject != None:
+                        username = userObject.username
+                        user = authenticate(username=username,password=password)
+                except:
+                    print("no user")
             
             if user:
                 if user.is_active:
@@ -237,7 +244,7 @@ def profilePage(request,username):
         
         context_dict['listings'] = listings
     
-    return render(request,'glasmarket/profilePage.html',context=context_dict)
+    return render(request,'glasmarket/userListings.html',context=context_dict)
 
 
 
@@ -253,29 +260,30 @@ def register(request):
         if user_form.is_valid() and profile_form.is_valid():
             
             email = user_form.cleaned_data['email']
-            if User.objects.get(email=email):
-                print("email already in use")
-                context_dict['user_form']=user_form
-                context_dict['profile_form']=profile_form
+            try:
+                if User.objects.get(email=email):
+                    context_dict['user_form']=user_form
+                    context_dict['profile_form']=profile_form
+            except :
+                print("")
 
-            else:
-                user=user_form.save()
-                user.set_password(user.password)
-                user.save()
-                username = user_form.cleaned_data['username']
-                password = user_form.cleaned_data['password']
-                profile=profile_form.save(commit=False)
-                profile.user=user
+            user=user_form.save()
+            user.set_password(user.password)
+            user.save()
+            username = user_form.cleaned_data['username']
+            password = user_form.cleaned_data['password']
+            profile=profile_form.save(commit=False)
+            profile.user=user
 
-                if 'picture' in request.FILES:
-                    profile.picture=request.FILES['picture']
-                
-                profile.save()
-                context_dict['registered']=True
-                user = authenticate(username=username,password=password)
-                if user:
-                    login(request,user)
-                return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
+            if 'picture' in request.FILES:
+                profile.picture=request.FILES['picture']
+            
+            profile.save()
+            context_dict['registered']=True
+            user = authenticate(username=username,password=password)
+            if user:
+                login(request,user)
+            return(redirect(reverse('glasmarket:profilePage' ,kwargs={'username':username})))
     
         else:
             context_dict['user_form'] = user_form
@@ -336,3 +344,50 @@ def user_edit(request,username):
 ###################################################################################################################################################################################################
 ###################################################################################################################################################################################################
 ###################################################################################################################################################################################################
+@login_required
+def messageUser(request,receiver,sender):
+    context_dict['receiver'] = receiver
+    context_dict['sender'] = sender
+    context_dict['active'] = 'login'
+
+    
+    UserReceiver = User.objects.get(username=receiver)
+    UserSender = User.objects.get(username=sender)
+
+    UserObjectRcv = UserProfile.objects.get(user=UserReceiver)
+    UserObjectSnd = UserProfile.objects.get(user=UserSender)
+
+
+    msg1 = Message.objects.filter(receiver=UserObjectRcv,sender=UserObjectSnd).order_by('-date')
+    msg2 = Message.objects.filter(receiver=UserObjectSnd,sender=UserObjectRcv).order_by('-date')
+
+    context_dict['messages'] = msg1 | msg2
+    if request.method=='POST':
+        message = request.POST.get('message')
+        if len(message) != 0:
+            newMsg = Message()
+            newMsg.receiver = UserProfile.objects.get(user_id=UserReceiver.id)
+            newMsg.sender=UserProfile.objects.get(user_id=UserSender.id)
+            newMsg.message = message
+            newMsg.save()
+
+
+    return render(request,'glasmarket/messaging.html',context=context_dict)
+
+
+@login_required
+def myMessages(request,username):
+
+
+    context_dict['received'] = []
+    PeopleMessages = list(Message.objects.filter(receiver=UserProfile.objects.get(user_id=User.objects.get(username=username).id)))
+    PeopleMessages2 = list(Message.objects.filter(sender=UserProfile.objects.get(user_id=User.objects.get(username=username).id)))
+    
+    for e in PeopleMessages:
+        if e.sender not in context_dict['received']:
+            context_dict['received'].append(e.sender) 
+    for e in PeopleMessages2:
+        if e.receiver not in context_dict['received']:
+            context_dict['received'].append(e.receiver) 
+    
+    return render(request,'glasmarket/myMessages.html',context_dict)

@@ -1,0 +1,16 @@
+{% extends 'glasmarket/profilePage.html' %}
+{% load staticfiles %}
+
+
+{% block userBlock %}
+<div id="messagers">
+    <h1>Your inbox </h1>
+    {% if received %}
+        {% for msgObject in received %}
+            <a id="messagerNames" href="{% url 'glasmarket:message' msgObject user.username %}">{{ msgObject }}</a><br>
+        {% endfor %}
+    {% else %}
+    <h3>wow such empty</h3>
+    {% endif %}
+</div>
+{% endblock %}
