@@ -959,7 +959,13 @@ z-index: 1;
     
 }
 
- 
+section{
+    background: #eee;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
 
 .product{
     padding: 0;
@@ -973,7 +979,11 @@ z-index: 1;
     height: 50vh;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    position: relative;
+   
+    box-shadow: 0 1px 3px rgba(black, 0.2);
 }
+
 .product p{
     padding-left: 3px;
     padding-right: 3px;
@@ -1177,8 +1187,17 @@ z-index: 1;
     text-align: center;
     overflow: visible;
     margin-top: -10%;
+    height: 20%;
+    width: 20%;
+
+}
+#userAvatarRecover{
+    position: relative;
+    text-align: center;
+    overflow: visible;
+    margin-top: -5%;
     height: 10%;
-    width: 10%;
+    width: 25%;
 
 }
  
