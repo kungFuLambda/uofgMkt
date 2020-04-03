@@ -1,11 +1,11 @@
  /* top left bottom right*/
 
  :root{
-    
+
     --theme :#289451;
     --hover :rgb(136, 214, 34);
     --gradient : rgb(92, 202, 101);
-    
+
 }
 /*-----------------------------------------------GLOBAL--------------------------------------------------*/
 
@@ -20,11 +20,11 @@ body{
     line-height: 1.5; /*the height of each line in the whole body*/
 
     margin: 0;
-    padding: 0; 
+    padding: 0;
     background-image: linear-gradient(to bottom, rgb(211, 209, 209), rgb(250, 250, 250));
     background-color: #333;
     overflow:visible;
-
+        overflow: auto;
     color: black;
     scroll-behavior: auto;
     word-wrap:break-word
@@ -43,9 +43,9 @@ button{
     border-radius: 25px;
     font-family: 'Quicksand', semi-bold;
     background-color: var(--theme);
-    color:black; 
+    color:black;
     border: #333 1px solid;
-    width: 20%;   
+    width: 20%;
 
 }
 
@@ -67,7 +67,7 @@ button:hover{
 
 }
 
- 
+
 
 #grad {
 
@@ -123,7 +123,7 @@ button:hover{
 @media only screen and (max-width: 700px){
   .modal-content {
     width: 100%;
-    
+
   }
 }
 
@@ -150,7 +150,7 @@ button:hover{
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
- 
+
 
 header{
 
@@ -160,6 +160,7 @@ header{
     border-bottom: var(--theme) 2px solid; /*the bottom border solid and thin*/
     font-weight: bold;
     padding-right: 1%;
+
 }
 #headerBranding{
     max-width: 50%;
@@ -174,7 +175,7 @@ header nav {
 
 header li {
     display: inline;
-    
+
 }
 
 #navItems a{
@@ -233,14 +234,14 @@ header a:hover{
 
 
 
- 
+
 
 footer{
     border-top:var(--theme) 2px solid;
     background-color: #333;
     color: white;
-    
-    
+
+
 
 }
 
@@ -258,7 +259,7 @@ footer h4{
 
     padding-bottom: 2px;
 
-    
+
 
 }
 
@@ -271,10 +272,10 @@ footer h4{
     margin-top: 0;
 
     margin: auto; /*will set the everything to the middle*/
-    
+
     width: 80%;
 
- 
+
 
 }
 
@@ -282,10 +283,10 @@ footer h4{
 
     display: inline;
 
-    
 
-    
-    
+
+
+
 }
 
 #bottomNav a{
@@ -296,7 +297,7 @@ footer h4{
 
     padding:20px 10% 20px 10%;
 
-    
+
 
 }
 
@@ -334,19 +335,20 @@ footer h4{
 #backgroundImg {
 
     background-image: url('../images/homeback.jpg');
+
     opacity: 0.75;
     background-repeat: round;
 
     min-height: 450px;
     border-bottom: var(--theme) 2px solid;
     text-align: center;
-    
+
 }
 
 #backgroundImg h1{
     margin: 0;
     color: black;
-    
+
     padding-top: 7%;
     font-size: 70px;
     font-weight: bold;
@@ -362,7 +364,7 @@ footer h4{
 
     color: white;
 
-    
+
 
 }
 
@@ -383,26 +385,26 @@ footer h4{
     color: bisque;
 }
 
- 
+
 
 #welcomeSlide h1{
     font-weight: bold;
     font-size: 40px;
 }
 
- 
+
 
 #welcomeSlide ul {
 
     list-style-type: none;
 
-   
 
-    
+
+
 
 }
 
- 
+
 
 #welcomeSlide a{
 
@@ -456,7 +458,7 @@ footer h4{
 
     color: white;
 
- 
+
 
 }
 
@@ -472,7 +474,7 @@ footer h4{
 
 }
 
- 
+
 
 /*-----------------------------------------------about--------------------------------------------------*/
 
@@ -487,7 +489,7 @@ footer h4{
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 #aboutBackground{
     opacity: 0.75;
-    
+
 }
 
 #AboutUsSlide{
@@ -496,18 +498,18 @@ footer h4{
     padding-top: 1%;
     padding-bottom: 1%;
 
- 
+
 
 }
 
- 
+
 
 #contactForm{
     display: block;
     border-top: var(--theme) 3px solid;
 }
 
- 
+
 
 input{
     border: none;
@@ -535,7 +537,7 @@ input:hover,textArea:hover{
 
 }
 
- 
+
 
 textarea{
     border: var(--theme) 1px solid;
@@ -550,7 +552,7 @@ textarea{
 
 }
 
- 
+
 
 #contactButton{
     border: var(--theme) 1px solid;
@@ -572,7 +574,7 @@ textarea{
 
 }
 
- 
+
 
 /*--------------------------------------------PROFILE--------------------------------------*/
 
@@ -650,7 +652,7 @@ textarea{
 #categoryBlock a {
     text-decoration: none;
     display:block;
-    color: black;   
+    color: black;
     font-size: 130%;
     height: 6vh;
     padding-left: 15px;
@@ -669,12 +671,11 @@ textarea{
     border-top-right-radius: 10px;
 }
 
- 
+
 
 #productsBlock{
-    float: right;  
-    border-color: black;
-    width: 83%;
+    float: right;
+    width: 100%;
     max-height: 50%;
     padding-top: 80px;
     background-image: linear-gradient(to right, rgb(211, 209, 209), rgb(250, 250, 250));
@@ -682,20 +683,19 @@ textarea{
 }
 
 #productsHeader{
-    width: 80%;
-    min-height: 80px;
+    width:81%;
     position: absolute;
     top: 90px;
     background-image: linear-gradient(to right, rgb(211, 209, 209), rgb(250, 250, 250));
 
 }
 
- 
+
 
 #searchWord,#searchButton{
 
     margin-top: 15px;
-    height: 20px;
+    height: 2vh;
     margin-bottom: 13px;
     float: left;
     font-size: 2vh;
@@ -755,7 +755,7 @@ textarea{
     min-width: 160px;
   }
 
-  
+
 
 /* Dropdown button on hover & focus */
 
@@ -763,7 +763,7 @@ textarea{
 background-color: var(--hover);
 }
 
- 
+
 
 /* The container <div> - needed to position the dropdown content */
 
@@ -774,7 +774,7 @@ background-color: var(--hover);
     display: inline;
 }
 
- 
+
 
 /* Dropdown Content (Hidden by Default) */
 
@@ -798,7 +798,7 @@ z-index: 1;
 
 }
 
- 
+
 
 /* Links inside the dropdown */
 
@@ -809,11 +809,11 @@ z-index: 1;
     display: block;
 }
 
- 
+
 
 /* Change color of dropdown links on hover */
 
- 
+
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 
@@ -849,7 +849,7 @@ z-index: 1;
     display: flex;
     flex-wrap: wrap;
     padding-left: 2%;
-    
+
 }
 
 #searchButton{
@@ -898,7 +898,7 @@ z-index: 1;
     height: 100%;
 }
 
- 
+
 
 #info{
     color: rgb(0, 0, 0);
@@ -914,9 +914,9 @@ z-index: 1;
 #info h3{
     color: rgb(53, 209, 53);
     font-size: 20px;
-    
+
     margin:0;
-    
+
 
 }
 
@@ -965,7 +965,7 @@ z-index: 1;
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
- 
+
 
 /*---------------------------------------LogIn-----------------------------------------------------*/
 
@@ -1018,36 +1018,36 @@ z-index: 1;
     font-weight: bold;
 }
 
- 
+
 
 #divLogin input{
     width: 65%;
     font-size: 2.2vh;
 }
 
- 
+
 
 #divLogin #but{
     background-color: var(--theme);
-    color:black; 
-    width: 40%;     
+    color:black;
+    width: 40%;
 }
 
- 
+
 
 #divLogin #but:hover{
     background-color: var(--hover);
-    color:white; 
+    color:white;
 }
 
- 
+
 
 #divLogin a{
 
     text-align: center;
 }
 
- 
+
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1057,7 +1057,7 @@ z-index: 1;
 #boxRegister{
     border-radius: 40px;
     background-color: rgb(247, 242, 242);
-    
+
     margin: auto; /*will set the everything to the middle*/
     overflow: visible;
     text-align: center;
@@ -1069,7 +1069,7 @@ z-index: 1;
 
     margin-bottom: 5%;
     min-height: 50vh;
-    
+
 }
 
 #userAvatarReg{
@@ -1114,16 +1114,16 @@ z-index: 1;
 }
 #boxRegister #but{
     background-color: var(--theme);
-    color:black; 
-    width: 30%;   
-    margin-bottom: 1%;  
+    color:black;
+    width: 30%;
+    margin-bottom: 1%;
 }
 
- 
+
 
 #boxRegister #but:hover{
     background-color: var(--hover);
-    color:white; 
+    color:white;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1141,15 +1141,15 @@ z-index: 1;
 }
 #picAndInfo img{
     max-height: 25vh;
-    
+
     margin-top:10%;
-    
+
     margin-bottom: 5%;
     border-radius: 5px;
-    
+
 }
 #logoutButton{
-    
+
     text-decoration: none;
     color: white;
     padding: 2%;
@@ -1189,7 +1189,7 @@ z-index: 1;
     background-color: var(--hover);
     color: cornsilk;
 }
- 
+
 
 
 
@@ -1207,7 +1207,7 @@ z-index: 1;
     padding-left: 2%;
 }
 
-    
+
 
 #userPage{
     display: flex;
@@ -1245,7 +1245,7 @@ z-index: 1;
     height: 50px;
     margin-left: 20px;
     background-color: var(--theme);
-    
+
     float: left;
 }
 #profileHead a:hover{
@@ -1282,15 +1282,15 @@ git pu
 
 #editForm #editSubmit{
     background-color: var(--theme);
-    color:black; 
-    width: 20%;     
+    color:black;
+    width: 20%;
 }
 
- 
+
 
 #editForm #editSubmit:hover{
     background-color: var(--hover);
-    color:white; 
+    color:white;
 }
 
 #profileImage{
@@ -1322,7 +1322,7 @@ git pu
     width: 60%;
     margin: auto; /*will set the everything to the middle*/
     display: inline-block;
-    text-align: center;   
+    text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
     padding-top: 2%;
@@ -1334,7 +1334,7 @@ git pu
     width: 30%;
     text-align: center;
     border-radius: 10px;
-    border:0 ;    
+    border:0 ;
     overflow-y: scroll;
 }
 
@@ -1357,15 +1357,15 @@ git pu
 }
 #submitAdd{
     background-color: var(--theme);
-    color:black; 
-    width: 20%;     
+    color:black;
+    width: 20%;
 }
 
- 
+
 
 #submitAdd:hover{
     background-color: var(--hover);
-    color:white; 
+    color:white;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1385,6 +1385,10 @@ git pu
     width: 8%;
     height: 15%;
     font-size: 2vh;
+}
+#userAvatarReset{
+    width:35%;
+    margin-top:-10%;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/

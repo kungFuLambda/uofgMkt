@@ -33,7 +33,7 @@ SECRET_KEY = '3gc147i+go&9=*l#5fh^g(3d0%&e=o2nt&0yn1(8w_mhwbmb!p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['glasmarket.pythonanywhere.com']
 
 
 # Application definition
@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'glasmarket',
-    
-    
+
+
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'glasmarketmail@gmail.com'
-EMAIL_HOST_PASSWORD = 'Dalabgroup69'
+EMAIL_HOST_PASSWORD = 'qcapirzcxdjsdvof'
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
 
 
