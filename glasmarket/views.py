@@ -119,7 +119,7 @@ def market(request,**kwargs):
 
 
     context_dict['form'] = SearchForm()
-    return render(request,'glasmarket/category.html',context=context_dict)
+    return render(request,'glasmarket/cat.html',context=context_dict)
 
 
 
@@ -142,7 +142,7 @@ def sort(request,category_name_slug,chosen_button):
 
     context_dict['listings'] = listings
 
-    return render(request,'glasmarket/category.html',context_dict)
+    return render(request,'glasmarket/cat.html',context_dict)
 
 
 

@@ -31,7 +31,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = '3gc147i+go&9=*l#5fh^g(3d0%&e=o2nt&0yn1(8w_mhwbmb!p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['glasmarket.pythonanywhere.com','127.0.0.1']
 
